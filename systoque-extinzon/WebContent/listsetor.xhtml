@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:composition template="/default.html">
+	   <ui:define name="conteudo">
+	     <h:form>
+	      <div class="row">
+	           <div class="col-lg-4"></div>
+	           
+	           <div class="col-lg-4">
+	             <h:dataTable value="#{cadastroEmpresaMB.listarSetor}" var="setor"
+	             styleClass="table">
+	               
+	                <h:column>
+                      <f:facet name="header">
+                         <h:outputText value="Setor" />
+                      </f:facet>
+          #{setor.nome}
+      </h:column>
+    
+      
+      
+      <h:column>
+          <f:facet name="header">
+             <h:outputText value="" />
+          </f:facet>
+          <h:panelGrid columns="3">
+            
+             
+             
+             <h:commandLink styleClass="btn btn-warning btn-sm" value="Editar"
+              action="#{cadastroEmpresaMB.editSetor()}" >
+                <f:setPropertyActionListener target="#{cadastroEmpresaMB.setor}"
+                 value="#{setor}" />
+             </h:commandLink>
+             
+             <h:commandLink value="Remover" styleClass="btn btn-danger btn-sm"
+             action="#{cadastroEmpresaMB.removerSetor()}" > 
+                <f:setPropertyActionListener target="#{cadastroEmpresaMB.setor}"
+                 value="#{setor}" />
+             </h:commandLink>
+             
+             <h:commandLink value="Detalhes" styleClass="btn btn-info btn-sm" action="#" />
+             
+          </h:panelGrid>
+         
+          
+      </h:column>
+	             </h:dataTable>	           
+	           
+	          </div>         
+	             
+	          <div class="col-lg-4"></div>
+	     
+	  </div>
+	  
+	  <div class="row">
+	     <div class="col-lg-3"></div>
+	     
+	     <div class="col-lg-3">
+	        <h:commandButton value="Adiconar Novo" action="#{cadastroEmpresaMB.novoSetor()}"
+	        styleClass="form-control btn btn-primary" />
+	     </div>
+	      
+	     <div class="col-lg-3">
+	       <h:commandButton value="Encerrar" action="home"
+	        styleClass="form-control btn btn-danger" immediate="true" />
+	     </div>
+	     
+	     <div class="col-lg-3"></div>
+	  </div>
+	        
+	        
+	      
+	     </h:form>
+	   </ui:define>
+	</ui:composition>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:composition template="/default.html">
+	  <ui:define name="conteudo">
+	     <h:form id="form">
+	         <h:panelGroup id="painelsetor">
+	          <h:panelGroup id="painelformsetor">
+	            <div class="row">
+	                <div class="col-lg-3"></div>
+	                
+	                <div class="col-lg-4">
+	                   <h5>Nome do Setor</h5>
+	                   
+	                   <h:inputText styleClass="form-control"
+	                    value="#{cadastroEmpresaMB.setor.nome}" />
+	                </div>
+	                
+	                <div class="col-lg-2">
+	                   <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+	                                      
+	                   <h:commandButton action="#{cadastroEmpresaMB.ativaFormCargo()}"
+	                    value="Adicionar Cargo" styleClass="form-control btn btn-primary"
+	                    rendered="#{cadastroEmpresaMB.addCargo == false}">
+	                      
+	                   </h:commandButton>
+	                </div>
+	                
+	                <div class="col-lg-3"></div>
+	            </div><!-- TERMINA ROW DO FORM SETOR -->
+	           </h:panelGroup>
+	           
+	           <h:panelGroup>
+	            <div class="row">
+	               <div class="col-lg-5"></div>
+	                
+	                
+	                
+	                <div class="col-lg-5"></div>
+	            </div><!-- ENCERRA DIV ROW BOTAO ADD FORM CARGO -->
+	          </h:panelGroup>
+	          
+	          <h:panelGroup id ="painelformcargo" rendered="#{cadastroEmpresaMB.addCargo == true}">
+	             <div class="row">
+	               <div class="col-lg-2"> </div>
+	               
+	               <div class="col-lg-2">
+	                 <h5>Nome Cargo</h5>
+	                 
+	                 <h:inputText styleClass="form-control"
+	                 value="#{cadastroEmpresaMB.doSetor.nome}" />  
+	               </div>
+	               
+	               <div class="col-lg-2">
+	                 <h5>CBO Cargo</h5>
+	                 
+	                 <h:inputText styleClass="form-control"
+	                 value="#{cadastroEmpresaMB.doSetor.cbo}" />
+	               </div>
+	               
+	               <div class="col-lg-2">
+	                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+	                 
+	                 <h:commandButton action="#{cadastroEmpresaMB.adicionaCargoDoSetor()}" 
+	                 value="Incluir Cargo" styleClass="form-control btn btn-sm btn-success" >
+	                    <f:ajax execute="painelformcargo" render="painelsetor paineltabcargos" />
+	                 </h:commandButton>
+	               </div>
+	               
+	               <div class="col-lg-2">
+	                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+	                 
+	                 <h:commandButton action="#{cadastroEmpresaMB.desativaFormCargo()}" 
+	                 value="Encerrar" styleClass=" form-control btn btn-sm btn-danger" >
+	                    <f:ajax execute="@this" render="painelsetor" />
+	                 </h:commandButton>
+	               </div>
+	                
+	               <div class="col-lg-2"> </div>
+	             </div><!-- ENCERRA DIV ROW DO FORM DE CARGO -->
+	          </h:panelGroup>
+	          
+	          <h:panelGroup id ="paineltabcargos">
+	             <div class="row">
+	                <div class="col-lg-3"></div>
+	                
+	                <div class="col-lg-6">
+	                   <h:dataTable value="#{cadastroEmpresaMB.setor.listCargo}"
+	                   var="cargo" styleClass="table">
+	                     <h:column>
+	                        <f:facet name="header">Cargo</f:facet>
+	                        #{cargo.nome}
+	                     </h:column>
+	                     
+	                     <h:column>
+	                        <f:facet name="header">CBO</f:facet>
+	                        #{cargo.cbo}
+	                     </h:column>
+	                     
+	                     <h:column>
+	                        
+	                        
+	                        <h:commandButton 
+	                        value="Remover" styleClass="btn btn-xs btn-danger" 
+	                        action="#{cadastroEmpresaMB.removeCargoDoSetor()}">
+	                            <f:setPropertyActionListener target="#{cadastroEmpresaMB.doSetor}"
+	                             value="#{cargo}" />                   
+	                           
+	                        </h:commandButton>
+	                     </h:column>
+	                   </h:dataTable>
+	                </div>
+	                
+	                <div class="col-lg-3"></div>
+	             </div><!-- ENCERRA DIV ROW DA TABELA DE CARGOS -->
+	          </h:panelGroup>
+	         </h:panelGroup>
+	         
+	         <div class="row">
+	           <div class="col-lg-3"></div>
+	           
+	           <div class="col-lg-3">
+	              <h:commandButton action="#{cadastroEmpresaMB.editarSetor()}" 
+	              value="Gravar" styleClass="btn btn-success"/>
+	           </div>
+	           
+	           <div class="col-lg-3">
+	              <h:commandButton action="#{cadastroEmpresaMB.cancelaCadastro()}"
+	               value="Cancelar" styleClass="btn btn-danger" />
+	           </div>
+	           
+	           <div class="col-lg-3"></div>
+	         </div>
+	     </h:form>
+	  </ui:define>
+	</ui:composition>
+</html>

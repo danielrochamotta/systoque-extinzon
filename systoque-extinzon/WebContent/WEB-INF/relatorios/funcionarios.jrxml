@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="funcionarios" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9483b7f5-15fe-4a80-b311-fb9751b198ac">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#D9C3C3">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFE6E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="72c59f72-3cd8-4aeb-b9ed-d4566337254a"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\DESENVOLVIMENTO\\systoque-extinzon\\WebContent\\WEB-INF\\relatorios\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="cargoFuncionario" class="br.com.radconnect.entityBeans.Cargo">
+		<fieldDescription><![CDATA[cargoFuncionario]]></fieldDescription>
+	</field>
+	<field name="celular" class="java.lang.String">
+		<fieldDescription><![CDATA[celular]]></fieldDescription>
+	</field>
+	<field name="certMilitarCategoria" class="java.lang.String">
+		<fieldDescription><![CDATA[certMilitarCategoria]]></fieldDescription>
+	</field>
+	<field name="certMilitarCsmOam" class="java.lang.String">
+		<fieldDescription><![CDATA[certMilitarCsmOam]]></fieldDescription>
+	</field>
+	<field name="certMilitarRmDnComar" class="java.lang.String">
+		<fieldDescription><![CDATA[certMilitarRmDnComar]]></fieldDescription>
+	</field>
+	<field name="certMilitarSerie" class="java.lang.String">
+		<fieldDescription><![CDATA[certMilitarSerie]]></fieldDescription>
+	</field>
+	<field name="certMilitarTipo" class="java.lang.String">
+		<fieldDescription><![CDATA[certMilitarTipo]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="cpf" class="java.lang.String">
+		<fieldDescription><![CDATA[cpf]]></fieldDescription>
+	</field>
+	<field name="ctpsDV" class="java.lang.String">
+		<fieldDescription><![CDATA[ctpsDV]]></fieldDescription>
+	</field>
+	<field name="ctpsDataEmissao" class="java.util.Date">
+		<fieldDescription><![CDATA[ctpsDataEmissao]]></fieldDescription>
+	</field>
+	<field name="ctpsNumero" class="java.lang.Long">
+		<fieldDescription><![CDATA[ctpsNumero]]></fieldDescription>
+	</field>
+	<field name="ctpsSerie" class="java.lang.String">
+		<fieldDescription><![CDATA[ctpsSerie]]></fieldDescription>
+	</field>
+	<field name="dataAdmissao" class="java.util.Date">
+		<fieldDescription><![CDATA[dataAdmissao]]></fieldDescription>
+	</field>
+	<field name="dataNascimento" class="java.util.Date">
+		<fieldDescription><![CDATA[dataNascimento]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[email]]></fieldDescription>
+	</field>
+	<field name="formaPagamentoFuncionario" class="java.lang.String">
+		<fieldDescription><![CDATA[formaPagamentoFuncionario]]></fieldDescription>
+	</field>
+	<field name="funcEndereco" class="br.com.radconnect.entityBeans.FuncionarioEndereco">
+		<fieldDescription><![CDATA[funcEndereco]]></fieldDescription>
+	</field>
+	<field name="horarioTrabalhoFuncionario" class="java.lang.String">
+		<fieldDescription><![CDATA[horarioTrabalhoFuncionario]]></fieldDescription>
+	</field>
+	<field name="idFuncionario" class="java.lang.Long">
+		<fieldDescription><![CDATA[idFuncionario]]></fieldDescription>
+	</field>
+	<field name="imigracaoCtpsValidade" class="java.util.Date">
+		<fieldDescription><![CDATA[imigracaoCtpsValidade]]></fieldDescription>
+	</field>
+	<field name="imigracaoDataChegada" class="java.util.Date">
+		<fieldDescription><![CDATA[imigracaoDataChegada]]></fieldDescription>
+	</field>
+	<field name="imigracaoRgValidade" class="java.util.Date">
+		<fieldDescription><![CDATA[imigracaoRgValidade]]></fieldDescription>
+	</field>
+	<field name="imigracaoTipoVisto" class="java.lang.String">
+		<fieldDescription><![CDATA[imigracaoTipoVisto]]></fieldDescription>
+	</field>
+	<field name="listDependente" class="java.util.List">
+		<fieldDescription><![CDATA[listDependente]]></fieldDescription>
+	</field>
+	<field name="matricula" class="java.lang.Long">
+		<fieldDescription><![CDATA[matricula]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="nomeMae" class="java.lang.String">
+		<fieldDescription><![CDATA[nomeMae]]></fieldDescription>
+	</field>
+	<field name="nomePai" class="java.lang.String">
+		<fieldDescription><![CDATA[nomePai]]></fieldDescription>
+	</field>
+	<field name="numeroHabilitacao" class="java.lang.String">
+		<fieldDescription><![CDATA[numeroHabilitacao]]></fieldDescription>
+	</field>
+	<field name="numeroPisPasep" class="java.lang.String">
+		<fieldDescription><![CDATA[numeroPisPasep]]></fieldDescription>
+	</field>
+	<field name="participacaoCipaFuncionario" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[participacaoCipaFuncionario]]></fieldDescription>
+	</field>
+	<field name="rgDataEmissao" class="java.util.Date">
+		<fieldDescription><![CDATA[rgDataEmissao]]></fieldDescription>
+	</field>
+	<field name="rgNumero" class="java.lang.Long">
+		<fieldDescription><![CDATA[rgNumero]]></fieldDescription>
+	</field>
+	<field name="rgOrgaoEmissor" class="java.lang.String">
+		<fieldDescription><![CDATA[rgOrgaoEmissor]]></fieldDescription>
+	</field>
+	<field name="telefone" class="java.lang.String">
+		<fieldDescription><![CDATA[telefone]]></fieldDescription>
+	</field>
+	<field name="tituloEleitorNumero" class="java.lang.Long">
+		<fieldDescription><![CDATA[tituloEleitorNumero]]></fieldDescription>
+	</field>
+	<field name="tituloEleitorSecao" class="java.lang.String">
+		<fieldDescription><![CDATA[tituloEleitorSecao]]></fieldDescription>
+	</field>
+	<field name="tituloEleitorZona" class="java.lang.String">
+		<fieldDescription><![CDATA[tituloEleitorZona]]></fieldDescription>
+	</field>
+	<variable name="nome_1" class="java.lang.Integer" resetType="Column" calculation="Count">
+		<variableExpression><![CDATA[$F{nome}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="43" uuid="0ca9397a-1eda-448c-ac69-61cac997952f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REGISTRO DE EMPREGADO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="87" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="64" height="20" uuid="9c93c048-6b8d-4b86-85c0-b8a79bf8e03c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[NOME: 	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="64" height="20" uuid="943ffd89-4bb6-400d-bc2d-6ce8b8cab97c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[EMAIL: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="64" y="0" width="239" height="20" uuid="73c727f5-450b-4ed4-a7c5-68cddfdd902d"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="64" y="20" width="239" height="20" uuid="f4060e64-f146-40ad-8099-7e822754d6c3"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="92" splitType="Stretch"/>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

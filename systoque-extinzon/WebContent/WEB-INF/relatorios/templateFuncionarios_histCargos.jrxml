@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="templateFuncionarios_histCargos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="c223d357-6b29-49e2-b474-bcbc372162ff">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="cargo" class="java.lang.String">
+		<fieldDescription><![CDATA[cargo]]></fieldDescription>
+	</field>
+	<field name="cbo" class="java.lang.Long">
+		<fieldDescription><![CDATA[cbo]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="dtDaAtuacao" class="java.util.Date">
+		<fieldDescription><![CDATA[dtDaAtuacao]]></fieldDescription>
+	</field>
+	<field name="funcionario" class="br.com.radconnect.entityBeans.Funcionario">
+		<fieldDescription><![CDATA[funcionario]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Long">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<textField pattern="MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="42" y="0" width="53" height="14" uuid="3be1a556-2a1e-472d-b0bc-61a6aca593b1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dtDaAtuacao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="42" height="14" uuid="4dded44a-3187-4004-9961-76ee038fd2a3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Mês/Ano:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="0" width="48" height="14" uuid="ed0f5701-8634-4261-b1b1-126c9cc07843"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[CBO/Cargo:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="143" y="0" width="202" height="14" uuid="50707268-06d4-4a05-80d2-0dc9badf946f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cbo} + " - " + $F{cargo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

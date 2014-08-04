@@ -1,0 +1,1271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pt="http://java.sun.com/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui"> 
+
+
+
+<ui:composition template="default.html">
+<ui:define name="conteudo">
+<h:form id="form">
+<p:messages id="messages" showDetail="false" autoUpdate="false" closable="true" styleClass="alert-info"/>
+<section class="panel">
+  <header class="panel-heading">
+    
+          <h3>Funcionário <span class="label label-default">Novo</span> </h3>       
+   
+  </header>
+
+				<ul class="nav nav-tabs ">
+					<li class=""><a href="#pessoal" data-toggle="tab">Pessoal</a></li>
+					<li class=""><a href="#endereco" data-toggle="tab">Endereço</a></li>
+					<li class=""><a href="#docp" data-toggle="tab">Doc Pessoal</a></li>
+					<li class=""><a href="#doce" data-toggle="tab">Doc Empresa</a></li>
+					<li class=""><a href="#dependentes" data-toggle="tab">Dependentes</a></li>
+					<li class=""><a href="#histcargos" data-toggle="tab">Histórico / Cargos</a></li>
+					<li class=""><a href="#histsalarios" data-toggle="tab">Histórico / Salários</a></li>
+					<li class=""><a href="#histcontribuicao" data-toggle="tab">Histórico / 
+					Contribuição Sindical</a></li>
+					<li class=""><a href="#histlicencas" data-toggle="tab">Histórico / 
+					Licenças e Afastamentos</a></li>
+					<li class=""><a href="#histferias" data-toggle="tab">Histórico / Férias</a></li>
+					
+					
+					
+				</ul>
+				
+				<!--  LINHA LINHA DO FORM DE DADOS PESSOAIS FUNCIONARIO -->
+	<div id="mytabcontent" class="tab-content">
+	
+	<div id="pessoal" class="tab-pane active">
+     <div class="row">
+        <div class="col-lg-4">
+           <h5>Número da Matricula</h5>
+           
+          <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.matricula}">
+              <f:passThroughAttribute name="type" value="number" />
+          </h:inputText>
+                     
+       
+          
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>Nome Completo</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.nome}" />
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>Número RG</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.rgNumero}" >
+              <f:passThroughAttribute name="type" value="number" />
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>Data Emissão RG</h5>
+           
+           <h:inputText styleClass="form-control" converter="converterData" required="false"
+           value="#{cadastroFuncionarioMB.funcionario.rgDataEmissao}" >
+               <f:passThroughAttribute name="placeholder" value="dd/mm/aaaa Ex: 30/02/2014" />           
+              
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>Orgão Emissor  RG</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.rgOrgaoEmissor}" />
+        </div>
+        
+         <div class="col-lg-4">
+           <h5>Data De Nascimento</h5>           
+              
+           <h:inputText styleClass="form-control" converter="converterCalendar" requiredMessage="Formato Inválido"
+           value="#{cadastroFuncionarioMB.funcionario.dataNascimento}" >
+               <f:passThroughAttribute name="placeholder" value="dd/mm/aaaa Ex: 30/02/2014" />           
+              
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>Número Habilitação</h5>
+           
+           <h:inputText styleClass="form-control" 
+           value="#{cadastroFuncionarioMB.funcionario.numeroHabilitacao}" >
+              <f:passThroughAttribute name="type" value="number" />
+           </h:inputText>
+        </div>
+  
+    
+   
+        <div class="col-lg-4">
+           <h5>Nome Do Pai</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.nomePai}" />
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>Nome Da Mãe</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.nomeMae}" />
+        </div>   
+        
+        
+        <div class="col-lg-4">
+           <h5>Número CPF</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.cpf}" >
+              <f:passThroughAttribute name="type" value="number" />
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>Telefone-Fixo</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.telefone}" >
+              <f:passThroughAttribute name="type" value="number" />
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>Telefone-Mobile</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.celular}" >
+              <f:passThroughAttribute name="type" value="number" />
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>Email</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.email}" >
+              <f:passThroughAttribute name="type" value="email" />
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>Grau de Instrução</h5>
+           
+           <h:inputText value="#{cadastroFuncionarioMB.funcionario.grauInstrucao}" 
+           styleClass="form-control"/>
+        </div>
+        
+         <div class="col-lg-4">
+           <h5>Naturalidade</h5>
+           
+           <h:panelGrid columns="2" >
+               <h:selectOneMenu value="#{cadastroFuncionarioMB.funcionario.ufNaturalidade}"
+                styleClass="form-control" >
+                   <f:selectItem itemLabel="UF" itemValue="UF"/>
+               </h:selectOneMenu>
+           
+               <h:selectOneMenu value="#{cadastroFuncionarioMB.funcionario.naturalidade}" 
+               styleClass="form-control" >
+                   <f:selectItem 
+                   itemLabel=
+                   "Informe a cidade onde nasceu &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" itemValue="NATURALDIADE"/>
+               </h:selectOneMenu>
+           </h:panelGrid>
+        </div> 
+        
+         <div class="col-lg-5">
+             <h5>Raça / Cor</h5>
+             
+             <h:inputText value="#{cadastroFuncionarioMB.funcionario.raca}" styleClass="form-control" />
+        </div>      
+        
+        <div class="col-lg-2">
+           <h5>Sexo</h5>
+           
+           <h:selectOneMenu value="#{cadastroFuncionarioMB.funcionario.sexo}"
+           styleClass="form-control">
+                <f:selectItem itemLabel="Masculino" itemValue="true"/>
+                <f:selectItem itemLabel="Feminino" itemValue="false"/>
+           </h:selectOneMenu>
+        </div> 
+        
+        <div class="col-lg-2">
+           <h5>Estado Civil</h5>
+           
+           <h:selectOneMenu value="#{cadastroFuncionarioMB.funcionario.estadoCivil}"
+           styleClass="form-control">
+                <f:selectItem itemLabel="Solteiro" itemValue="Solteiro"/>
+                <f:selectItem itemLabel="Casado" itemValue="Casado"/>
+           </h:selectOneMenu>
+        </div> 
+       
+      
+        
+        <div class="col-lg-3">
+            <h5>Nacionalidade</h5>
+            
+            <h:inputText value="#{cadastroFuncionarioMB.funcionario.nacionalidade}" styleClass="form-control" />
+       </div>
+        
+        
+       
+        
+        
+               
+       
+    </div><!-- Fim da div class row -->
+        
+   </div><!-- FIM DA DIV  PESSOAL -->  
+   
+   <!-- COMECO DA ABA ENDERCO -->
+  
+  <!--  LINHA DO FORM DE ENDEREÇO FUNCIONARIO -->
+  
+      <div id="endereco" class="tab-pane">
+         
+         
+         
+    <div class="row">
+        <div class="col-lg-8">
+           <h5>LOGRADOURO (Ex: Rua A, 12)</h5>
+           
+           <h:inputText styleClass="form-control" 
+           value="#{cadastroFuncionarioMB.funcionario.funcEndereco.logradouro}" />
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>Bairro</h5>
+           
+           <h:inputText styleClass="form-control"
+            value="#{cadastroFuncionarioMB.funcionario.funcEndereco.bairro}" />
+        </div>
+        
+        <div class="col-lg-2">
+           <h5>Cidade</h5>
+           
+          <h:selectOneListbox styleClass="form-control" value="#">
+          </h:selectOneListbox>
+        </div>
+        
+        <div class="col-lg-2">
+           <h5>UF</h5>
+           
+           <h:selectOneListbox styleClass="form-control" value="#">
+          </h:selectOneListbox>
+        </div>
+        
+        <div class="col-lg-2">
+           <h5>Cep</h5>
+           
+           <h:inputText styleClass="form-control" 
+           value="#{cadastroFuncionarioMB.funcionario.funcEndereco.cep}" >
+              <f:passThroughAttribute name="type" value="number" />
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-6">
+           <h5>Complemento</h5>
+           
+           <h:inputText styleClass="form-control" value="#" />
+        </div>
+    </div><!-- Fim da div class row -->
+             
+      </div>
+   <div id="docp" class="tab-pane fade">
+   
+     <div class="row">
+       
+        <div class="col-lg-4">
+           <h5>Data Chegada Imigração</h5>
+           
+          <h:inputText styleClass="form-control" converter="converterData"
+          value="#{cadastroFuncionarioMB.funcionario.imigracaoDataChegada}" >
+               <f:passThroughAttribute name="placeholder" value="dd/mm/aaaa Ex: 30/02/2014" /> 
+             
+           </h:inputText>
+           
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>Tipo Imigração</h5>
+           
+           <h:inputText styleClass="form-control" 
+           value="#{cadastroFuncionarioMB.funcionario.imigracaoTipoVisto}" />
+        </div>   
+        
+        
+        <div class="col-lg-4">
+           <h5>Validade RG Imigração</h5>
+           
+           <h:inputText styleClass="form-control" converter="converterData" 
+            value="#{cadastroFuncionarioMB.funcionario.imigracaoRgValidade}" >
+               <f:passThroughAttribute name="placeholder" value="dd/mm/aaaa Ex: 30/02/2014" />              
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>Validade CTPS Imigração</h5>
+           
+           <h:inputText styleClass="form-control" converter="converterData" 
+           value="#{cadastroFuncionarioMB.funcionario.imigracaoCtpsValidade}" >
+                 <f:passThroughAttribute name="placeholder" value="dd/mm/aaaa Ex: 30/02/2014" /> 
+           </h:inputText>
+        </div>
+       
+       <div class="col-lg-4">
+           <h5>Número CTPS</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.ctpsNumero}" >
+              <f:passThroughAttribute name="type" value="number" />
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>Data De Emissão CTPS</h5>
+           
+           <h:inputText styleClass="form-control" converter="converterData" 
+           value="#{cadastroFuncionarioMB.funcionario.ctpsDataEmissao}" >
+               <f:passThroughAttribute name="placeholder" value="dd/mm/aaaa Ex: 30/02/2014" /> 
+             
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>Série CTPS</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.ctpsSerie}" />
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>DV CTPS</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.ctpsDV}" />
+        </div>
+        
+        
+        
+        <div class="col-lg-4">
+           <h5>Série Cert. Militar</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.certMilitarSerie}" />
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>Tipo Cert. Militar</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.certMilitarTipo}" />
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>Categoria Cert. Militar</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.certMilitarCategoria}" />
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>CSM/OAM Cert. Militar</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.certMilitarCsmOam}" />
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>RM/DN/COMAR Cert. Militar</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.certMilitarRmDnComar}" />
+        </div>
+        
+       
+        
+        <div class="col-lg-4">
+           <h5>Número PIS/PASEP</h5>
+           
+           <h:inputText styleClass="form-control" 
+           value="#{cadastroFuncionarioMB.funcionario.numeroPisPasep}" >
+               <f:passThroughAttribute name="type" value="number" />
+           </h:inputText>
+        </div>
+     </div>   
+   </div><!-- FIM DA DIV DOC PESSOAL -->
+   <!-- 
+   
+   
+   TERMINAR A ABA DE DOCUMENTOS PESSOAL
+   
+    -->
+   <div id="doce" class="tab-pane fade">
+     <div class="row">
+      <div class="col-lg-2">
+           <h5>Data Admissão</h5>
+           
+           <h:inputText styleClass="form-control" converter="converterData" required="false"
+           value="#{cadastroFuncionarioMB.funcionario.dataAdmissao}" >
+               <f:passThroughAttribute name="placeholder" value="dd/mm/aaaa Ex: 30/02/2014" /> 
+             
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-2">
+           <h5>Horário de Trabalho</h5>
+           
+           <h:inputText styleClass="form-control"
+            value="#{cadastroFuncionarioMB.funcionario.horarioTrabalhoFuncionario}" />
+        </div>
+        
+        <div class="col-lg-2">
+           <h5>Part CIPA</h5>
+           
+           <h:selectOneMenu styleClass="form-control"
+           value="#{cadastroFuncionarioMB.funcionario.participacaoCipa}">
+               <f:selectItem itemLabel="Sim" itemValue="true"/>
+               <f:selectItem itemLabel="Não" itemValue="false"/>
+           </h:selectOneMenu>
+        </div>
+        
+        <div class="col-lg-3">
+	                   <h5>Setor</h5>
+	                   
+	                    <h:selectOneMenu converter="ConverterSetor" styleClass="form-control"
+	                     
+	                     value="#{cadastroFuncionarioMB.doSelecOneMenuDaTabDocEmpresa}">
+	                      <f:selectItem itemLabel="Selecione"
+	                      noSelectionOption="true" />
+	                      <f:selectItems value="#{cadastroFuncionarioMB.daoSetor.listSetor()}"/>
+	                      <f:ajax event="change" render="cargodoce"/>
+	                    </h:selectOneMenu>
+	                </div>
+	                
+	                 <div class="col-lg-3">
+	                   <h5>Cargo</h5>
+	                   
+	                    <h:selectOneMenu converter="ConverterCargo" id="cargodoce"  styleClass="form-control"
+	                     
+	                     value="#{cadastroFuncionarioMB.funcionario.cargo}">
+	                      <f:selectItem itemLabel="Selecione"
+	                       noSelectionOption="true" />
+	                      <f:selectItems 
+	                      value="#{cadastroFuncionarioMB.doSelecOneMenuDaTabDocEmpresa.listCargo}" />
+	                    </h:selectOneMenu>
+	                    
+	                </div> 
+        
+        
+      </div><!-- FIM DA DIV ROW -->
+   </div><!-- FIM DA DIV DOC EMPRESA --> 
+   
+   <!-- INICIO DA TAB DEPENDETES -->
+
+					<div id="dependentes" class="tab-pane">
+					 <h:panelGroup id="paineldep">
+					  <div class="row">					    
+						         
+						    <h:panelGroup id="formdep" 
+						    rendered="#{cadastroFuncionarioMB.addDependente == true}"
+						    styleClass="col-lg-12" >
+						   
+							      <div class="col-lg-4">
+								     <h5>Nome</h5>
+
+								<h:inputText value="#{cadastroFuncionarioMB.doFuncionario.nome}"
+									styleClass="form-control" />
+							</div>
+
+							<div class="col-lg-2">
+								<h5>Data De nascimento</h5>
+
+								<h:inputText value="#" styleClass="form-control" />
+							</div>
+
+							<div class="col-lg-2">
+								<h5>Parentesco</h5>
+
+								<h:inputText
+									value="#{cadastroFuncionarioMB.doFuncionario.parentesco}"
+									styleClass="form-control">
+
+								</h:inputText>
+							</div>
+
+							<div class="col-lg-2">	
+							    <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>							
+
+								<h:commandButton
+									action="#{cadastroFuncionarioMB.addDepenteDoNovoFuncionario()}"
+									value="Adicionar" styleClass="form-control btn btn-success">
+
+							<f:ajax execute="formdep" render="paineldep paineltabdep" />
+
+						</h:commandButton>                                 
+								
+					</div>
+							
+				<div class="col-lg-2" >
+					<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+							
+							   <h:commandButton
+									action="#{cadastroFuncionarioMB.desativaFormDependente()}"
+									value="Cancelar" styleClass="form-control btn btn-danger"
+									immediate="true">
+								<f:ajax execute="@this" render="paineldep" />
+						   </h:commandButton>			 
+			    </div>
+			 
+			</h:panelGroup>			
+						
+				<!-- COMECA DIVS DO BOTAO ADD DEPENDETES -->						
+						  
+					<div class="col-lg-5"></div>
+							
+						<div class="col-lg-2">
+							<h:panelGroup id="botaoadddep" rendered="#{cadastroFuncionarioMB.addDependente == false}">
+							   <h:commandButton styleClass="form-control btn btn-primary"
+							   action="#{cadastroFuncionarioMB.ativaFormDependente()}" style="margin-top:30px;" id="btn"		                        
+			                         value="Novo Dependente" >
+			                 
+			                  <f:ajax execute="@this" render="paineldep paineltabdep" />
+			               </h:commandButton>
+			             </h:panelGroup>
+				     </div>
+							
+			   <div class="col-lg-5"></div>					
+           
+		</div>
+		
+		<div class="row">
+		   <!-- COMECA LISTA DE DEPENDENTES DO FUNCIONARIO -->
+					    
+					 <h:panelGroup id="paineltabdep"> 
+					       <div class="col-lg-3"></div>
+							
+							<div class="col-lg-6" style="margin-top: 20px;">
+							    <h:dataTable  value="#{cadastroFuncionarioMB.funcionario.listDependente}"
+			            var="dependente" styleClass="table">		               
+			            
+			               <h:column>
+			                 <f:facet name="header">Nome</f:facet>
+			                  #{dependente.nome}
+			               </h:column>
+			               
+			               <h:column>
+			                 <f:facet name="header">Data Nasc</f:facet>
+			               </h:column>
+			               
+			               <h:column>
+			                 <f:facet name="header">Parentesco</f:facet>
+			                 #{dependente.parentesco}
+			               </h:column>
+			               
+			               <h:column>
+			                 <h:commandButton 
+			                 
+			                 value="Remover"
+			                 styleClass="form-control btn btn-danger small"  >            
+			                     <f:ajax execute="@this" render=":form:paineldep"
+			                      listener=
+			                      "#{cadastroFuncionarioMB.removeDependenteDoNovoFuncionario(dependente)}" />
+			                 </h:commandButton>
+			               </h:column>
+			            </h:dataTable>
+							</div>
+							
+							<div class="col-lg-3"></div>
+				</h:panelGroup>  
+		</div>
+	   </h:panelGroup> <!-- TERMINA PAINEL FE FORM DEPENDENTE -->
+	</div>	
+	
+	
+	  <!-- INICIO DA TAB DE HISTORICO DE CARGOS -->
+	   <div id="histcargos" class="tab-pane">
+	     <div class="row">
+	        <h:panelGroup id="painelprincipalhist" ><!-- PAINEL PRINCIPAL -->
+	         
+	            <h:panelGroup id="formhistcargos" rendered="#{cadastroFuncionarioMB.addHistCargos == true}"><!-- PAINEL DO FORM DO HISTORICO -->
+	                
+	                
+	                <div class="col-lg-2">
+	                   <h5>Data de Atuação</h5>
+	                   
+	                   <p:calendar id="button" value="#{cadastroFuncionarioMB.registroDeCargo.dtDaAtuacao}" 
+	                   pattern="MM/yyyy" mask="true" />               
+              
+                        
+	                </div>
+	                
+	                 <div class="col-lg-3">
+	                   <h5>Setor</h5>
+	                   
+	                    <h:selectOneMenu converter="ConverterSetor" styleClass="form-control"
+	                     
+	                     value="#{cadastroFuncionarioMB.doSelecOneMenu}">
+	                      <f:selectItem itemLabel="Selecione"
+	                      noSelectionOption="true" />
+	                      <f:selectItems value="#{cadastroFuncionarioMB.daoSetor.listSetor()}"/>
+	                      <f:ajax event="change" render="cargo"/>
+	                    </h:selectOneMenu>
+	                </div>
+	                
+	                 <div class="col-lg-3">
+	                   <h5>Cargo</h5>
+	                   
+	                    <h:selectOneMenu converter="ConverterCargo" id="cargo"  styleClass="form-control"
+	                     
+	                     value="#{cadastroFuncionarioMB.doSelectOneMenu}">
+	                      <f:selectItem itemLabel="Selecione"
+	                       noSelectionOption="true" />
+	                      <f:selectItems 
+	                      value="#{cadastroFuncionarioMB.doSelecOneMenu.listCargo}" />
+	                    </h:selectOneMenu>
+	                    
+	                </div>                	                
+	               
+	                
+	                <div class="col-lg-2">
+	                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+	                      
+	                      <h:commandButton styleClass="form-control btn btn-success"
+	                       action="#{cadastroFuncionarioMB.addRegistroDeCargo()}" value="Adicionar" >
+	                       
+	                          <f:ajax execute="@form" render="painelprincipalhist tbregistrocargo" />
+	                       </h:commandButton>
+	                </div>
+	                
+	                <div class="col-lg-2">
+	                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+	                      
+	                      <h:commandButton styleClass="form-control btn btn-danger"
+	                       action="#{cadastroFuncionarioMB.desativaFormHistoricoCargo()}"
+	                        value="Cancelar">
+	                        
+	                        <f:ajax execute="@this" render="painelprincipalhist" />
+	                        
+	                        </h:commandButton>
+	                </div>
+	            </h:panelGroup><!-- FIM DO PAINEL FORM DO HISTORICO DE CARGOS -->
+	         
+	      
+	      
+	      <!-- COMECA DE DIVS DO BOTAO ADD HISTORICO DE CARGOS -->
+	         <div class="col-lg-5"></div>
+							
+						<div class="col-lg-2">
+							<h:panelGroup id="botaoaddhistcargos" rendered="#{cadastroFuncionarioMB.addHistCargos == false}">
+							   <h:commandButton styleClass="form-control btn btn-primary"
+							   action="#{cadastroFuncionarioMB.ativaFormHistoricoCargo()}" style="margin-top:30px;"		                        
+			                         value="Adicionar Registro" >
+			                 
+			                  <f:ajax execute="@this" render="painelprincipalhist" />
+			               </h:commandButton>
+			             </h:panelGroup>
+				     </div>							
+			     <div class="col-lg-5"></div>	
+			 </h:panelGroup><!-- FIM DO PAINEL PRINCIPAL DO HIST DE CARGOS -->
+		  </div><!-- FIM DA FIV CLASS ROW FORM HIST CARGOS E BOTAO ADD HIST CARGOS -->	
+		  
+		  <div class="row"><!-- INICIO DA DIV ROW DA TABELA DE REGISTROS DE CARGOS DO FUNCIONARIO -->
+		    <h:panelGroup id="tbregistrocargo">
+		       <div class="col-lg-3"></div>
+		       
+		       <div class="col-lg-6">
+		          <h:dataTable styleClass="table" style="margin-top:30px;"
+		          value="#{cadastroFuncionarioMB.funcionario.listHistoricoDeCargo}"
+		          var="registro">
+		          
+		                <h:column>
+			                 <f:facet name="header">Dt Atuacao</f:facet>
+			                  <h:outputText value="#{registro.dtDaAtuacao}" >
+			                      <f:convertDateTime pattern="MM/yyyy"/>
+			                  </h:outputText>
+			            </h:column>
+			            
+			            <h:column>
+			                 <f:facet name="header">Cargo</f:facet>
+			                  #{registro.cargo}
+			            </h:column>
+			            
+			             <h:column>
+			                 <f:facet name="header">CBO</f:facet>
+			                  #{registro.cbo}
+			           
+			            </h:column>
+			                 
+			            <h:column>
+			                 <f:facet name="header">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</f:facet>
+			                 
+			                 <h:commandButton styleClass="form-control btn btn-danger small" value="Remover" 
+			                >
+			                     <f:ajax execute="@this" render=":form:tbregistrocargo"
+			                     listener="#{cadastroFuncionarioMB.removeRegistroDeCargo(registro)}" />
+			                 </h:commandButton>
+			            </h:column>
+		          
+		          </h:dataTable>
+		       </div>
+		       <div class="col-lg-3"></div>
+		    </h:panelGroup>
+		  </div>		    		
+	 </div><!-- FIM DA DIV DA TAB HISTORICO DE CARGOS TAB-PANE -->
+	 
+	 
+	 <!-- INICIO DA TAB DE HISTORICO DE SALARIOS -->
+	   <div id="histsalarios" class="tab-pane">
+	     <div class="row">
+	        <h:panelGroup id="painelprincipalhistsalario" ><!-- PAINEL PRINCIPAL -->
+	         
+	            <h:panelGroup id="formhistsalarios" 
+	            rendered="#{cadastroFuncionarioMB.addHistSalario == true}"><!-- PAINEL DO FORM DO HISTORICO -->
+	                
+	                
+	                <div class="col-lg-2">
+	                   <h5>Data de Recebimento</h5>
+	                   
+	                   <h:inputText converter="converterData" styleClass="form-control"
+	                   id="DtRecebimento" value="#{cadastroFuncionarioMB.registroDeSalario.mesAno}" 
+	                   required="true" >
+	                          
+                              <f:convertDateTime pattern="MM/yyyy"/>      
+              
+                       </h:inputText>                  
+              
+                        
+	                </div>
+	                
+	                 <div class="col-lg-2">
+	                    <h5>Valor Recebido</h5>
+	                 
+	                   <h:inputText value="#{cadastroFuncionarioMB.registroDeSalario.valorRecebido}" 
+	                  id="ValorRecebido" styleClass="form-control" required="true"/>
+	                </div>                            	                
+	               
+	                
+	                <div class="col-lg-3">
+	                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+	                      
+	                      <h:commandButton styleClass="form-control btn btn-success"
+	                       action="#{cadastroFuncionarioMB.addHistoricoDeSalario()}" value="Adicionar" >
+	                       
+	                          <f:ajax execute="@form" render="painelprincipalhistsalario tbregistrosalario" />
+	                       </h:commandButton>
+	                </div>
+	                
+	                <div class="col-lg-3">
+	                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+	                      
+	                      <h:commandButton styleClass="form-control btn btn-danger"
+	                       action="#{cadastroFuncionarioMB.desativaFormHistoricoSalario()}"
+	                        value="Cancelar">
+	                        
+	                        <f:ajax execute="@this" render="painelprincipalhistsalario" />
+	                        
+	                        </h:commandButton>
+	                </div>
+	            </h:panelGroup><!-- FIM DO PAINEL FORM DO HISTORICO DE SALARIOS -->
+	         
+	      
+	      
+	      <!-- COMECA DE DIVS DO BOTAO ADD HISTORICO DE SALARIOS -->
+	         <div class="col-lg-5"></div>
+							
+						<div class="col-lg-2">
+							<h:panelGroup id="botaoaddhistsalarios"
+							 rendered="#{cadastroFuncionarioMB.addHistSalario == false}">
+							   <h:commandButton styleClass="form-control btn btn-primary"
+							   action="#{cadastroFuncionarioMB.ativaFormHistoricoSalario()}" 
+							   style="margin-top:30px;"	 value="Adicionar Registro" >
+			                 
+			                  <f:ajax execute="@this" render="painelprincipalhistsalario" />
+			               </h:commandButton>
+			             </h:panelGroup>
+				     </div>							
+			     <div class="col-lg-5"></div>	
+			 </h:panelGroup><!-- FIM DO PAINEL PRINCIPAL DO HIST DE SALARIOS -->
+		  </div><!-- FIM DA FIV CLASS ROW FORM HIST SALARIOS E BOTAO ADD HIST SALARIOS -->	
+		  
+		  <div class="row"><!-- INICIO DA DIV ROW DA TABELA DE REGISTROS DE SALARIOS DO FUNCIONARIO -->
+		    <h:panelGroup id="tbregistrosalario">
+		       <div class="col-lg-3"></div>
+		       
+		       <div class="col-lg-6">
+		          <h:dataTable styleClass="table" style="margin-top:30px;"
+		          value="#{cadastroFuncionarioMB.funcionario.listHistoricoDeSalario}"
+		          var="registro">
+		          
+		                <h:column>
+			                 <f:facet name="header">Dt Recebimento</f:facet>
+			                  <h:outputText value="#{registro.mesAno}"  >
+			                     <f:convertDateTime pattern="MM/yyyy"/>
+			                  </h:outputText>
+			            </h:column>			            
+			            
+			            
+			             <h:column>
+			                 <f:facet name="header">Valor Recebido</f:facet>
+			                  #{registro.valorRecebido}
+			           
+			            </h:column>
+			                 
+			            <h:column>
+			                 <f:facet name="header">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</f:facet>
+			                 
+			                 <h:commandButton styleClass="form-control btn btn-danger small" value="Remover" >
+			                     <f:ajax execute="@this" render=":form:tbregistrosalario"
+			                     listener="#{cadastroFuncionarioMB.removeHistoricoDeSalario(registro)}" />
+			                 </h:commandButton>
+			            </h:column>
+		          
+		          </h:dataTable>
+		       </div>
+		       <div class="col-lg-3"></div>
+		    </h:panelGroup>
+		  </div>		    		
+	 </div><!-- FIM DA DIV DA TAB HISTORICO DE SALARIOS TAB-PANE -->
+	 
+	 <!-- INICIO DA TAB DE HISTORICO DE CONTRIBUICAO -->
+	   <div id="histcontribuicao" class="tab-pane">
+	     <div class="row">
+	        <h:panelGroup id="painelprincipalhistcontribuicao" ><!-- PAINEL PRINCIPAL -->
+	         
+	            <h:panelGroup id="formhistcontribuicao" 
+	            rendered="#{cadastroFuncionarioMB.addHistContribuicao == true}"><!-- PAINEL DO FORM DO HISTORICO -->
+	                
+	                
+	                <div class="col-lg-3">
+	                   <h5>Data Contribuição Sindical</h5>
+	                   
+	                   <h:inputText  styleClass="form-control"
+	                   id="DtContribuicaoSindical"
+	                   value="#{cadastroFuncionarioMB.registroDeContribuicao.mesAno}" 
+	                   required="true" >	                          
+                              <f:convertDateTime pattern="MM/yyyy"/>      
+              
+                       </h:inputText>                  
+              
+                        
+	                </div>
+	                
+	                 <div class="col-lg-2">
+	                    <h5>Valor Pago</h5>
+	                 
+	                   <h:inputText value="#{cadastroFuncionarioMB.registroDeContribuicao.valorPago}" 
+	                  id="ValorPago" styleClass="form-control" required="true"/>
+	                </div>
+	                
+	                                	                
+	               
+	                
+	                <div class="col-lg-3">
+	                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+	                      
+	                      <h:commandButton styleClass="form-control btn btn-success"
+	                       action="#{cadastroFuncionarioMB.addHistoricoDeContribuicao()}" value="Adicionar" >
+	                       
+	                          <f:ajax execute="@form" 
+	                          render="painelprincipalhistcontribuicao tbregistrocontribuicao" />
+	                       </h:commandButton>
+	                </div>
+	                
+	                <div class="col-lg-3">
+	                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+	                      
+	                      <h:commandButton styleClass="form-control btn btn-danger"
+	                       action="#{cadastroFuncionarioMB.desativaFormHistoricoContribuicaoSindical()}"
+	                        value="Cancelar">
+	                        
+	                        <f:ajax execute="@this" render="painelprincipalhistcontribuicao" />
+	                        
+	                        </h:commandButton>
+	                </div>
+	            </h:panelGroup><!-- FIM DO PAINEL FORM DO HISTORICO DE CONTRIBUICAO SINDICAL -->
+	         
+	      
+	      
+	      <!-- COMECA DE DIVS DO BOTAO ADD HISTORICO DE CONTRIBUICAO SINDICAL -->
+	         <div class="col-lg-5"></div>
+							
+						<div class="col-lg-2">
+							<h:panelGroup id="botaoaddhistcontribuicao"
+							 rendered="#{cadastroFuncionarioMB.addHistContribuicao == false}">
+							   <h:commandButton styleClass="form-control btn btn-primary"
+							   action="#{cadastroFuncionarioMB.ativaFormHistoricoContribuicaoSindical()}" 
+							   style="margin-top:30px;"	 value="Adicionar Registro" >
+			                 
+			                  <f:ajax execute="@this" render="painelprincipalhistcontribuicao" />
+			               </h:commandButton>
+			             </h:panelGroup>
+				     </div>							
+			     <div class="col-lg-5"></div>	
+			 </h:panelGroup><!-- FIM DO PAINEL PRINCIPAL DO HIST DE CONTRIBUICAO SINDICAL -->
+		  </div><!-- FIM DA FIV CLASS ROW FORM HIST CARGOS E BOTAO ADD HIST CONTRIBUICAO SINDICAL -->	
+		  
+		  <div class="row"><!-- INICIO DA DIV ROW DA TABELA DE REGISTROS DE CONTRIBUICAO SINDICAL DO FUNCIONARIO -->
+		    <h:panelGroup id="tbregistrocontribuicao">
+		       <div class="col-lg-3"></div>
+		       
+		       <div class="col-lg-6">
+		          <h:dataTable styleClass="table" style="margin-top:30px;"
+		          value="#{cadastroFuncionarioMB.funcionario.listHistoricoDeContribuicao}"
+		          var="registro">
+		          
+		                <h:column>
+			                 <f:facet name="header">Dt Pagamento</f:facet>
+			                  <h:outputText value="#{registro.mesAno}"  >
+			                     <f:convertDateTime pattern="MM/yyyy"/>
+			                  </h:outputText>
+			            </h:column>			            
+			            
+			            
+			             <h:column>
+			                 <f:facet name="header">Valor PAgo</f:facet>
+			                  #{registro.valorPago}
+			           
+			            </h:column>
+			                 
+			            <h:column>
+			                 <f:facet name="header">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</f:facet>
+			                 
+			                 <h:commandButton styleClass="form-control btn btn-danger small" value="Remover" >
+			                     <f:ajax execute="@this" render=":form:tbregistrocontribuicao"
+			                     listener="#{cadastroFuncionarioMB.removeHistoricoDeContribuicao(registro)}" />
+			                 </h:commandButton>
+			            </h:column>
+		          
+		          </h:dataTable>
+		       </div>
+		       <div class="col-lg-3"></div>
+		    </h:panelGroup>
+		  </div>		    		
+	 </div><!-- FIM DA DIV DA TAB HISTORICO DE CONTRIBUICAO TAB-PANE -->
+	 
+	 
+	 
+	 <!-- INICIO DA TAB DE HISTORICO DE LICENCAS E AFASTAMENTOS -->
+	   <div id="histlicencas" class="tab-pane">
+	     <div class="row">
+	        <h:panelGroup id="painelprincipalhistlicenca" ><!-- PAINEL PRINCIPAL -->
+	         
+	            <h:panelGroup id="formhistlicenca" 
+	            rendered="#{cadastroFuncionarioMB.addHistLicenca == true}"><!-- PAINEL DO FORM DO HISTORICO -->
+	                
+	                
+	                <div class="col-lg-2">
+	                   <h5>Dt Inicial</h5>
+	                   
+	                   <h:inputText  styleClass="form-control"
+	                   id="Dt_incial_licenca_afastamento"
+	                   value="#{cadastroFuncionarioMB.registroDeLicenca.dtInicial}" 
+	                   required="true" >	                          
+                              <f:convertDateTime pattern="dd/MM/yyyy"/>      
+              
+                       </h:inputText>                  
+              
+                        
+	                </div>
+	                
+	                <div class="col-lg-2">
+	                   <h5>Dt Final</h5>
+	                   
+	                   <h:inputText  styleClass="form-control"
+	                   id="Dt_Incial_Licenca_Afastamento"
+	                   value="#{cadastroFuncionarioMB.registroDeLicenca.dtFinal}" 
+	                   required="true" >	                          
+                              <f:convertDateTime pattern="dd/MM/yyyy"/>      
+              
+                       </h:inputText>                  
+              
+                        
+	                </div>
+	                
+	                 <div class="col-lg-4">
+	                    <h5>Motivo</h5>
+	                 
+	                   <h:inputText value="#{cadastroFuncionarioMB.registroDeLicenca.causa}" 
+	                  id="Motivo_Licenca_Afastamento" styleClass="form-control" required="true"/>
+	                </div>
+	                
+	                                	                
+	               
+	                
+	                <div class="col-lg-2">
+	                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+	                      
+	                      <h:commandButton styleClass="form-control btn btn-success"
+	                       action="#{cadastroFuncionarioMB.addHistoricoDeLicenca()}" value="Adicionar" >
+	                       
+	                          <f:ajax execute="@form" 
+	                          render="painelprincipalhistlicenca tbregistrolicenca" />
+	                       </h:commandButton>
+	                </div>
+	                
+	                <div class="col-lg-2">
+	                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+	                      
+	                      <h:commandButton styleClass="form-control btn btn-danger"
+	                       action="#{cadastroFuncionarioMB.desativaFormHistoricoLicenca()}"
+	                        value="Cancelar">
+	                        
+	                        <f:ajax execute="@this" render="painelprincipalhistlicenca" />
+	                        
+	                        </h:commandButton>
+	                </div>
+	            </h:panelGroup><!-- FIM DO PAINEL FORM DO HISTORICO DE LICENCAS E AFASTAMENTOS -->
+	         
+	      
+	      
+	      <!-- COMECA DE DIVS DO BOTAO ADD HISTORICO DE LICENCAS E AFASTAMENTO -->
+	         <div class="col-lg-5"></div>
+							
+						<div class="col-lg-2">
+							<h:panelGroup id="botaoaddhistlicenca"
+							 rendered="#{cadastroFuncionarioMB.addHistLicenca == false}">
+							   <h:commandButton styleClass="form-control btn btn-primary"
+							   action="#{cadastroFuncionarioMB.ativaFormHistoricoLicenca()}" 
+							   style="margin-top:30px;"	 value="Adicionar Registro" >
+			                 
+			                  <f:ajax execute="@this" render="painelprincipalhistlicenca" />
+			               </h:commandButton>
+			             </h:panelGroup>
+				     </div>							
+			     <div class="col-lg-5"></div>	
+			 </h:panelGroup><!-- FIM DO PAINEL PRINCIPAL DO HIST DE LIECENCA E AFASTAMENTOS -->
+		  </div><!-- FIM DA FIV CLASS ROW FORM HIST CARGOS E BOTAO ADD HIST LICENCAS E AFASTAMENTOS -->	
+		  
+		  <div class="row"><!-- INICIO DA DIV ROW DA TABELA DE REGISTROS DE LICENCAS E AFASTAMENTOS DO FUNCIONARIO -->
+		    <h:panelGroup id="tbregistrolicenca">
+		       <div class="col-lg-3"></div>
+		       
+		       <div class="col-lg-6">
+		          <h:dataTable styleClass="table" style="margin-top:30px;"
+		          value="#{cadastroFuncionarioMB.funcionario.listHistoricoLicenca}"
+		          var="registro">
+		          
+		                <h:column>
+			                 <f:facet name="header">Dt Inical</f:facet>
+			                  <h:outputText value="#{registro.dtInicial}"  >
+			                     <f:convertDateTime pattern="dd/MM/yyyy"/>
+			                  </h:outputText>
+			            </h:column>
+			            
+			             <h:column>
+			                 <f:facet name="header">Dt Final</f:facet>
+			                  <h:outputText value="#{registro.dtFinal}"  >
+			                     <f:convertDateTime pattern="dd/MM/yyyy"/>
+			                  </h:outputText>
+			            </h:column>   			            
+			            
+			            
+			             <h:column>
+			                 <f:facet name="header">Motivo</f:facet>
+			                  #{registro.causa}
+			           
+			            </h:column>
+			                 
+			            <h:column>
+			                 <f:facet name="header">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</f:facet>
+			                 
+			                 <h:commandButton styleClass="form-control btn btn-danger small" value="Remover" >
+			                     <f:ajax execute="@this" render=":form:tbregistrolicenca"
+			                     listener="#{cadastroFuncionarioMB.removeHistoricoDeLicenca(registro)}" />
+			                 </h:commandButton>
+			            </h:column>
+		          
+		          </h:dataTable>
+		       </div>
+		       <div class="col-lg-3"></div>
+		    </h:panelGroup>
+		  </div>		    		
+	 </div><!-- FIM DA DIV DA TAB HISTORICO DE LICENCA E AFASTAMENTOS TAB-PANE -->		
+	 
+   <!-- INICIO DA DIV DA TAB HISTORICO DE FERIAS -->
+   
+   <div id="histferias" class="tab-pane">
+	     <div class="row">
+	        <h:panelGroup id="painelprincipalhistferias" ><!-- PAINEL PRINCIPAL -->
+	         
+	            <h:panelGroup id="formhistferias" 
+	            rendered="#{cadastroFuncionarioMB.addHistFerias== true}"><!-- PAINEL DO FORM DO HISTORICO -->
+	                
+	                
+	                <div class="col-lg-2">
+	                   <h5>Dt Inicial Gozo</h5>
+	                   
+	                   <h:inputText  styleClass="form-control"
+	                   id="Dt_incial_Gozo_Ferias"
+	                   value="#{cadastroFuncionarioMB.registroDeFerias.dtInicialGozo}" 
+	                   required="true" >	                          
+                              <f:convertDateTime pattern="dd/MM/yyyy"/>      
+              
+                       </h:inputText>                  
+              
+                        
+	                </div>
+	                
+	                <div class="col-lg-2">
+	                   <h5>Dt Final Gozo</h5>
+	                   
+	                   <h:inputText  styleClass="form-control"
+	                   id="Dt_Final_Gozo_Ferias"
+	                   value="#{cadastroFuncionarioMB.registroDeFerias.dtFinalGozo}" 
+	                   required="true" >	                          
+                              <f:convertDateTime pattern="dd/MM/yyyy"/>      
+              
+                       </h:inputText>                  
+              
+                        
+	                </div>
+	                
+	                 <div class="col-lg-2">
+	                   <h5>Dt Incial Aquisitiva</h5>
+	                   
+	                   <h:inputText  styleClass="form-control"
+	                   id="Dt_Incial_Aqusiitiva_Ferias"
+	                   value="#{cadastroFuncionarioMB.registroDeFerias.dtInicialAquisitiva}" 
+	                   required="true" >	                          
+                              <f:convertDateTime pattern="dd/MM/yyyy"/>      
+              
+                       </h:inputText>                  
+              
+                        
+	                </div>
+	                
+	                <div class="col-lg-2">
+	                   <h5>Dt Final Aquisitiva</h5>
+	                   
+	                   <h:inputText  styleClass="form-control"
+	                   id="Dt_Final_Aqusiitiva_Ferias"
+	                   value="#{cadastroFuncionarioMB.registroDeFerias.dtFinalAquisitiva}" 
+	                   required="true" >	                          
+                              <f:convertDateTime pattern="dd/MM/yyyy"/>      
+              
+                       </h:inputText>                  
+              
+                        
+	                </div>
+	                
+	                                	                
+	               
+	                
+	                <div class="col-lg-2">
+	                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+	                      
+	                      <h:commandButton styleClass="form-control btn btn-success"
+	                       action="#{cadastroFuncionarioMB.addHistoricoDeFerias()}" value="Adicionar" >
+	                       
+	                          <f:ajax execute="@form" 
+	                          render="painelprincipalhistferias tbregistroferias" />
+	                       </h:commandButton>
+	                </div>
+	                
+	                <div class="col-lg-2">
+	                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+	                      
+	                      <h:commandButton styleClass="form-control btn btn-danger"
+	                       action="#{cadastroFuncionarioMB.desativaFormHistoricoFerias()}"
+	                        value="Cancelar">
+	                        
+	                        <f:ajax execute="@this" render="painelprincipalhistferias" />
+	                        
+	                        </h:commandButton>
+	                </div>
+	            </h:panelGroup><!-- FIM DO PAINEL FORM DO HISTORICO DE FERIAS -->
+	         
+	      
+	      
+	      <!-- COMECA DE DIVS DO BOTAO ADD HISTORICO DE FERIAS -->
+	         <div class="col-lg-5"></div>
+							
+						<div class="col-lg-2">
+							<h:panelGroup id="botaoaddhistferias"
+							 rendered="#{cadastroFuncionarioMB.addHistFerias == false}">
+							   <h:commandButton styleClass="form-control btn btn-primary"
+							   action="#{cadastroFuncionarioMB.ativaFormHistoricoFerias()}" 
+							   style="margin-top:30px;"	 value="Adicionar Registro" >
+			                 
+			                  <f:ajax execute="@this" render="painelprincipalhistferias" />
+			               </h:commandButton>
+			             </h:panelGroup>
+				     </div>							
+			     <div class="col-lg-5"></div>	
+			 </h:panelGroup><!-- FIM DO PAINEL PRINCIPAL DO HIST DE FERIAS -->
+		  </div><!-- FIM DA FIV CLASS ROW FORM HIST CARGOS E BOTAO ADD HIST FERIAS -->	
+		  
+		  <div class="row"><!-- INICIO DA DIV ROW DA TABELA DE REGISTROS DE FERIASS DO FUNCIONARIO -->
+		    <h:panelGroup id="tbregistroferias">
+		       <div class="col-lg-3"></div>
+		       
+		       <div class="col-lg-6">
+		          <h:dataTable styleClass="table" style="margin-top:30px;"
+		          value="#{cadastroFuncionarioMB.funcionario.listHistoricoFerias}"
+		          var="registro">
+		          
+		                <h:column>
+			                 <f:facet name="header">Perído Gozo</f:facet>
+			                  <h:outputText value="#{registro.dtInicialGozo}"  >
+			                     <f:convertDateTime pattern="dd/MM/yyyy"/>
+			                  </h:outputText>
+			                  a
+			                  <h:outputText value="#{registro.dtFinalGozo}"  >
+			                     <f:convertDateTime pattern="dd/MM/yyyy"/>
+			                  </h:outputText>
+			                  
+			            </h:column>
+			            
+			             <h:column>
+			                 <f:facet name="header">Período Aquisitivo</f:facet>
+			                  <h:outputText value="#{registro.dtInicialAquisitiva}"  >
+			                     <f:convertDateTime pattern="dd/MM/yyyy"/>
+			                  </h:outputText>
+			                  a
+			                  <h:outputText value="#{registro.dtFinalAquisitiva}"  >
+			                     <f:convertDateTime pattern="dd/MM/yyyy"/>
+			                  </h:outputText>
+			            </h:column>    
+			            
+			                 
+			            <h:column>
+			                 <f:facet name="header">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</f:facet>
+			                 
+			                 <h:commandButton styleClass="form-control btn btn-danger small" value="Remover" >
+			                     <f:ajax execute="@this" render=":form:tbregistroferias"
+			                     listener="#{cadastroFuncionarioMB.removeHistoricoDeFerias(registro)}" />
+			                 </h:commandButton>
+			            </h:column>
+		          
+		          </h:dataTable>
+		       </div>
+		       <div class="col-lg-3"></div>
+		    </h:panelGroup>
+		  </div>		    		
+	 </div><!-- FIM DA DIV DA TAB HISTORICO DE FERIAS TAB-PANE -->	
+	 
+	 
+	 			
+</div>
+   <!-- FIM DA DIV DE TODO CONTEUDO -->  
+ 
+
+ 
+ 
+   
+</section>
+
+<div class="row" style="margin-bottom: 50px;margin-top:40px;">
+   <div class="col-lg-3"></div>
+   <div class="col-lg-3">
+      <h:commandButton styleClass=" form-control btn btn-success" style="font-size:20px;margin-bottom:20px;"
+      action="#{cadastroFuncionarioMB.cadastrarFuncionario()}" value="Cadastrar" />
+   </div>
+   <div class="col-lg-3">
+      <h:commandButton styleClass="form-control btn btn-danger" style="font-size:20px;"
+       action="#{cadastroFuncionarioMB.paginaHome()}" immediate="true" value="Cancelar" />
+   </div>
+   
+   <div class="col-lg-3"></div>
+</div>
+ 
+</h:form>
+
+</ui:define>
+</ui:composition>
+
+</html>

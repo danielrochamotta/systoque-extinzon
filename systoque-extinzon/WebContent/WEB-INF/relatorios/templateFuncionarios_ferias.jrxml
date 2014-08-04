@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="templateFuncionarios_ferias" language="groovy" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="9c2dfc62-7799-40e4-8833-782fb6011868">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="dtFinalAquisitiva" class="java.util.Date">
+		<fieldDescription><![CDATA[dtFinalAquisitiva]]></fieldDescription>
+	</field>
+	<field name="dtFinalGozo" class="java.util.Date">
+		<fieldDescription><![CDATA[dtFinalGozo]]></fieldDescription>
+	</field>
+	<field name="dtInicialAquisitiva" class="java.util.Date">
+		<fieldDescription><![CDATA[dtInicialAquisitiva]]></fieldDescription>
+	</field>
+	<field name="dtInicialGozo" class="java.util.Date">
+		<fieldDescription><![CDATA[dtInicialGozo]]></fieldDescription>
+	</field>
+	<field name="funcionario" class="br.com.radconnect.entityBeans.Funcionario">
+		<fieldDescription><![CDATA[funcionario]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Long">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="74" height="12" uuid="f468026a-40d3-4925-b277-2459486e7654"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Período de Gozo: ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="74" y="0" width="52" height="12" uuid="56ea5dfe-205e-4063-a010-2c8f610220ef"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dtInicialGozo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="181" y="0" width="74" height="12" uuid="3844fecf-8405-44ec-a891-230c47d42f37"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Período Aquisitivo: ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="130" y="0" width="52" height="12" uuid="bc20ef84-1bbc-4979-ad83-4ae3188b2295"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dtFinalGozo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="311" y="0" width="52" height="12" uuid="5d6e3ddd-d0ce-4048-8ad5-ce6f33a5170b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dtFinalAquisitiva}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="255" y="0" width="52" height="12" uuid="9d7958e7-7cfc-48e7-b25a-9ae607edbb87"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dtInicialAquisitiva}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="126" y="0" width="4" height="12" uuid="dbc5fa06-79b3-4cb9-9c86-fc56c7d64dfd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[a]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="307" y="0" width="4" height="12" uuid="b19ca457-721a-48e4-8cff-3930c345bec6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[a]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

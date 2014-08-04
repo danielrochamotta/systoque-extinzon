@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:composition template="/default.html">
+	   <ui:define name="conteudo">
+	     <h:form>
+	      <div class="row">
+	       <h:panelGroup id="painelpesquisa">
+	         <div class="col-lg-2">
+	         <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+	         
+	         <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+	         </div>
+	         
+	         <div class="col-lg-3">
+	             <h5>Pesquisar</h5>
+	             
+	             <h:inputText styleClass="form-control"
+	             value="#{cadastroFuncionarioMB.atributoDePesquisa}" >
+	                 <f:ajax execute="painelpesquisa" render="tabelafuncionario btnfiltro" event="keyup" />
+	             </h:inputText>
+	         </div>
+	         
+	         <div class="col-lg-3">
+	             <h5>Filtro</h5>
+	             
+	             <h:selectOneMenu styleClass="form-control"
+	             value="#{cadastroFuncionarioMB.filtroPesqFuncionario}">
+	                 <f:selectItem itemLabel="R.G" itemValue="rgNumero"/>
+	                 <f:selectItem itemLabel="C.P.F" itemValue="cpf"/>
+	                 <f:selectItem itemLabel="Nome" itemValue="nome"/>
+	                 <f:selectItem itemLabel="Telefone" itemValue="telefone"/>
+	                 <f:ajax execute="@form" render="@form" />
+	             </h:selectOneMenu>
+	         </div>
+	         
+	         <div class="col-lg-3">
+	             <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+	             
+	             <h:commandLink value=" Imprimir Todos"
+	             styleClass="form-control btn btn-default glyphicon glyphicon-print" 
+	             action="#{cadastroFuncionarioMB.imprimirTodos()}" target="_blanck">
+	                 
+             </h:commandLink>
+	         </div>
+	         
+	       </h:panelGroup>
+	      </div>
+	      
+	      <div class="row" style="margin-top:30px;">
+	           
+	           <div class="col-lg-12">
+	             <h:dataTable id="tabelafuncionario" 
+	             value="#{cadastroFuncionarioMB.listagemFuncinario()}" var="funcionario"
+	             styleClass="table" >
+	               
+	                <h:column>
+                      <f:facet name="header">
+                         <h:outputText value="MATRICULA" />
+                      </f:facet>
+          #{funcionario.matricula}
+      </h:column>
+    
+      <h:column>
+          <f:facet name="header">
+             <h:outputText value="NOME" />
+          </f:facet>
+          #{funcionario.nome}
+      </h:column>
+      
+      <h:column>
+          <f:facet name="header">
+             <h:outputText value="RG" />
+          </f:facet>
+          #{funcionario.rgNumero}
+      </h:column>
+      
+      <h:column>
+          <f:facet name="header">
+             <h:outputText value="CPF" />
+          </f:facet>
+          #{funcionario.cpf}
+      </h:column>
+      
+      <h:column>
+          <f:facet name="header">
+             <h:outputText value="TEL.FIXO" />
+          </f:facet>
+          #{funcionario.telefone}
+      </h:column>
+      
+      <h:column>
+          <f:facet name="header">
+             <h:outputText value="TEL.MOBILE" />
+          </f:facet>
+          #{funcionario.celular}
+      </h:column>           
+      
+      
+      <h:column>
+          <f:facet name="header">
+             <h:outputText value="" />
+          </f:facet>
+
+			<div class="btn-group">
+				<button type="button" class="btn btn-primary dropdown-toggle"
+					data-toggle="dropdown">
+						Opções<span class="caret"></span>
+				</button>
+					 <ul class="dropdown-menu" role="menu">
+							<li>
+							    <h:commandLink styleClass="btn btn-warning btn-sm" value="Editar"
+                                action="#{cadastroFuncionarioMB.paginaEditar()}" >
+                                       <f:setPropertyActionListener target="#{cadastroFuncionarioMB.funcionario}"
+                                       value="#{funcionario}" />
+                                 </h:commandLink>   
+                            </li>
+                            
+						    <li>
+                                 <h:commandLink value="Remover" styleClass="btn btn-danger btn-sm"
+                                     action="#{cadastroFuncionarioMB.removerFuncionario()}" > 
+                                           <f:setPropertyActionListener target="#{cadastroFuncionarioMB.funcionario}"
+                                           value="#{funcionario}" />
+                                 </h:commandLink>
+                            </li>
+                            
+						    <li>
+						         <h:commandLink value="Detalhes" styleClass="btn btn-info btn-sm" 
+             						action="#{cadastroFuncionarioMB.detalhesFuncionario()}" target="_blank">
+             							<f:setPropertyActionListener target="#{cadastroFuncionarioMB.funcionario}"
+                 						value="#{funcionario}"/>
+             					</h:commandLink>
+						    </li>
+						   
+					  </ul>
+			    </div>	
+            </h:column>
+	             </h:dataTable>	           
+	           
+	          </div>         
+	          
+	      <div class="col-lg-4"></div>
+	     
+	       <h:panelGroup id="btnfiltro" styleClass="col-lg-4">
+	     
+	         <ul class="pager">
+	             <h5>#{cadastroFuncionarioMB.mensagemDeRegistros()}</h5>
+	             <li>
+                    <h:commandLink action="#{cadastroFuncionarioMB.primeiro()}" value="Primeiro" >
+                       <f:ajax execute="@form" render="@form" />
+                    </h:commandLink>
+                 </li>
+                 
+                 <li>
+                    <h:commandLink action="#{cadastroFuncionarioMB.anterior()}" value="Anterior" >
+                       <f:ajax execute="@form" render="@form" />
+                    </h:commandLink>
+                 </li>        
+                 
+                 <li>
+                    <h:commandLink action="#{cadastroFuncionarioMB.proximo()}" value="Proximo" >
+                        <f:ajax execute="@form" render="@form" />
+                    </h:commandLink>
+                 </li>
+                 
+                 <li>
+                    <h:commandLink action="#{cadastroFuncionarioMB.ultimo()}" value="Ultimo" >
+                       <f:ajax execute="@form" render="@form" />
+                    </h:commandLink>
+                 </li>
+             </ul>
+           </h:panelGroup>
+         <div class="col-lg-4"></div>
+           
+	             
+	     
+	  </div>
+	    <div class="row" style="margin-top:20px;margin-bottom:30px;">
+	         <div class="col-lg-4"></div>
+	         
+	       <div class="col-lg-2">	          
+	              <h:commandLink action="#{cadastroFuncionarioMB.paginaNovo()}" 
+	              value=" Cadastrar Novo" styleClass="
+	              form-control btn btn-primary glyphicon glyphicon-plus-sign"/>  
+	       </div>
+	       
+	       <div class="col-lg-2">
+	            <h:commandLink action="#{cadastroFuncionarioMB.paginaHome()}" 
+	              value=" Sair " 
+	              styleClass="form-control btn btn-danger glyphicon glyphicon-log-out" >
+	               
+	              </h:commandLink>
+	       </div>
+	       <div class="col-lg-4"></div>
+	    </div>  
+	        
+	      
+	     </h:form>
+	   </ui:define>
+	</ui:composition>
+</html>
