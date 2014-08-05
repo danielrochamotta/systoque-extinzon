@@ -87,7 +87,7 @@ public class CadastroFuncionarioMB implements Serializable {
 	public String cadastrarFuncionario(){//INICIO DE PERSISTENCIA DO FUNCIONARIO
 		conversation.end();
 		dao.cadastrarFuncionario(funcionario);
-		return "list?faces-redirect=true";
+		return "listfunc?faces-redirect=true";
 	
 	}//FIM DO METODO DE PERSISTENCIA DO FUNCIONARIO
 	
@@ -97,13 +97,18 @@ public class CadastroFuncionarioMB implements Serializable {
 	public String paginaNovo(){//INICIO METODO QUE DIRECIONA PARA A PAGINA DO FORMULARIO NOVO FUNCIONARIO
 		funcionario = new Funcionario();
 		registroDeCargo = new HistoricoDeCargos();
-		return "novo?faces-redirect=true";
+		return "novofunc?faces-redirect=true";
 	}//FIM DO METODO QEU DIRECIONA PARA A PAGINA DO FORM NOVO FUNCIONARIO
 	
 	public String paginaHome(){// INICIO DO METODO QUE DIRECIONA PARA A PAGINA HOME
 		conversation.end();
 		return "home";
 	}//FIM DO METODO QUE DIRECIONA PARA PAGINA HOME
+	
+	public String paginaOpcoesFuncionario(){
+		
+		return "opcaofunc";
+	}
 	
 	public List<Funcionario> getListFuncionario(){//INICIO DO METODO QUE CHAMA A LISTA COMPLETA DA TABELA DE FUNCIONARIO
 		return dao.listFuncionario();
@@ -144,7 +149,7 @@ public class CadastroFuncionarioMB implements Serializable {
 	
 	public String localizarFuncionario(){//INICIO DO METODO QUE LISTA FUNCONARIO DO BANCO
 		conversation.end();
-		return "list?faces-redirect=true";
+		return "listfunc?faces-redirect=true";
 	}//FIM DO METODO QUE LISTA FUNCIONARIOS DO BANCO
 	
 	public void addDepenteDoNovoFuncionario(){//INICIO DO METODO QUE ADICONA DEPENDENTE A LISTA DO OBJETO FUNCIONARIO

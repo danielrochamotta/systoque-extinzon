@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pt="http://java.sun.com/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui"> 
+
+
+
+<ui:composition template="default.html">
+<ui:define name="conteudo">
+<h:form id="form">
+<p:messages id="messages" showDetail="false" autoUpdate="false" closable="true" styleClass="alert-info"/>
+<section class="panel">
+  <header class="panel-heading">
+    
+          <h3>Cliente  <span class="label label-default">Novo</span> </h3>       
+   
+  </header>
+
+				<ul class="nav nav-tabs ">
+					<li class=""><a href="#pessoal" data-toggle="tab">Pessoal</a></li>
+					<li class=""><a href="#cliend" data-toggle="tab">Endereço</a></li>
+					<li class=""><a href="#cliinfofin" data-toggle="tab">Info Financeiras</a></li>					
+					
+				</ul>
+				
+				<!--  LINHA LINHA DO FORM DE DADOS PESSOAIS FUNCIONARIO -->
+	<div id="mytabcontent" class="tab-content">
+	
+	<div id="pessoal" class="tab-pane active">
+     <div class="row">
+        <div class="col-lg-4">
+           <h5>Código do Cliente</h5>
+           
+          <h:inputText styleClass="form-control" value="#">
+              <f:passThroughAttribute name="type" value="number" />
+          </h:inputText>
+                     
+       
+          
+        </div>  
+        
+        <div class="col-lg-4">
+           <h5>Rz Social / Nome</h5>
+           
+           <h:inputText styleClass="form-control" value="#" >
+              <f:passThroughAttribute name="" value="" />
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>N. Fantasia / Sob. Nome</h5>
+           
+           <h:inputText styleClass="form-control" 
+           value="#" >
+               <f:passThroughAttribute name="" value="" />           
+              
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>I.E / R.G</h5>
+           
+           <h:inputText styleClass="form-control" value="#" />
+        </div>
+        
+         <div class="col-lg-4">
+           <h5>CNPJ / CPF</h5>           
+              
+           <h:inputText styleClass="form-control"  
+           value="" >
+               <f:passThroughAttribute name="placeholder" value="" />           
+              
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>Telefone Principal</h5>
+           
+           <h:inputText styleClass="form-control" 
+           value="#" >
+              <f:passThroughAttribute name="" value="" />
+           </h:inputText>
+        </div>
+  
+    
+   
+        <div class="col-lg-4">
+           <h5>Mobile</h5>
+           
+           <h:inputText styleClass="form-control" value="#" />
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>Email / Contato</h5>
+           
+           <h:inputText styleClass="form-control" value="#" />
+        </div>   
+        
+        
+        <div class="col-lg-4">
+           <h5>Email / Empresa</h5>
+           
+           <h:inputText styleClass="form-control" value="#" >
+              <f:passThroughAttribute name="" value="" />
+           </h:inputText>
+        </div>         
+        
+       
+    </div><!-- Fim da div class row -->
+        
+   </div><!-- FIM DA DIV  PESSOAL -->  
+   
+   <!-- COMECO DA ABA ENDERCO -->
+  
+  <!--  LINHA DO FORM DE ENDEREÇO FUNCIONARIO -->
+  
+      <div id="cliend" class="tab-pane">
+         
+         
+         
+    <div class="row">
+        <div class="col-lg-8">
+           <h5>LOGRADOURO (Ex: Rua A, 12)</h5>
+           
+           <h:inputText styleClass="form-control" 
+           value="#" />
+        </div>
+        
+        <div class="col-lg-4">
+           <h5>Bairro</h5>
+           
+           <h:inputText styleClass="form-control"
+            value="#" />
+        </div>
+        
+        <div class="col-lg-2">
+           <h5>Cidade</h5>
+           
+          <h:selectOneListbox styleClass="form-control" value="#">
+          </h:selectOneListbox>
+        </div>
+        
+        <div class="col-lg-2">
+           <h5>UF</h5>
+           
+           <h:selectOneListbox styleClass="form-control" value="#">
+          </h:selectOneListbox>
+        </div>
+        
+        <div class="col-lg-2">
+           <h5>Cep</h5>
+           
+           <h:inputText styleClass="form-control" 
+           value="#" >
+              <f:passThroughAttribute name="type" value="number" />
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-6">
+           <h5>Complemento</h5>
+           
+           <h:inputText styleClass="form-control" value="#" />
+        </div>
+    </div><!-- Fim da div class row -->
+             
+      </div>
+   <!-- FIM DA TAB ENDEREÇO DO CLIENTE -->
+      
+   <!-- COMEÇA TAB DE INFORMAÇÕES FINANCEIRAS DO CLIENTES -->   
+   <div id="cliinfofin" class="tab-pane fade">
+   
+     <div class="row">
+       
+        
+     </div>   
+   </div><!-- FIM DA TAB DE INFORMAÇOÕES FINANCEIRAS --> 
+	 			
+</div>
+   <!-- FIM DA DIV DE TODO CONTEUDO -->  
+      
+</section>
+
+<div class="row" style="margin-bottom: 50px;margin-top:40px;">
+   <div class="col-lg-3"></div>
+   <div class="col-lg-3">
+      <h:commandButton styleClass=" form-control btn btn-success" style="font-size:20px;margin-bottom:20px;"
+      action="#{cadastroFuncionarioMB.cadastrarFuncionario()}" value="Cadastrar" />
+   </div>
+   <div class="col-lg-3">
+      <h:commandButton styleClass="form-control btn btn-danger" style="font-size:20px;"
+       action="#{cadastroFuncionarioMB.paginaHome()}" immediate="true" value="Cancelar" />
+   </div>
+   
+   <div class="col-lg-3"></div>
+</div>
+ 
+</h:form>
+
+</ui:define>
+</ui:composition>
+
+</html>
