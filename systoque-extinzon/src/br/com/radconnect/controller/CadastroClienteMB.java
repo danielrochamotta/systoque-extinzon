@@ -51,18 +51,22 @@ public class CadastroClienteMB implements Serializable{
 		return "editcli";
 	}
 	
+	public String irParaListagemDeClientes(){
+		return "listcli";
+	}
+	
 	//METODOS DE PERSISTENCIA
 	
 	public String persistirNovoCliente(){//METODO PARA GRAVAR UM NOVO CLIENTE
 		conversation.end();
 		dao.cadastrarCliente(doCadastroMB);
-		return "listcli?face-redirect=true";
+		return "listcli?faces-redirect=true";
 	}
 	
 	public String persistirClienteExistente(){//METODO PARA ATUALIZAR CLIENTTE DO BANCO
 		conversation.end();
 		dao.editarCliente(doCadastroMB);
-		return "listcli?face-redirect=true";
+		return "listcli?faces-redirect=true";
 	}
 	
 	public void removerClienteDoBanco(){//METODO PARA REMOVER CLIENTE DO BANCO
@@ -74,6 +78,30 @@ public class CadastroClienteMB implements Serializable{
 	public List<Cliente> getListCliente(){//METODO QUE RETORNA LSITA DE CLIENTES DO BANCO
 		return dao.procurarCliente(atributoPesquisaCli, filtroPesquisaCli);
 	}
+	
+	
+	/*
+	 * METODOS DOS BOTOES DE PAGINACAO DA LISTAGEM DOS FUNCIONÁRIOS
+	 */
+	public void primeiro(){//executa metodo que vai para primeira pagina
+		dao.primeiro();
+	}//fim do metodo primerio
+	
+	public void anterior(){//executa metodo que volta pagina de regitro de funcionarios
+		dao.anterior();
+	}//fim do metodo anteriror
+	
+	public void proximo(){//executa metodo que passa para proxima pagina de registro de funcioanrios
+		dao.proximo();
+	}//fim do metodo proximo
+	
+	public void ultimo(){//executa metodo para ultima pagina de registro de funcionarios
+		dao.ultimo();
+	}//fim do metodo ultimo
+	
+	public String mensagemDeRegistros(){//METODO QUE DIZ INICIO E FIM DOS REGISTROS LISTADOS
+		return dao.getMensagemNavegacao();
+	}//FIM DO METODO MENSAGEM DE REGISTROS
 	
 	
 	

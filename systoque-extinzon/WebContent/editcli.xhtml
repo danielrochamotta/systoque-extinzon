@@ -15,7 +15,7 @@
 <section class="panel">
   <header class="panel-heading">
     
-          <h3>Cliente  <span class="label label-default">Novo</span> </h3>       
+          <h3>Cliente  <span class="label label-default">Atualizar</span> </h3>       
    
   </header>
 
@@ -292,11 +292,11 @@
    <div class="col-lg-3"></div>
    <div class="col-lg-3">
       <h:commandButton styleClass=" form-control btn btn-success" style="font-size:20px;margin-bottom:20px;"
-      action="#{cadastroClienteMB.persistirNovoCliente()}" value="Cadastrar" />
+      action="#{cadastroClienteMB.persistirClienteExistente()}" value="Cadastrar" />
    </div>
    <div class="col-lg-3">
       <h:commandButton styleClass="form-control btn btn-danger" style="font-size:20px;"
-       action="#{cadastroClienteMB.voltarParaHome()}" immediate="true" value="Cancelar" />
+       action="#{cadastroClienteMB.irParaListagemDeClientes()}" immediate="true" value="Cancelar" />
    </div>
    
    <div class="col-lg-3"></div>

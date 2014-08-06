@@ -24,13 +24,25 @@ public class Cliente implements Serializable{
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_CLIENTE")
 	private Long id;
 	
+	@Column(name="CODIGO_CLIENTE")
+	@Index(name = "IDX_CODIGO_CLIENTE")
+	private String codigoCliente;
+	
 	@Column(name="NOME_RZSOCIAL_CLIENTE")
 	@Index(name = "IDX_NOME_RZSOCIAL_CLIENTE")
 	private String nomeRazaoSocial;
 	
 	@Column(name="SOBRENOME_NOMEFANTASIA_CLIENTE")
 	@Index(name = "IDX_SOBRENOME_NOMEFANTASIA_CLIENTE")
-	private String sobreNomeNomeFantasia;
+	private String nomeFantasia;
+	
+	@Column(name="CONTATO_CLIENTE")
+	@Index(name = "IDX_CONTATO_CLIENTE")
+	private String contato;
+	
+	@Column(name="GRUPO_CLIENTE")
+	@Index(name = "IDX_GRUPO_CLIENTE")
+	private String grupo;
 	
 	@Column(name="RG_INSCESTADUAL_CLIENTE")
 	@Index(name = "IDX_RG_INSCESTADUAL_CLIENTE")
@@ -50,11 +62,15 @@ public class Cliente implements Serializable{
 	
 	@Column(name="ATIVO_CLIENTE")
 	@Index(name = "IDX_ATIVO_CLIENTE")
-	private Boolean ativo;
+	private Boolean ativo = true;
 	
 	@Column(name="EMAIL_CLIENTE")
 	@Index(name = "IDX_EMAIL_CLIENTE")
 	private String email;
+	
+	@Column(name="EMAIL_CONTATO_CLIENTE")
+	@Index(name = "IDX_EMAIL_CONTATO_CLIENTE")
+	private String emailDoContato;
 	
 	@Column(name="NOME_PRIMREFBANCARIA_CLIENTE")
 	@Index(name = "IDX_NOME_PRIMREFBANCARIA_CLIENTE")
@@ -160,11 +176,12 @@ public class Cliente implements Serializable{
 	public void setNomeRazaoSocial(String nomeRazaoSocial) {
 		this.nomeRazaoSocial = nomeRazaoSocial;
 	}
-	public String getSobreNomeNomeFantasia() {
-		return sobreNomeNomeFantasia;
+	
+	public String getNomeFantasia() {
+		return nomeFantasia;
 	}
-	public void setSobreNomeNomeFantasia(String sobreNomeNomeFantasia) {
-		this.sobreNomeNomeFantasia = sobreNomeNomeFantasia;
+	public void setNomeFantasia(String nomeFantasia) {
+		this.nomeFantasia = nomeFantasia;
 	}
 	public String getRgInsEstadual() {
 		return rgInsEstadual;
@@ -285,6 +302,36 @@ public class Cliente implements Serializable{
 	public void setTelefoneTerceiraReferenciaComercial(
 			String telefoneTerceiraReferenciaComercial) {
 		this.telefoneTerceiraReferenciaComercial = telefoneTerceiraReferenciaComercial;
+	}
+	public String getCodigoCliente() {
+		return codigoCliente;
+	}
+	public void setCodigoCliente(String codigoCliente) {
+		this.codigoCliente = codigoCliente;
+	}
+	public Endereco getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+	public String getEmailDoContato() {
+		return emailDoContato;
+	}
+	public void setEmailDoContato(String emailDoContato) {
+		this.emailDoContato = emailDoContato;
+	}
+	public String getContato() {
+		return contato;
+	}
+	public void setContato(String contato) {
+		this.contato = contato;
+	}
+	public String getGrupo() {
+		return grupo;
+	}
+	public void setGrupo(String grupo) {
+		this.grupo = grupo;
 	}
 	
 	

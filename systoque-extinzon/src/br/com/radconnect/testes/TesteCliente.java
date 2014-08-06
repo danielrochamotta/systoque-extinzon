@@ -20,7 +20,7 @@ public class TesteCliente {
 		
 		
 		teste.setNomeRazaoSocial("JOSE");
-		teste.setSobreNomeNomeFantasia("MARIA");
+		
 		teste.setRgInsEstadual("21321321");
 		teste.setCpfCnpj("988982133");
 		teste.setTelefone("3432432432");

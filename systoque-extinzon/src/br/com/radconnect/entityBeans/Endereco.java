@@ -110,6 +110,22 @@ public class Endereco implements Serializable{
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
 	
 	
 

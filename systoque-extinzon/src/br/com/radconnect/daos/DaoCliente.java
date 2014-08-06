@@ -92,9 +92,9 @@ public class DaoCliente implements ICliente{
 				
 				where = " where upper("+ filtro +") like '"+pesquisa.toUpperCase()+"%' ";
 		}
-			jpql = "from Funcionario "+ where +" order by "+filtro;	
+			jpql = "from Cliente "+ where +" order by "+filtro;	
 		}else{
-			jpql = "from Funcionario";
+			jpql = "from Cliente";
 		}
 		
 		     
@@ -125,9 +125,9 @@ public class DaoCliente implements ICliente{
 				
 				where = " where upper("+ filtro +") like '"+pesquisa.toUpperCase()+"%' ";
 		}
-			jpql = "from Funcionario "+ where +" order by "+filtro;	
+			jpql = "from Cliente "+ where +" order by "+filtro;	
 		}else{
-			jpql = "from Funcionario";
+			jpql = "from Cliente";
 		}
 		
 		     
