@@ -7,8 +7,29 @@
 	<ui:composition template="default.html">
 	   <ui:define name="conteudo">
 	     <h:form>
-	      <div class="row">
-	       <h:panelGroup id="painelpesquisacli">
+	     
+	     <div class="btn-group">
+                 <h:commandLink action="#{cadastroClienteMB.novoCliente()}" 
+	              value=" Novo" styleClass="
+	               btn btn-primary glyphicon glyphicon-plus-sign"/>
+	              
+                 <h:commandLink action="#{cadastroClienteMB.voltarParaHome()}" 
+	              value=" Menu" 
+	              styleClass=" btn btn-danger glyphicon glyphicon-log-out" >
+	               
+	              </h:commandLink>
+             
+             </div>
+	     
+	     <div class="panel panel-success">
+	         <div class="panel-heading">
+	            <h4 class="panel-title">Cadastrado de Clientes</h4>
+	         </div>
+	         
+	         <div class="panel-body">
+	     
+	      <div class="row" style="font-size:small;">
+	       <h:panelGroup id="painelpesquisacli" style="font-size:small;">
 	         <div class="col-lg-2">
 	         <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 	         
@@ -16,7 +37,7 @@
 	         </div>
 	         
 	         <div class="col-lg-3">
-	             <h5>Pesquisar</h5>
+	             <h6>Pesquisar</h6>
 	             
 	             <h:inputText styleClass="form-control"
 	             value="#{cadastroClienteMB.atributoPesquisaCli}" >
@@ -25,7 +46,7 @@
 	         </div>
 	         
 	         <div class="col-lg-3">
-	             <h5>Filtro</h5>
+	             <h6>Filtro</h6>
 	             
 	             <h:selectOneMenu styleClass="form-control"
 	             value="#{cadastroClienteMB.filtroPesquisaCli}">
@@ -40,7 +61,7 @@
 	         </div>
 	         
 	         <div class="col-lg-3">
-	             <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+	             <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
 	             
 	             <h:commandLink value=" Imprimir Todos"
 	             styleClass="form-control btn btn-default glyphicon glyphicon-print" 
@@ -52,51 +73,55 @@
 	       </h:panelGroup>
 	      </div>
 	      
-	      <div class="row" style="margin-top:30px;">
+	      <div class="row" style="margin-top:10px;">
 	           
-	           <div id="divdatabela" class="col-lg-12">
+	           <div id="divdatabela" class="panel panel-default divdatabela">
+	               <div class="panel-heading">
+	                   <h6 class="panel-title">Lista / Clientes</h6>
+	               </div>
+	           
 	             <h:dataTable id="tabelacli" 
 	             value="#{cadastroClienteMB.listCliente}" var="cliente"
-	             styleClass="table" >
+	             styleClass="table" style="font-size:x-small" >
 	               
 	                <h:column>
                       <f:facet name="header">
-                         <h:outputText value="Código" />
+                         <h:outputText style="font-size:x-small" value="Código" />
                       </f:facet>
          #{cliente.codigoCliente}
       </h:column>
     
       <h:column>
           <f:facet name="header">
-             <h:outputText value="RZ Social / Nome" />
+             <h:outputText style="font-size:x-small" value="R.Social/Nome" />
           </f:facet>
           #{cliente.nomeRazaoSocial}
       </h:column>
       
       <h:column>
           <f:facet name="header">
-             <h:outputText value="Nome Fantasia" />
+             <h:outputText style="font-size:x-small" value="N.Fantasia" />
           </f:facet>
          #{cliente.nomeFantasia}
       </h:column>
       
       <h:column>
           <f:facet name="header">
-             <h:outputText value="Cnpj/Cpf" />
+             <h:outputText style="font-size:x-small" value="Cnpj/Cpf" />
           </f:facet>
          #{cliente.cpfCnpj}
       </h:column>
       
       <h:column>
           <f:facet name="header">
-             <h:outputText value="Ie/Rg" />
+             <h:outputText style="font-size:x-small" value="Ie/Rg" />
           </f:facet>
          #{cliente.rgInsEstadual}
       </h:column>
       
       <h:column>
           <f:facet name="header">
-             <h:outputText value="Telefone" />
+             <h:outputText style="font-size:x-small" value="Tel.P" />
           </f:facet>
           #{cliente.telefone}
       </h:column>           
@@ -104,12 +129,12 @@
       
       <h:column>
           <f:facet name="header">
-             <h:outputText value="" />
+             <h:outputText style="font-size:x-small" value="" />
           </f:facet>
 
 			<div class="btn-group">
-				<button type="button" class="btn btn-primary dropdown-toggle"
-					data-toggle="dropdown">
+				<button type="button" class="btn-xs btn-primary dropdown-toggle"
+					data-toggle="dropdown" style="margin-right:40px;">
 						Opções<span class="caret"></span>
 				</button>
 					 <ul class="dropdown-menu" role="menu">
@@ -176,31 +201,10 @@
                  </li>
              </ul>
            </h:panelGroup>
-         <div class="col-lg-4"></div>
-           
-	             
-	     
-	  </div>
-	    <div class="row" style="margin-top:20px;margin-bottom:30px;">
-	         <div class="col-lg-4"></div>
-	         
-	       <div class="col-lg-2">	          
-	              <h:commandLink action="#{cadastroClienteMB.novoCliente()}" 
-	              value=" Cadastrar Novo" styleClass="
-	              form-control btn btn-primary glyphicon glyphicon-plus-sign"/>  
-	       </div>
-	       
-	       <div class="col-lg-2">
-	            <h:commandLink action="#{cadastroClienteMB.voltarParaHome()}" 
-	              value=" Sair " 
-	              styleClass="form-control btn btn-danger glyphicon glyphicon-log-out" >
-	               
-	              </h:commandLink>
-	       </div>
-	       <div class="col-lg-4"></div>
-	    </div>  
-	        
-	      
+            <div class="col-lg-4"></div>
+	     </div>	   
+       </div>
+    </div>      
 	     </h:form>
 	   </ui:define>
 	</ui:composition>

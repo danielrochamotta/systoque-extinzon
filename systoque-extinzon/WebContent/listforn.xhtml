@@ -8,12 +8,12 @@
 	   <ui:define name="conteudo">
 	     <h:form>
 	     
-	       <div class="btn-group">
-                 <h:commandLink action="#{cadastroFuncionarioMB.paginaNovo()}" 
+	         <div class="btn-group">
+                 <h:commandLink action="#{cadastroFornecedorMB.novoFornecedor()}" 
 	              value=" Novo" styleClass="
 	               btn btn-primary glyphicon glyphicon-plus-sign"/>
 	              
-                 <h:commandLink action="#{cadastroFuncionarioMB.paginaHome()}" 
+                 <h:commandLink action="#{cadastroFornecedorMB.voltarParaHome()}" 
 	              value=" Menu" 
 	              styleClass=" btn btn-danger glyphicon glyphicon-log-out" >
 	               
@@ -23,25 +23,27 @@
 	     
 	     <div class="panel panel-success">
 	         <div class="panel-heading">
-	            <h4 class="panel-title"> Cadastrado de Funcionários</h4>
+	            <h4 class="panel-title">Cadastro de Fornecedores</h4>
 	         </div>
 	         
 	         <div class="panel-body">
+	         
+	         
 	     
 	      <div class="row">
-	       <h:panelGroup id="painelpesquisa">
+	       <h:panelGroup id="painelpesquisaforn">
 	         <div class="col-lg-2">
-	         <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+	         <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 	         
-	         <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+	         <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 	         </div>
 	         
 	         <div class="col-lg-3">
 	             <h6>Pesquisar</h6>
 	             
 	             <h:inputText styleClass="form-control"
-	             value="#{cadastroFuncionarioMB.atributoDePesquisa}" >
-	                 <f:ajax execute="painelpesquisa" render="tabelafuncionario btnfiltro" event="keyup" />
+	             value="#{cadastroFornecedorMB.atributoPesquisaForn}" >
+	                 <f:ajax execute="painelpesquisaforn" render="tabelaforn btnfiltroforn" event="keyup" />
 	             </h:inputText>
 	         </div>
 	         
@@ -49,21 +51,23 @@
 	             <h6>Filtro</h6>
 	             
 	             <h:selectOneMenu styleClass="form-control"
-	             value="#{cadastroFuncionarioMB.filtroPesqFuncionario}">
-	                 <f:selectItem itemLabel="R.G" itemValue="rgNumero"/>
-	                 <f:selectItem itemLabel="C.P.F" itemValue="cpf"/>
-	                 <f:selectItem itemLabel="Nome" itemValue="nome"/>
+	             value="#{cadastroFornecedorMB.filtroPesquisaForn}">
 	                 <f:selectItem itemLabel="Telefone" itemValue="telefone"/>
+	                 <f:selectItem itemLabel="Razão Social / Nome" itemValue="nomeRazaoSocial"/>
+	                 <f:selectItem itemLabel="Nome Fantasia" itemValue="nomeFantasia"/>
+	                 <f:selectItem itemLabel="IE / RG" itemValue="rgInsEstadual"/>
+	                 <f:selectItem itemLabel="CPF / CNPJ" itemValue="cpfCnpj"/>
+	                 <f:selectItem itemLabel="Grupo" itemValue="grupo"/>
 	                 <f:ajax execute="@form" render="@form" />
 	             </h:selectOneMenu>
 	         </div>
 	         
 	         <div class="col-lg-3">
-	             <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+	             <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 	             
 	             <h:commandLink value=" Imprimir Todos"
 	             styleClass="form-control btn btn-default glyphicon glyphicon-print" 
-	             action="#{cadastroFuncionarioMB.imprimirTodos()}" target="_blanck">
+	             action="#" target="_blanck">
 	                 
              </h:commandLink>
 	         </div>
@@ -73,54 +77,54 @@
 	      
 	      <div class="row" style="margin-top:10px;">
 	           
-	           <div class="panel panel-default divdatabela">
+	           <div id="divdatabela" class="panel panel-default divdatabela">
 	               <div class="panel-heading">
-	                   <h6 class="panel-title">Lista / Funcionários</h6>
+	                  <h6 class="panel-title">Lista / Fornecedores</h6>
 	               </div>
-	             <h:dataTable id="tabelafuncionario" 
-	             value="#{cadastroFuncionarioMB.listagemFuncinario()}" var="funcionario"
+	             <h:dataTable id="tabelaforn" 
+	             value="#{cadastroFornecedorMB.listFornecedor}" var="fornecedor"
 	             styleClass="table" style="font-size:x-small;" >
 	               
 	                <h:column>
                       <f:facet name="header">
-                         <h:outputText style="font-size:x-small;" value="Matricula" />
+                         <h:outputText style="font-size:x-small;" value="Código" />
                       </f:facet>
-          #{funcionario.matricula}
+         #{fornecedor.codigo}
       </h:column>
     
       <h:column>
           <f:facet name="header">
-             <h:outputText style="font-size:x-small;" value="Nome" />
+             <h:outputText style="font-size:x-small;" value="RZ Social / Nome" />
           </f:facet>
-          #{funcionario.nome}
+          #{fornecedor.nomeRazaoSocial}
       </h:column>
       
       <h:column>
           <f:facet name="header">
-             <h:outputText style="font-size:x-small;" value="RG" />
+             <h:outputText style="font-size:x-small;" value="Nome Fantasia" />
           </f:facet>
-          #{funcionario.rgNumero}
+         #{fornecedor.nomeFantasia}
       </h:column>
       
       <h:column>
           <f:facet name="header">
-             <h:outputText style="font-size:x-small;" value="CPF" />
+             <h:outputText style="font-size:x-small;" value="Cnpj/Cpf" />
           </f:facet>
-          #{funcionario.cpf}
+         #{fornecedor.cpfCnpj}
       </h:column>
       
       <h:column>
           <f:facet name="header">
-             <h:outputText style="font-size:x-small;" value="Tel.P" />
+             <h:outputText style="font-size:x-small;" value="Ie/Rg" />
           </f:facet>
-          #{funcionario.telefone}
+         #{fornecedor.rgInsEstadual}
       </h:column>
       
       <h:column>
           <f:facet name="header">
-             <h:outputText style="font-size:x-small;" value="Mobile" />
+             <h:outputText style="font-size:x-small;" value="Telefone" />
           </f:facet>
-          #{funcionario.celular}
+          #{fornecedor.telefone}
       </h:column>           
       
       
@@ -129,34 +133,34 @@
              <h:outputText style="font-size:x-small;" value="" />
           </f:facet>
 
-			<div class="btn-group" style="margin-right:40px;">
+			<div class="btn-group">
 				<button type="button" class="btn-xs btn-primary dropdown-toggle"
-					data-toggle="dropdown">
+					data-toggle="dropdown" style="margin-right:40px;">
 						Opções<span class="caret"></span>
 				</button>
 					 <ul class="dropdown-menu" role="menu">
 							<li>
 							    <h:commandLink styleClass="btn-xs btn-warning" value="Editar"
-                                action="#{cadastroFuncionarioMB.paginaEditar()}" >
-                                       <f:setPropertyActionListener target="#{cadastroFuncionarioMB.funcionario}"
-                                       value="#{funcionario}" />
+                                action="#{cadastroFornecedorMB.irParaEdicaoDeFornecedor()}" >
+                                       <f:setPropertyActionListener target="#{cadastroFornecedorMB.doCadastroMB}"
+                                       value="#{fornecedor}" />
                                  </h:commandLink>   
                             </li>
                             
 						    <li>
                                  <h:commandLink value="Remover" styleClass="btn-xs btn-danger"
-                                     action="#{cadastroFuncionarioMB.removerFuncionario()}" > 
+                                     action="#{cadastroFornecedorMB.removerFornecedorDoBanco()}" > 
                                            <f:setPropertyActionListener 
-                                           target="#{cadastroFuncionarioMB.funcionario}"
-                                           value="#{funcionario}" />
+                                           target="#{cadastroFornecedorMB.doCadastroMB}"
+                                           value="#{fornecedor}" />
                                  </h:commandLink>
                             </li>
                             
 						    <li>
 						         <h:commandLink value="Detalhes" styleClass="btn-xs btn-info" 
-             						action="#{cadastroFuncionarioMB.detalhesFuncionario()}" target="_blank">
-             							<f:setPropertyActionListener target="#{cadastroFuncionarioMB.funcionario}"
-                 						value="#{funcionario}"/>
+             						action="#" target="_blank">
+             							<f:setPropertyActionListener target="#"
+                 						value="#"/>
              					</h:commandLink>
 						    </li>
 						   
@@ -169,40 +173,41 @@
 	          
 	      <div class="col-lg-4"></div>
 	     
-	       <h:panelGroup id="btnfiltro" styleClass="col-lg-4">
+	       <h:panelGroup id="btnfiltroforn" styleClass="col-lg-4">
 	     
 	         <ul class="pager">
-	             <h5>#{cadastroFuncionarioMB.mensagemDeRegistros()}</h5>
+	             <h5>#{cadastroFornecedorMB.mensagemDeRegistros()}</h5>
 	             <li>
-                    <h:commandLink action="#{cadastroFuncionarioMB.primeiro()}" value="Primeiro" >
+                    <h:commandLink action="#{cadastroFornecedorMB.primeiro()}" value="Primeiro" >
                        <f:ajax execute="@form" render="@form" />
                     </h:commandLink>
                  </li>
                  
                  <li>
-                    <h:commandLink action="#{cadastroFuncionarioMB.anterior()}" value="Anterior" >
+                    <h:commandLink action="#{cadastroFornecedorMB.anterior()}" value="Anterior" >
                        <f:ajax execute="@form" render="@form" />
                     </h:commandLink>
                  </li>        
                  
                  <li>
-                    <h:commandLink action="#{cadastroFuncionarioMB.proximo()}" value="Proximo" >
+                    <h:commandLink action="#{cadastroFornecedorMB.proximo()}" value="Proximo" >
                         <f:ajax execute="@form" render="@form" />
                     </h:commandLink>
                  </li>
                  
                  <li>
-                    <h:commandLink action="#{cadastroFuncionarioMB.ultimo()}" value="Ultimo" >
+                    <h:commandLink action="#{cadastroFornecedorMB.ultimo()}" value="Ultimo" >
                        <f:ajax execute="@form" render="@form" />
                     </h:commandLink>
                  </li>
              </ul>
            </h:panelGroup>
-            <div class="col-lg-4"></div>	     
-	     </div>	    
+         <div class="col-lg-4"></div>             
+	     
+	      </div>	    
 	  </div>
-	</div>    
-	      
+	</div>      
+	     
 	     </h:form>
 	   </ui:define>
 	</ui:composition>
