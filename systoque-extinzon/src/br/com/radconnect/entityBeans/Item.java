@@ -6,10 +6,14 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Index;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
@@ -19,25 +23,41 @@ import org.hibernate.annotations.LazyCollectionOption;
  */
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "ITEN")
-public class Iten implements Serializable{
+@Table(name = "ITEM")
+public class Item implements Serializable{
 	
 	@Id
+	@SequenceGenerator(name = "SEQ_ITEM",sequenceName = "SEQ_ITEM_ID", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SEQ_ITEM")
 	private Long id;
-	private String codigoDeBarra;	
+	
+	@Index(name = "IDX_CODIGO_BARRA_ITEM")
+	private String codigoDeBarra;
+	
+	@Index(name = "IDX_GTIN_EAN_ITEM")
 	private String gtinEan;	
+	
+	@Index(name = "IDX_NUMERO_FABRICANTE_ITEM")
 	private String numeroFabricante;
-	private String nomeIten;
-	private String nomeCurto;
-	private String grupo;
-	private String subGrupo;
+	
+	@Index(name = "IDX_NOME_ITEM")
+	private String nome;
+	
+	@Index(name = "IDX_NOME_CURTO_ITEM")
+	private String nomeCurto;	
+	
+	@Index(name = "IDX_MARCA_FABRICANTE_ITEM")
 	private String marcaFabricante;
-	private String unidadeMedida;
+	
+	@Index(name = "IDX_QTD_IDEAL_ITEM")
+	private Double qtdIdeal;
+	
+	@Index(name = "IDX_QTD_MINIMO_ITEM")
+	private Double qtdMinimo;
+	
 	
 	//ATRIBUTOS RELACIONAIS
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "iten", orphanRemoval=true)
-	@LazyCollection(LazyCollectionOption.EXTRA)
-	private List<ItenDoFornecedor> listItenDoFornecedor = new ArrayList<ItenDoFornecedor>();
+	
 	
 	
 	
@@ -57,7 +77,7 @@ public class Iten implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Iten other = (Iten) obj;
+		Item other = (Item) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -69,7 +89,7 @@ public class Iten implements Serializable{
 	//TOSTRING
 	@Override
 	public String toString() {
-		return "Iten [nomeIten=" + nomeIten + "]";
+		return "Item [nome=" + nome + "]";
 	}//FIM TOSTRING
 	
 	//INICIO GETTERS E SETTERS
@@ -98,10 +118,10 @@ public class Iten implements Serializable{
 		this.numeroFabricante = numeroFabricante;
 	}
 	public String getNomeIten() {
-		return nomeIten;
+		return nome;
 	}
-	public void setNomeIten(String nomeIten) {
-		this.nomeIten = nomeIten;
+	public void setNomeIten(String nomeItem) {
+		this.nome = nomeItem;
 	}
 	public String getNomeCurto() {
 		return nomeCurto;
@@ -109,30 +129,34 @@ public class Iten implements Serializable{
 	public void setNomeCurto(String nomeCurto) {
 		this.nomeCurto = nomeCurto;
 	}
-	public String getGrupo() {
-		return grupo;
-	}
-	public void setGrupo(String grupo) {
-		this.grupo = grupo;
-	}
-	public String getSubGrupo() {
-		return subGrupo;
-	}
-	public void setSubGrupo(String subGrupo) {
-		this.subGrupo = subGrupo;
-	}
+	
 	public String getMarcaFabricante() {
 		return marcaFabricante;
 	}
 	public void setMarcaFabricante(String marcaFabricante) {
 		this.marcaFabricante = marcaFabricante;
 	}
-	public String getUnidadeMedida() {
-		return unidadeMedida;
+	public String getNomeItem() {
+		return nome;
 	}
-	public void setUnidadeMedida(String unidadeMedida) {
-		this.unidadeMedida = unidadeMedida;
-	}//FIM GETTERS E SETTERS
+	public void setNomeItem(String nomeItem) {
+		this.nome = nomeItem;
+	}
+	public Double getQtdIdeal() {
+		return qtdIdeal;
+	}
+	public void setQtdIdeal(Double qtdIdeal) {
+		this.qtdIdeal = qtdIdeal;
+	}
+	public Double getQtdMinimo() {
+		return qtdMinimo;
+	}
+	public void setQtdMinimo(Double qtdMinimo) {
+		this.qtdMinimo = qtdMinimo;
+	}
+	
+	
+	//FIM GETTERS E SETTERS
 	
 	
 	
