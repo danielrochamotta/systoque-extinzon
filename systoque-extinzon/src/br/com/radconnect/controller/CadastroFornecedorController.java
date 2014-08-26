@@ -14,7 +14,7 @@ import br.com.radconnect.entityBeans.Fornecedor;
 @SuppressWarnings("serial")
 @Named
 @ConversationScoped
-public class CadastroFornecedorMB implements Serializable{
+public class CadastroFornecedorController implements Serializable{
 	
 	@Inject
 	Conversation conversation;

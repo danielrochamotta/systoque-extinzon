@@ -15,7 +15,7 @@ import java.util.List;
 
 @Named
 @ConversationScoped
-public class CadastroEmpresaMB implements Serializable {
+public class CadastroEmpresaController implements Serializable {
 
 	/**
 	 * 

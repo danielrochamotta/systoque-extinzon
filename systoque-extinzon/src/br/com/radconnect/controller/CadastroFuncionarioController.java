@@ -35,7 +35,7 @@ import java.io.Serializable;
 
 @Named
 @ConversationScoped
-public class CadastroFuncionarioMB implements Serializable {
+public class CadastroFuncionarioController implements Serializable {
 	
 	/**
 	 * 

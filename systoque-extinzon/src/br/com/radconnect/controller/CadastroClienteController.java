@@ -15,7 +15,7 @@ import br.com.radconnect.entityBeans.Cliente;
 @SuppressWarnings("serial")
 @Named
 @ConversationScoped
-public class CadastroClienteMB implements Serializable{
+public class CadastroClienteController implements Serializable{
 	
 	@Inject
 	Conversation conversation;

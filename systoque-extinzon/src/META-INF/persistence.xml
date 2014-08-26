@@ -17,6 +17,12 @@
 		<class>br.com.radconnect.entityBeans.Item</class>
 		<class>br.com.radconnect.entityBeans.EntradaDeEstoque</class>
 		<class>br.com.radconnect.entityBeans.ItemEntrada</class>
+		<class>br.com.radconnect.entityBeans.GrupoDoItem</class>
+		<class>br.com.radconnect.entityBeans.SubGrupoN1DoGrupo</class>
+		<class>br.com.radconnect.entityBeans.SubGrupoN2DoN1</class>
+		<class>br.com.radconnect.entityBeans.SubGrupoN3DoN2</class>
+		<class>br.com.radconnect.entityBeans.SubGrupoN4DoN3</class>
+		<class>br.com.radconnect.entityBeans.SubGrupoN5DoN4</class>
 		<properties>
 			<property name="hibernate.connection.username" value="postgres"/>
 			<property name="hibernate.connection.password" value="1234"/>
