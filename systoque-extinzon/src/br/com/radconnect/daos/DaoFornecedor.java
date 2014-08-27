@@ -23,10 +23,15 @@ public class DaoFornecedor implements IFornecedor{
 	}
 
 	@Override
-	public void cadastrarFornecedor(Fornecedor fornecedor) {
-		try{
+	public void persistirFornecedor(Fornecedor fornecedor) {
+		try{			
 			em.getTransaction().begin();
-			em.persist(fornecedor);
+			if(fornecedor.getId() == null){
+				em.persist(fornecedor);
+			}else{
+				em.merge(fornecedor);
+			}
+			
 			em.getTransaction().commit();
 		}catch(Exception e){
 			if(em.getTransaction().isActive() == false){
@@ -44,21 +49,6 @@ public class DaoFornecedor implements IFornecedor{
 		try{
 			em.getTransaction().begin();
 			em.remove(fornecedor);
-			em.getTransaction().commit();
-		}catch(Exception e){
-			if(em.getTransaction().isActive() == false){
-				em.getTransaction().begin();
-			}
-			em.getTransaction().rollback();
-		}
-		
-	}
-
-	@Override
-	public void editarFornecedor(Fornecedor fornecedor) {
-		try{
-			em.getTransaction().begin();
-			em.merge(fornecedor);
 			em.getTransaction().commit();
 		}catch(Exception e){
 			if(em.getTransaction().isActive() == false){

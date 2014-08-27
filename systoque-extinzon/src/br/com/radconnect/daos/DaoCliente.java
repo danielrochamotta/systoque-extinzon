@@ -22,10 +22,15 @@ public class DaoCliente implements ICliente{
 	}
 
 	@Override
-	public void cadastrarCliente(Cliente cliente) {
+	public void persistirCliente(Cliente cliente) {
 		try{
 			em.getTransaction().begin();
-			em.persist(cliente);
+			if(cliente.getId() == null){
+				em.persist(cliente);
+			}else{
+				em.merge(cliente);
+			}
+			
 			em.getTransaction().commit();
 		}catch(Exception e){
 			if(em.getTransaction().isActive() == false){
@@ -53,20 +58,7 @@ public class DaoCliente implements ICliente{
 		
 	}
 
-	@Override
-	public void editarCliente(Cliente cliente) {
-		try{
-			em.getTransaction().begin();
-			em.merge(cliente);
-			em.getTransaction().commit();
-		}catch(Exception e){
-			if(em.getTransaction().isActive() == false){
-				em.getTransaction().begin();
-			}
-			em.getTransaction().rollback();
-		}
-		
-	}
+	
 	
 	public String limpaPesquisa(String pesquisa){
 		pesquisa = pesquisa.replaceAll("[';-]", "");

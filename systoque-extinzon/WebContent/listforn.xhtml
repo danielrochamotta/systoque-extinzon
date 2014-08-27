@@ -9,11 +9,11 @@
 	     <h:form>
 	     
 	         <div class="btn-group">
-                 <h:commandLink action="#{cadastroFornecedorMB.novoFornecedor()}" 
+                 <h:commandLink action="#{cadastroFornecedorController.novoFornecedor()}" 
 	              value=" Novo" styleClass="
 	               btn btn-primary glyphicon glyphicon-plus-sign"/>
 	              
-                 <h:commandLink action="#{cadastroFornecedorMB.voltarParaHome()}" 
+                 <h:commandLink action="#{cadastroFornecedorController.voltarParaHome()}" 
 	              value=" Menu" 
 	              styleClass=" btn btn-danger glyphicon glyphicon-log-out" >
 	               
@@ -42,7 +42,7 @@
 	             <h6>Pesquisar</h6>
 	             
 	             <h:inputText styleClass="form-control"
-	             value="#{cadastroFornecedorMB.atributoPesquisaForn}" >
+	             value="#{cadastroFornecedorController.atributoPesquisaForn}" >
 	                 <f:ajax execute="painelpesquisaforn" render="tabelaforn btnfiltroforn" event="keyup" />
 	             </h:inputText>
 	         </div>
@@ -51,7 +51,7 @@
 	             <h6>Filtro</h6>
 	             
 	             <h:selectOneMenu styleClass="form-control"
-	             value="#{cadastroFornecedorMB.filtroPesquisaForn}">
+	             value="#{cadastroFornecedorController.filtroPesquisaForn}">
 	                 <f:selectItem itemLabel="Telefone" itemValue="telefone"/>
 	                 <f:selectItem itemLabel="Razão Social / Nome" itemValue="nomeRazaoSocial"/>
 	                 <f:selectItem itemLabel="Nome Fantasia" itemValue="nomeFantasia"/>
@@ -82,7 +82,7 @@
 	                  <h6 class="panel-title">Lista / Fornecedores</h6>
 	               </div>
 	             <h:dataTable id="tabelaforn" 
-	             value="#{cadastroFornecedorMB.listFornecedor}" var="fornecedor"
+	             value="#{cadastroFornecedorController.listFornecedor}" var="fornecedor"
 	             styleClass="table" style="font-size:x-small;" >
 	               
 	                <h:column>
@@ -148,17 +148,18 @@
 					 <ul class="dropdown-menu" role="menu">
 							<li>
 							    <h:commandLink styleClass="btn-xs btn-warning" value="Editar"
-                                action="#{cadastroFornecedorMB.irParaEdicaoDeFornecedor()}" >
-                                       <f:setPropertyActionListener target="#{cadastroFornecedorMB.doCadastroMB}"
+                                action="#{cadastroFornecedorController.irParaEdicaoDeFornecedor()}" >
+                                       <f:setPropertyActionListener 
+                                       target="#{cadastroFornecedorController.doCadastroController}"
                                        value="#{fornecedor}" />
                                  </h:commandLink>   
                             </li>
                             
 						    <li>
                                  <h:commandLink value="Remover" styleClass="btn-xs btn-danger"
-                                     action="#{cadastroFornecedorMB.removerFornecedorDoBanco()}" > 
+                                     action="#{cadastroFornecedorController.removerFornecedorDoBanco()}" > 
                                            <f:setPropertyActionListener 
-                                           target="#{cadastroFornecedorMB.doCadastroMB}"
+                                           target="#{cadastroFornecedorController.doCadastroController}"
                                            value="#{fornecedor}" />
                                  </h:commandLink>
                             </li>
@@ -183,27 +184,27 @@
 	       <h:panelGroup id="btnfiltroforn" styleClass="col-lg-4">
 	     
 	         <ul class="pager">
-	             <h5>#{cadastroFornecedorMB.mensagemDeRegistros()}</h5>
+	             <h5>#{cadastroFornecedorController.mensagemDeRegistros()}</h5>
 	             <li>
-                    <h:commandLink action="#{cadastroFornecedorMB.primeiro()}" value="Primeiro" >
+                    <h:commandLink action="#{cadastroFornecedorController.primeiro()}" value="Primeiro" >
                        <f:ajax execute="@form" render="@form" />
                     </h:commandLink>
                  </li>
                  
                  <li>
-                    <h:commandLink action="#{cadastroFornecedorMB.anterior()}" value="Anterior" >
+                    <h:commandLink action="#{cadastroFornecedorController.anterior()}" value="Anterior" >
                        <f:ajax execute="@form" render="@form" />
                     </h:commandLink>
                  </li>        
                  
                  <li>
-                    <h:commandLink action="#{cadastroFornecedorMB.proximo()}" value="Proximo" >
+                    <h:commandLink action="#{cadastroFornecedorController.proximo()}" value="Proximo" >
                         <f:ajax execute="@form" render="@form" />
                     </h:commandLink>
                  </li>
                  
                  <li>
-                    <h:commandLink action="#{cadastroFornecedorMB.ultimo()}" value="Ultimo" >
+                    <h:commandLink action="#{cadastroFornecedorController.ultimo()}" value="Ultimo" >
                        <f:ajax execute="@form" render="@form" />
                     </h:commandLink>
                  </li>

@@ -19,13 +19,13 @@ public class CadastroFornecedorController implements Serializable{
 	@Inject
 	Conversation conversation;
 	
-	private Fornecedor doCadastroMB;
+	private Fornecedor doCadastroController;
 	private DaoFornecedor dao;
 	private String filtroPesquisaForn;
 	private String atributoPesquisaForn;
 	
 	@PostConstruct
-	public void iniciaCadastroFornecedorMB(){
+	public void iniciaCadastroFornecedorController(){
 		conversation.begin();
 		dao = new DaoFornecedor();
 		
@@ -34,6 +34,7 @@ public class CadastroFornecedorController implements Serializable{
 	//METODOS PARA NAVEGAÇÃO DE PÁGINAS
 	
 	public String novoFornecedor(){//METODO PARA IR PARA PÁGINA DO FORM DE CLIENTE
+		doCadastroController = new Fornecedor();
 		return "novoforn";
 	}
 	
@@ -56,20 +57,14 @@ public class CadastroFornecedorController implements Serializable{
 	
 	//METODOS DE PERSISTENCIA
 	
-	public String persistirNovoFornecedor(){//METODO PARA GRAVAR UM NOVO CLIENTE
+	public String persistirFornecedor(){//METODO PARA GRAVAR UM NOVO CLIENTE
 		conversation.end();
-		dao.cadastrarFornecedor(doCadastroMB);
+		dao.persistirFornecedor(doCadastroController);
 		return "listforn?faces-redirect=true";
-	}
-	
-	public String persistirFornecedorExistente(){//METODO PARA ATUALIZAR CLIENTTE DO BANCO
-		conversation.end();
-		dao.editarFornecedor(doCadastroMB);
-		return "listforn?faces-redirect=true";
-	}
+	}	
 	
 	public void removerFornecedorDoBanco(){//METODO PARA REMOVER CLIENTE DO BANCO
-		dao.removerFornecedor(doCadastroMB);
+		dao.removerFornecedor(doCadastroController);
 	}
 	
 	//METODOS PARA PESQUISA E LISTAGEM
@@ -105,15 +100,15 @@ public class CadastroFornecedorController implements Serializable{
 	
 	
 	//METODOS GETTERS E SETTERS
-	public Fornecedor getDoCadastroMB() {
-		if(doCadastroMB == null){
-			doCadastroMB = new Fornecedor();
+	public Fornecedor getDoCadastroController() {
+		if(doCadastroController == null){
+			doCadastroController = new Fornecedor();
 		}
-		return doCadastroMB;
+		return doCadastroController;
 	}
 
-	public void setDoCadastroMB(Fornecedor doCadastroMB) {
-		this.doCadastroMB = doCadastroMB;
+	public void setDoCadastroController(Fornecedor doCadastro) {
+		this.doCadastroController = doCadastro;
 	}
 
 	public String getFiltroPesquisaForn() {

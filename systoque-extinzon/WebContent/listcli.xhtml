@@ -9,11 +9,11 @@
 	     <h:form>
 	     
 	     <div class="btn-group">
-                 <h:commandLink action="#{cadastroClienteMB.novoCliente()}" 
+                 <h:commandLink action="#{cadastroClienteController.novoCliente()}" 
 	              value=" Novo" styleClass="
 	               btn btn-primary glyphicon glyphicon-plus-sign"/>
 	              
-                 <h:commandLink action="#{cadastroClienteMB.voltarParaHome()}" 
+                 <h:commandLink action="#{cadastroClienteController.voltarParaHome()}" 
 	              value=" Menu" 
 	              styleClass=" btn btn-danger glyphicon glyphicon-log-out" >
 	               
@@ -40,7 +40,7 @@
 	             <h6>Pesquisar</h6>
 	             
 	             <h:inputText styleClass="form-control"
-	             value="#{cadastroClienteMB.atributoPesquisaCli}" >
+	             value="#{cadastroClienteController.atributoPesquisaCli}" >
 	                 <f:ajax execute="painelpesquisacli" render="tabelacli btnfiltrocli" event="keyup" />
 	             </h:inputText>
 	         </div>
@@ -49,7 +49,7 @@
 	             <h6>Filtro</h6>
 	             
 	             <h:selectOneMenu styleClass="form-control"
-	             value="#{cadastroClienteMB.filtroPesquisaCli}">
+	             value="#{cadastroClienteController.filtroPesquisaCli}">
 	                 <f:selectItem itemLabel="Telefone" itemValue="telefone"/>
 	                 <f:selectItem itemLabel="Razão Social / Nome" itemValue="nomeRazaoSocial"/>
 	                 <f:selectItem itemLabel="Nome Fantasia" itemValue="nomeFantasia"/>
@@ -81,7 +81,7 @@
 	               </div>
 	           
 	             <h:dataTable id="tabelacli" 
-	             value="#{cadastroClienteMB.listCliente}" var="cliente"
+	             value="#{cadastroClienteController.listCliente}" var="cliente"
 	             styleClass="table" style="font-size:x-small" >
 	               
 	                <h:column>
@@ -147,17 +147,17 @@
 					 <ul class="dropdown-menu" role="menu">
 							<li>
 							    <h:commandLink styleClass="btn btn-warning btn-sm" value="Editar"
-                                action="#{cadastroClienteMB.irParaEdicaoDeCliente}" >
-                                       <f:setPropertyActionListener target="#{cadastroClienteMB.doCadastroMB}"
+                                action="#{cadastroClienteController.irParaEdicaoDeCliente}" >
+                                       <f:setPropertyActionListener target="#{cadastroClienteController.doCadastroMB}"
                                        value="#{cliente}" />
                                  </h:commandLink>   
                             </li>
                             
 						    <li>
                                  <h:commandLink value="Remover" styleClass="btn btn-danger btn-sm"
-                                     action="#{cadastroClienteMB.removerClienteDoBanco()}" > 
+                                     action="#{cadastroClienteController.removerClienteDoBanco()}" > 
                                            <f:setPropertyActionListener 
-                                           target="#{cadastroClienteMB.doCadastroMB}"
+                                           target="#{cadastroClienteController.doCadastroMB}"
                                            value="#{cliente}" />
                                  </h:commandLink>
                             </li>
@@ -182,27 +182,27 @@
 	       <h:panelGroup id="btnfiltrocli" styleClass="col-lg-4">
 	     
 	         <ul class="pager">
-	             <h5>#{cadastroClienteMB.mensagemDeRegistros()}</h5>
+	             <h5>#{cadastroClienteController.mensagemDeRegistros()}</h5>
 	             <li>
-                    <h:commandLink action="#{cadastroClienteMB.primeiro()}" value="Primeiro" >
+                    <h:commandLink action="#{cadastroClienteController.primeiro()}" value="Primeiro" >
                        <f:ajax execute="@form" render="@form" />
                     </h:commandLink>
                  </li>
                  
                  <li>
-                    <h:commandLink action="#{cadastroClienteMB.anterior()}" value="Anterior" >
+                    <h:commandLink action="#{cadastroClienteController.anterior()}" value="Anterior" >
                        <f:ajax execute="@form" render="@form" />
                     </h:commandLink>
                  </li>        
                  
                  <li>
-                    <h:commandLink action="#{cadastroClienteMB.proximo()}" value="Proximo" >
+                    <h:commandLink action="#{cadastroClienteController.proximo()}" value="Proximo" >
                         <f:ajax execute="@form" render="@form" />
                     </h:commandLink>
                  </li>
                  
                  <li>
-                    <h:commandLink action="#{cadastroClienteMB.ultimo()}" value="Ultimo" >
+                    <h:commandLink action="#{cadastroClienteController.ultimo()}" value="Ultimo" >
                        <f:ajax execute="@form" render="@form" />
                     </h:commandLink>
                  </li>

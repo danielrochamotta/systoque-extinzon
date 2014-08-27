@@ -20,7 +20,7 @@ public class CadastroClienteController implements Serializable{
 	@Inject
 	Conversation conversation;
 	
-	private Cliente doCadastroMB;
+	private Cliente doCadastroController;
 	private DaoCliente dao;
 	private String filtroPesquisaCli;
 	private String atributoPesquisaCli;
@@ -35,6 +35,7 @@ public class CadastroClienteController implements Serializable{
 	//METODOS PARA NAVEGAÇÃO DE PÁGINAS
 	
 	public String novoCliente(){//METODO PARA IR PARA PÁGINA DO FORM DE CLIENTE
+		doCadastroController = new Cliente();
 		return "novocli";
 	}
 	
@@ -57,20 +58,15 @@ public class CadastroClienteController implements Serializable{
 	
 	//METODOS DE PERSISTENCIA
 	
-	public String persistirNovoCliente(){//METODO PARA GRAVAR UM NOVO CLIENTE
+	public String persistirCliente(){//METODO PARA GRAVAR UM NOVO CLIENTE
 		conversation.end();
-		dao.cadastrarCliente(doCadastroMB);
+		dao.persistirCliente(doCadastroController);
 		return "listcli?faces-redirect=true";
 	}
 	
-	public String persistirClienteExistente(){//METODO PARA ATUALIZAR CLIENTTE DO BANCO
-		conversation.end();
-		dao.editarCliente(doCadastroMB);
-		return "listcli?faces-redirect=true";
-	}
 	
 	public void removerClienteDoBanco(){//METODO PARA REMOVER CLIENTE DO BANCO
-		dao.removerCliente(doCadastroMB);
+		dao.removerCliente(doCadastroController);
 	}
 	
 	//METODOS PARA PESQUISA E LISTAGEM
@@ -106,15 +102,15 @@ public class CadastroClienteController implements Serializable{
 	
 	
 	//METODOS GETTERS E SETTERS
-	public Cliente getDoCadastroMB() {
-		if(doCadastroMB == null){
-			doCadastroMB = new Cliente();
+	public Cliente getDoCadastroController() {
+		if(doCadastroController == null){
+			doCadastroController = new Cliente();
 		}
-		return doCadastroMB;
+		return doCadastroController;
 	}
 
 	public void setDoCadastroMB(Cliente doCadastroMB) {
-		this.doCadastroMB = doCadastroMB;
+		this.doCadastroController = doCadastroMB;
 	}
 
 	public String getFiltroPesquisaCli() {

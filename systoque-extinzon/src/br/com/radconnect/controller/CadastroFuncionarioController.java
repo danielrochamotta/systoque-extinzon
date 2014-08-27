@@ -5,19 +5,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.swing.text.StyledEditorKit.BoldAction;
-
-import br.com.radconnect.daos.DaoCargo;
-import br.com.radconnect.daos.DaoDependentes;
 import br.com.radconnect.daos.DaoFuncionario;
 import br.com.radconnect.daos.DaoSetor;
 import br.com.radconnect.entityBeans.Cargo;

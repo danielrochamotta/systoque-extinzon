@@ -6,11 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.SimpleFormatter;
-
 import javax.persistence.EntityManager;
-
-import br.com.radconnect.daos.DaoDependentes;
-import br.com.radconnect.daos.DaoFuncionario;
 import br.com.radconnect.entityBeans.Dependente;
 import br.com.radconnect.entityBeans.Funcionario;
 import br.com.radconnect.jpaUtil.EntityManagerUtil;

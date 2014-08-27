@@ -34,7 +34,7 @@
         <div class="col-lg-4">
            <h5>Código do Cliente</h5>
            
-          <h:inputText styleClass="form-control" value="#{cadastroClienteMB.doCadastroMB.codigoCliente}">
+          <h:inputText styleClass="form-control" value="#{cadastroClienteController.doCadastroController.codigoCliente}">
               <f:passThroughAttribute name="type" value="number" />
               <f:passThroughAttribute name="placeholder" value="Ex: 30123" />
           </h:inputText>
@@ -47,7 +47,7 @@
            <h5>Razão Social / Nome</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroClienteMB.doCadastroMB.nomeRazaoSocial}" >
+            value="#{cadastroClienteController.doCadastroController.nomeRazaoSocial}" >
               <f:passThroughAttribute name="placeholder" value="Ex: Daniel ou Comercio de Informática Ltda" />
            </h:inputText>
         </div>
@@ -56,7 +56,7 @@
            <h5>Nome Fantasia</h5>
            
            <h:inputText styleClass="form-control" 
-           value="#{cadastroClienteMB.doCadastroMB.nomeFantasia}" >
+           value="#{cadastroClienteController.doCadastroController.nomeFantasia}" >
                <f:passThroughAttribute name="placeholder" value="Ex: Rocha Motta ou Radconnect Tecnologia" />           
               
            </h:inputText>
@@ -65,7 +65,7 @@
         <div class="col-lg-4">
            <h5>I.E / R.G</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroClienteMB.doCadastroMB.rgInsEstadual}" >
+           <h:inputText styleClass="form-control" value="#{cadastroClienteController.doCadastroController.rgInsEstadual}" >
                 <f:passThroughAttribute name="type" value="number" />
                 <f:passThroughAttribute name="placeholder" value="Ex: 200009989889" /> 
            </h:inputText>
@@ -75,7 +75,7 @@
            <h5>CNPJ / CPF</h5>           
               
            <h:inputText styleClass="form-control"  
-           value="#{cadastroClienteMB.doCadastroMB.cpfCnpj}" >
+           value="#{cadastroClienteController.doCadastroController.cpfCnpj}" >
                <f:passThroughAttribute name="type" value="number" /> 
                <f:passThroughAttribute name="placeholder" value="Ex: 934.321.555-87" />          
               
@@ -86,7 +86,7 @@
            <h5>Telefone Principal</h5>
            
            <h:inputText styleClass="form-control" 
-           value="#{cadastroClienteMB.doCadastroMB.telefone}" >
+           value="#{cadastroClienteController.doCadastroController.telefone}" >
               <f:passThroughAttribute name="placeholder" value="Ex:(85) 3099.3041 - (85)3099.3043" />
            </h:inputText>
         </div>
@@ -96,7 +96,7 @@
         <div class="col-lg-4">
            <h5>Mobile</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroClienteMB.doCadastroMB.celular}" >
+           <h:inputText styleClass="form-control" value="#{cadastroClienteController.doCadastroController.celular}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: (85) 8743.3041" />
            </h:inputText>
            
@@ -106,7 +106,7 @@
            <h5>Email / Contato</h5>
            
            <h:inputText styleClass="form-control" 
-           value="#{cadastroClienteMB.doCadastroMB.emailDoContato}" >
+           value="#{cadastroClienteController.doCadastroController.emailDoContato}" >
                 <f:passThroughAttribute name="type" value="email" />
                 <f:passThroughAttribute name="placeholder" value="Ex: usuario@provedor.com.br" />
            </h:inputText>
@@ -116,7 +116,7 @@
         <div class="col-lg-4">
            <h5>Email / Empresa</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroClienteMB.doCadastroMB.email}" >
+           <h:inputText styleClass="form-control" value="#{cadastroClienteController.doCadastroController.email}" >
               <f:passThroughAttribute name="type" value="email" />
               <f:passThroughAttribute name="placeholder" value="Ex: usuario@dominioempres.com.br" />
            </h:inputText>
@@ -136,7 +136,7 @@
            <h5>Contato</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroClienteMB.doCadastroMB.contato}" >
+            value="#{cadastroClienteController.doCadastroController.contato}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: Eduardo" />
             </h:inputText>
         </div>
@@ -145,7 +145,7 @@
            <h5>Grupo</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroClienteMB.doCadastroMB.grupo}" >
+            value="#{cadastroClienteController.doCadastroController.grupo}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: Escolas Fisk, Postos BR" />
             </h:inputText>
         </div>            
@@ -168,7 +168,7 @@
            <h5>LOGRADOURO</h5>
            
            <h:inputText styleClass="form-control" 
-           value="#{cadastroClienteMB.doCadastroMB.endereco.logradouro}" >
+           value="#{cadastroClienteController.doCadastroController.endereco.logradouro}" >
                <f:passThroughAttribute name="placeholder" value="Ex: Av Dedé Brasil , 797 Apt 404" />
            </h:inputText>
         </div>
@@ -177,7 +177,7 @@
            <h5>Bairro</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroClienteMB.doCadastroMB.endereco.bairro}" >
+            value="#{cadastroClienteController.doCadastroController.endereco.bairro}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: Montese,Parangaba" />
             </h:inputText>
         </div>       
@@ -201,7 +201,7 @@
            <h5>Cep</h5>
            
            <h:inputText styleClass="form-control" 
-           value="#{cadastroClienteMB.doCadastroMB.endereco.cep}" >
+           value="#{cadastroClienteController.doCadastroController.endereco.cep}" >
               <f:passThroughAttribute name="placeholder" value="60420-720" />
            </h:inputText>
         </div>
@@ -210,7 +210,7 @@
            <h5>Complemento</h5>
            
            <h:inputText styleClass="form-control" 
-           value="#{cadastroClienteMB.doCadastroMB.endereco.complemento}" >
+           value="#{cadastroClienteController.doCadastroController.endereco.complemento}" >
                <f:passThroughAttribute name="placeholder" value="Ex: próximo ao posto de gasolina" />
            </h:inputText>
         </div>
@@ -227,7 +227,7 @@
            <h5>Referência Bancária 1</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroClienteMB.doCadastroMB.nomePrimeiraReferenciaBancaria}" >
+            value="#{cadastroClienteController.doCadastroController.nomePrimeiraReferenciaBancaria}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: Banco Bradesco" />
             </h:inputText>
         </div>      
@@ -236,7 +236,7 @@
            <h5>Contato - Telefone</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroClienteMB.doCadastroMB.telefonePrimeiraReferenciaBancaria}" >
+            value="#{cadastroClienteController.doCadastroController.telefonePrimeiraReferenciaBancaria}" >
                  <f:passThroughAttribute name="placeholder" value="Ex:Eduardo - (85) 3239.3443" />
             </h:inputText>
         </div>              
@@ -246,7 +246,7 @@
            <h5>Referência Bancária 2</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroClienteMB.doCadastroMB.nomeSegundaReferenciaBancaria}" >
+            value="#{cadastroClienteController.doCadastroController.nomeSegundaReferenciaBancaria}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: Banco Bradesco" />
             </h:inputText>
         </div>      
@@ -255,7 +255,7 @@
            <h5>Telefone</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroClienteMB.doCadastroMB.telefoneSegundaReferenciaBancaria}" >
+            value="#{cadastroClienteController.doCadastroController.telefoneSegundaReferenciaBancaria}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: Eduardo - (85) 3239.3443" />
             </h:inputText>
         </div>
@@ -264,7 +264,7 @@
            <h5>Referência Bancária 3</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroClienteMB.doCadastroMB.nomeTerceiraReferenciaBancaria}" >
+            value="#{cadastroClienteController.doCadastroController.nomeTerceiraReferenciaBancaria}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: Banco Bradesco" />
             </h:inputText>
         </div>      
@@ -273,7 +273,7 @@
            <h5>Telefone</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroClienteMB.doCadastroMB.telefoneTerceiraReferenciaBancaria}" >
+            value="#{cadastroClienteController.doCadastroController.telefoneTerceiraReferenciaBancaria}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: Eduardo - (85) 3239.3443" />
             </h:inputText>
         </div>
@@ -292,11 +292,11 @@
    <div class="col-lg-3"></div>
    <div class="col-lg-3">
       <h:commandButton styleClass=" form-control btn btn-primary" style="font-size:20px;margin-bottom:20px;"
-      action="#{cadastroClienteMB.persistirClienteExistente()}" value="Atualizar" />
+      action="#{cadastroClienteController.persistirCliente()}" value="Atualizar" />
    </div>
    <div class="col-lg-3">
       <h:commandButton styleClass="form-control btn btn-danger" style="font-size:20px;"
-       action="#{cadastroClienteMB.irParaListagemDeClientes()}" immediate="true" value="Cancelar" />
+       action="#{cadastroClienteController.irParaListagemDeClientes()}" immediate="true" value="Cancelar" />
    </div>
    
    <div class="col-lg-3"></div>

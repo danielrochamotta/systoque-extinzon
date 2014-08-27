@@ -35,7 +35,7 @@
         <div class="col-lg-4">
            <h5>Código do Fornecedor</h5>
            
-          <h:inputText styleClass="form-control" value="#{cadastroFornecedorMB.doCadastroMB.codigo}">
+          <h:inputText styleClass="form-control" value="#{cadastroFornecedorController.doCadastroController.codigo}">
               <f:passThroughAttribute name="type" value="number" />
               <f:passThroughAttribute name="placeholder" value="Ex: 30123" />
           </h:inputText>
@@ -48,7 +48,7 @@
            <h5>Razão Social / Nome</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorMB.doCadastroMB.nomeRazaoSocial}" >
+            value="#{cadastroFornecedorController.doCadastroController.nomeRazaoSocial}" >
               <f:passThroughAttribute name="placeholder" value="Ex: Daniel ou Comercio de Informática Ltda" />
            </h:inputText>
         </div>
@@ -57,7 +57,7 @@
            <h5>Nome Fantasia</h5>
            
            <h:inputText styleClass="form-control" 
-           value="#{cadastroFornecedorMB.doCadastroMB.nomeFantasia}" >
+           value="#{cadastroFornecedorController.doCadastroController.nomeFantasia}" >
                <f:passThroughAttribute name="placeholder" value="Ex: Rocha Motta ou Radconnect Tecnologia" />           
               
            </h:inputText>
@@ -66,7 +66,7 @@
         <div class="col-lg-4">
            <h5>I.E / R.G</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroFornecedorMB.doCadastroMB.rgInsEstadual}" >
+           <h:inputText styleClass="form-control" value="#{cadastroFornecedorController.doCadastroController.rgInsEstadual}" >
                 <f:passThroughAttribute name="type" value="number" />
                 <f:passThroughAttribute name="placeholder" value="Ex: 200009989889" /> 
            </h:inputText>
@@ -76,7 +76,7 @@
            <h5>CNPJ / CPF</h5>           
               
            <h:inputText styleClass="form-control"  
-           value="#{cadastroFornecedorMB.doCadastroMB.cpfCnpj}" >
+           value="#{cadastroFornecedorController.doCadastroController.cpfCnpj}" >
                <f:passThroughAttribute name="type" value="number" /> 
                <f:passThroughAttribute name="placeholder" value="Ex: 934.321.555-87" />          
               
@@ -87,7 +87,7 @@
            <h5>Telefone Principal</h5>
            
            <h:inputText styleClass="form-control" 
-           value="#{cadastroFornecedorMB.doCadastroMB.telefone}" >
+           value="#{cadastroFornecedorController.doCadastroController.telefone}" >
               <f:passThroughAttribute name="placeholder" value="Ex:(85) 3099.3041 - (85)3099.3043" />
            </h:inputText>
         </div>
@@ -97,7 +97,7 @@
         <div class="col-lg-4">
            <h5>Mobile</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroFornecedorMB.doCadastroMB.celular}" >
+           <h:inputText styleClass="form-control" value="#{cadastroFornecedorController.doCadastroController.celular}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: (85) 8743.3041" />
            </h:inputText>
            
@@ -107,7 +107,7 @@
            <h5>Email / Contato</h5>
            
            <h:inputText styleClass="form-control" 
-           value="#{cadastroFornecedorMB.doCadastroMB.emailDoContato}" >
+           value="#{cadastroFornecedorController.doCadastroController.emailDoContato}" >
                 <f:passThroughAttribute name="type" value="email" />
                 <f:passThroughAttribute name="placeholder" value="Ex: usuario@provedor.com.br" />
            </h:inputText>
@@ -117,7 +117,7 @@
         <div class="col-lg-4">
            <h5>Email / Empresa</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroFornecedorMB.doCadastroMB.email}" >
+           <h:inputText styleClass="form-control" value="#{cadastroFornecedorController.doCadastroController.email}" >
               <f:passThroughAttribute name="type" value="email" />
               <f:passThroughAttribute name="placeholder" value="Ex: usuario@dominioempres.com.br" />
            </h:inputText>
@@ -126,7 +126,7 @@
         <div class="col-lg-2">
            <h5>ATIVO</h5>
            
-           <h:selectOneMenu value="#{cadastroFornecedorMB.doCadastroMB.ativo}"
+           <h:selectOneMenu value="#{cadastroFornecedorController.doCadastroController.ativo}"
            styleClass="form-control">
                 <f:selectItem itemLabel="SIM" itemValue="true"/>
                 <f:selectItem itemLabel="NÃo" itemValue="false"/>
@@ -137,7 +137,7 @@
            <h5>Contato</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorMB.doCadastroMB.contato}" >
+            value="#{cadastroFornecedorController.doCadastroController.contato}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: Eduardo" />
             </h:inputText>
         </div>
@@ -146,7 +146,7 @@
            <h5>Grupo</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorMB.doCadastroMB.grupo}" >
+            value="#{cadastroFornecedorController.doCadastroController.grupo}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: Escolas Fisk, Postos BR" />
             </h:inputText>
         </div>            
@@ -169,7 +169,7 @@
            <h5>LOGRADOURO</h5>
            
            <h:inputText styleClass="form-control" 
-           value="#{cadastroFornecedorMB.doCadastroMB.endereco.logradouro}" >
+           value="#{cadastroFornecedorController.doCadastroController.endereco.logradouro}" >
                <f:passThroughAttribute name="placeholder" value="Ex: Av Dedé Brasil , 797 Apt 404" />
            </h:inputText>
         </div>
@@ -178,7 +178,7 @@
            <h5>Bairro</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorMB.doCadastroMB.endereco.bairro}" >
+            value="#{cadastroFornecedorController.doCadastroController.endereco.bairro}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: Montese,Parangaba" />
             </h:inputText>
         </div>       
@@ -202,7 +202,7 @@
            <h5>Cep</h5>
            
            <h:inputText styleClass="form-control" 
-           value="#{cadastroFornecedorMB.doCadastroMB.endereco.cep}" >
+           value="#{cadastroFornecedorController.doCadastroController.endereco.cep}" >
               <f:passThroughAttribute name="placeholder" value="60420-720" />
            </h:inputText>
         </div>
@@ -211,7 +211,7 @@
            <h5>Complemento</h5>
            
            <h:inputText styleClass="form-control" 
-           value="#{cadastroFornecedorMB.doCadastroMB.endereco.complemento}" >
+           value="#{cadastroFornecedorController.doCadastroController.endereco.complemento}" >
                <f:passThroughAttribute name="placeholder" value="Ex: próximo ao posto de gasolina" />
            </h:inputText>
         </div>
@@ -228,7 +228,7 @@
            <h5>1 - BANCO</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorMB.doCadastroMB.bancoNome1}" >
+            value="#{cadastroFornecedorController.doCadastroController.bancoNome1}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: Banco Bradesco" />
             </h:inputText>
         </div>      
@@ -237,7 +237,7 @@
            <h5>1 - Conta com Digíto</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorMB.doCadastroMB.bancoConta1}" >
+            value="#{cadastroFornecedorController.doCadastroController.bancoConta1}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: 190289-2" />
             </h:inputText>
         </div>              
@@ -247,7 +247,7 @@
            <h5>1 - Titular da Conta</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorMB.doCadastroMB.bancoNomeTitular1}" >
+            value="#{cadastroFornecedorController.doCadastroController.bancoNomeTitular1}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: José Maria Silva" />
             </h:inputText>
         </div>      
@@ -256,7 +256,7 @@
            <h5>1 - Cnpj / Cpf do Titular</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorMB.doCadastroMB.bancoCpfTitular1}" >
+            value="#{cadastroFornecedorController.doCadastroController.bancoCpfTitular1}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: 143.443.455-90" />
             </h:inputText>
         </div>
@@ -265,7 +265,7 @@
            <h5>2 - BANCO</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorMB.doCadastroMB.bancoNome2}" >
+            value="#{cadastroFornecedorController.doCadastroController.bancoNome2}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: Banco Bradesco" />
             </h:inputText>
         </div>      
@@ -274,7 +274,7 @@
            <h5>2 - Conta com Digíto</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorMB.doCadastroMB.bancoConta2}" >
+            value="#{cadastroFornecedorController.doCadastroController.bancoConta2}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: 190289-2" />
             </h:inputText>
         </div>              
@@ -284,7 +284,7 @@
            <h5>2 - Titular da Conta</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorMB.doCadastroMB.bancoNomeTitular2}" >
+            value="#{cadastroFornecedorController.doCadastroController.bancoNomeTitular2}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: José Maria Silva" />
             </h:inputText>
         </div>      
@@ -293,7 +293,7 @@
            <h5>2 - Cnpj / Cpf do Titular</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorMB.doCadastroMB.bancoCpfTitular2}" >
+            value="#{cadastroFornecedorController.doCadastroController.bancoCpfTitular2}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: 143.443.455-90" />
             </h:inputText>
         </div>
@@ -302,7 +302,7 @@
            <h5>3 - BANCO</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorMB.doCadastroMB.bancoNome3}" >
+            value="#{cadastroFornecedorController.doCadastroController.bancoNome3}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: Banco Bradesco" />
             </h:inputText>
         </div>      
@@ -311,7 +311,7 @@
            <h5>3 - Conta com Digíto</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorMB.doCadastroMB.bancoConta3}" >
+            value="#{cadastroFornecedorController.doCadastroController.bancoConta3}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: 190289-2" />
             </h:inputText>
         </div>              
@@ -321,7 +321,7 @@
            <h5>3 - Titular da Conta</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorMB.doCadastroMB.bancoNomeTitular3}" >
+            value="#{cadastroFornecedorController.doCadastroController.bancoNomeTitular3}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: José Maria Silva" />
             </h:inputText>
         </div>      
@@ -330,7 +330,7 @@
            <h5>3 - Cnpj / Cpf do Titular</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorMB.doCadastroMB.bancoCpfTitular3}" >
+            value="#{cadastroFornecedorController.doCadastroController.bancoCpfTitular3}" >
                  <f:passThroughAttribute name="placeholder" value="Ex: 143.443.455-90" />
             </h:inputText>
         </div>
@@ -350,11 +350,11 @@
    <div class="col-lg-3"></div>
    <div class="col-lg-3">
       <h:commandButton styleClass=" form-control btn btn-success" style="font-size:20px;margin-bottom:20px;"
-      action="#{cadastroFornecedorMB.persistirNovoFornecedor()}" value="Cadastrar" />
+      action="#{cadastroFornecedorController.persistirFornecedor()}" value="Cadastrar" />
    </div>
    <div class="col-lg-3">
       <h:commandButton styleClass="form-control btn btn-danger" style="font-size:20px;"
-       action="#{cadastroFornecedorMB.irParaListagemDeFornecedor()}" immediate="true" value="Cancelar" />
+       action="#{cadastroFornecedorController.irParaListagemDeFornecedor()}" immediate="true" value="Cancelar" />
    </div>
    
    <div class="col-lg-3"></div>
