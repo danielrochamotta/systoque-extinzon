@@ -1,7 +1,6 @@
 package br.com.radconnect.controller;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -76,9 +75,9 @@ public class CadastroFuncionarioController implements Serializable {
 		
 	}//FIM DO CONSTRUTOR
 	
-	public String cadastrarFuncionario(){//INICIO DE PERSISTENCIA DO FUNCIONARIO
+	public String persistirFuncionario(){//INICIO DE PERSISTENCIA DO FUNCIONARIO
 		conversation.end();
-		dao.cadastrarFuncionario(funcionario);
+		dao.persistirFuncionario(funcionario);
 		return "listfunc?faces-redirect=true";
 	
 	}//FIM DO METODO DE PERSISTENCIA DO FUNCIONARIO

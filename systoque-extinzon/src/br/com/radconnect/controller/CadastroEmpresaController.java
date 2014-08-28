@@ -56,7 +56,7 @@ public class CadastroEmpresaController implements Serializable {
 	}
 	public String editSetor(){
 		
-		return "formeditsetor?faces-redirect=true";
+		return "editsetor?faces-redirect=true";
 	}
 	public void removerSetor(){
 		daoSetor.removerSetor(setor);

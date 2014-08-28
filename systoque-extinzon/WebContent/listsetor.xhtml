@@ -11,7 +11,7 @@
 	           <div class="col-lg-4"></div>
 	           
 	           <div class="col-lg-4">
-	             <h:dataTable value="#{cadastroEmpresaMB.listarSetor}" var="setor"
+	             <h:dataTable value="#{cadastroEmpresaController.listarSetor}" var="setor"
 	             styleClass="table">
 	               
 	                <h:column>
@@ -32,14 +32,14 @@
              
              
              <h:commandLink styleClass="btn btn-warning btn-sm" value="Editar"
-              action="#{cadastroEmpresaMB.editSetor()}" >
-                <f:setPropertyActionListener target="#{cadastroEmpresaMB.setor}"
+              action="#{cadastroEmpresaController.editSetor()}" >
+                <f:setPropertyActionListener target="#{cadastroEmpresaController.setor}"
                  value="#{setor}" />
              </h:commandLink>
              
              <h:commandLink value="Remover" styleClass="btn btn-danger btn-sm"
-             action="#{cadastroEmpresaMB.removerSetor()}" > 
-                <f:setPropertyActionListener target="#{cadastroEmpresaMB.setor}"
+             action="#{cadastroEmpresaController.removerSetor()}" > 
+                <f:setPropertyActionListener target="#{cadastroEmpresaController.setor}"
                  value="#{setor}" />
              </h:commandLink>
              
@@ -61,7 +61,7 @@
 	     <div class="col-lg-3"></div>
 	     
 	     <div class="col-lg-3">
-	        <h:commandButton value="Adiconar Novo" action="#{cadastroEmpresaMB.novoSetor()}"
+	        <h:commandButton value="Adiconar Novo" action="#{cadastroEmpresaController.novoSetor()}"
 	        styleClass="form-control btn btn-primary" />
 	     </div>
 	      

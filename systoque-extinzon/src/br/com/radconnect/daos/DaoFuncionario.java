@@ -21,13 +21,17 @@ public class DaoFuncionario implements IFuncionario {
 	}
 
 	@Override
-	public void cadastrarFuncionario(Funcionario funcionario) {
+	public void persistirFuncionario(Funcionario funcionario) {
 		
 		try{
 			em.getTransaction().begin();
-			em.persist(funcionario);
-			em.getTransaction().commit();
+			if(funcionario.getId() == null){
+				em.persist(funcionario);
+			}else{
+				em.merge(funcionario);
+			}
 			
+			em.getTransaction().commit();			
 			
 		}catch(Exception e){
 			if(em.getTransaction().isActive() == false){

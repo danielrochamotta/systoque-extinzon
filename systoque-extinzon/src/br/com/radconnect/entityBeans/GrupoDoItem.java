@@ -100,6 +100,5 @@ public class GrupoDoItem implements Serializable{
 		this.listSubGrupo = listSubGrupo;
 	}
 	
-	
 
 }

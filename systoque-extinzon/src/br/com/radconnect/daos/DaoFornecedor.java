@@ -1,12 +1,8 @@
 package br.com.radconnect.daos;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
-
-
 import br.com.radconnect.daos.interfaces.IFornecedor;
-import br.com.radconnect.entityBeans.Cliente;
 import br.com.radconnect.entityBeans.Fornecedor;
 import br.com.radconnect.jpaUtil.EntityManagerUtil;
 

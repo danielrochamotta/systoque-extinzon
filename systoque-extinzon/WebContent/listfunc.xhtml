@@ -9,11 +9,11 @@
 	     <h:form>
 	     
 	       <div class="btn-group">
-                 <h:commandLink action="#{cadastroFuncionarioMB.paginaNovo()}" 
+                 <h:commandLink action="#{cadastroFuncionarioController.paginaNovo()}" 
 	              value=" Novo" styleClass="
 	               btn btn-primary glyphicon glyphicon-plus-sign"/>
 	              
-                 <h:commandLink action="#{cadastroFuncionarioMB.paginaHome()}" 
+                 <h:commandLink action="#{cadastroFuncionarioController.paginaHome()}" 
 	              value=" Menu" 
 	              styleClass=" btn btn-danger glyphicon glyphicon-log-out" >
 	               
@@ -40,7 +40,7 @@
 	             <h6>Pesquisar</h6>
 	             
 	             <h:inputText styleClass="form-control"
-	             value="#{cadastroFuncionarioMB.atributoDePesquisa}" >
+	             value="#{cadastroFuncionarioController.atributoDePesquisa}" >
 	                 <f:ajax execute="painelpesquisa" render="tabelafuncionario btnfiltro" event="keyup" />
 	             </h:inputText>
 	         </div>
@@ -49,11 +49,12 @@
 	             <h6>Filtro</h6>
 	             
 	             <h:selectOneMenu styleClass="form-control"
-	             value="#{cadastroFuncionarioMB.filtroPesqFuncionario}">
+	             value="#{cadastroFuncionarioController.filtroPesqFuncionario}">
 	                 <f:selectItem itemLabel="R.G" itemValue="rgNumero"/>
 	                 <f:selectItem itemLabel="C.P.F" itemValue="cpf"/>
 	                 <f:selectItem itemLabel="Nome" itemValue="nome"/>
 	                 <f:selectItem itemLabel="Telefone" itemValue="telefone"/>
+	                  <f:selectItem itemLabel="Matricula" itemValue="matricula"/>
 	                 <f:ajax execute="@form" render="@form" />
 	             </h:selectOneMenu>
 	         </div>
@@ -63,7 +64,7 @@
 	             
 	             <h:commandLink value=" Imprimir Todos"
 	             styleClass="form-control btn btn-default glyphicon glyphicon-print" 
-	             action="#{cadastroFuncionarioMB.imprimirTodos()}" target="_blanck">
+	             action="#{cadastroFuncionarioController.imprimirTodos()}" target="_blanck">
 	                 
              </h:commandLink>
 	         </div>
@@ -78,14 +79,14 @@
 	                   <h6 class="panel-title">Lista / Funcionários</h6>
 	               </div>
 	             <h:dataTable id="tabelafuncionario" 
-	             value="#{cadastroFuncionarioMB.listagemFuncinario()}" var="funcionario"
+	             value="#{cadastroFuncionarioController.listagemFuncinario()}" var="funcionario"
 	             styleClass="table" style="font-size:x-small;" >
 	               
 	                <h:column>
                       <f:facet name="header">
                          <h:outputText style="font-size:x-small;" value="Matricula" />
                       </f:facet>
-          #{funcionario.matricula}
+          #{funcionario.matricula}       
       </h:column>
     
       <h:column>
@@ -137,25 +138,28 @@
 					 <ul class="dropdown-menu" role="menu">
 							<li>
 							    <h:commandLink styleClass="btn-xs btn-warning" value="Editar"
-                                action="#{cadastroFuncionarioMB.paginaEditar()}" >
-                                       <f:setPropertyActionListener target="#{cadastroFuncionarioMB.funcionario}"
+                                action="#{cadastroFuncionarioController.paginaEditar()}" >
+                                       <f:setPropertyActionListener 
+                                       target="#{cadastroFuncionarioController.funcionario}"
                                        value="#{funcionario}" />
                                  </h:commandLink>   
                             </li>
                             
 						    <li>
                                  <h:commandLink value="Remover" styleClass="btn-xs btn-danger"
-                                     action="#{cadastroFuncionarioMB.removerFuncionario()}" > 
+                                     action="#{cadastroFuncionarioController.removerFuncionario()}" > 
                                            <f:setPropertyActionListener 
-                                           target="#{cadastroFuncionarioMB.funcionario}"
+                                           target="#{cadastroFuncionarioController.funcionario}"
                                            value="#{funcionario}" />
                                  </h:commandLink>
                             </li>
                             
 						    <li>
 						         <h:commandLink value="Detalhes" styleClass="btn-xs btn-info" 
-             						action="#{cadastroFuncionarioMB.detalhesFuncionario()}" target="_blank">
-             							<f:setPropertyActionListener target="#{cadastroFuncionarioMB.funcionario}"
+             						
+             						action="#{cadastroFuncionarioController.detalhesFuncionario()}" target="_blank">
+             							<f:setPropertyActionListener 
+             							target="#{cadastroFuncionarioController.funcionario}"
                  						value="#{funcionario}"/>
              					</h:commandLink>
 						    </li>
@@ -172,27 +176,27 @@
 	       <h:panelGroup id="btnfiltro" styleClass="col-lg-4">
 	     
 	         <ul class="pager">
-	             <h5>#{cadastroFuncionarioMB.mensagemDeRegistros()}</h5>
+	             <h5>#{cadastroFuncionarioController.mensagemDeRegistros()}</h5>
 	             <li>
-                    <h:commandLink action="#{cadastroFuncionarioMB.primeiro()}" value="Primeiro" >
+                    <h:commandLink action="#{cadastroFuncionarioController.primeiro()}" value="Primeiro" >
                        <f:ajax execute="@form" render="@form" />
                     </h:commandLink>
                  </li>
                  
                  <li>
-                    <h:commandLink action="#{cadastroFuncionarioMB.anterior()}" value="Anterior" >
+                    <h:commandLink action="#{cadastroFuncionarioController.anterior()}" value="Anterior" >
                        <f:ajax execute="@form" render="@form" />
                     </h:commandLink>
                  </li>        
                  
                  <li>
-                    <h:commandLink action="#{cadastroFuncionarioMB.proximo()}" value="Proximo" >
+                    <h:commandLink action="#{cadastroFuncionarioController.proximo()}" value="Proximo" >
                         <f:ajax execute="@form" render="@form" />
                     </h:commandLink>
                  </li>
                  
                  <li>
-                    <h:commandLink action="#{cadastroFuncionarioMB.ultimo()}" value="Ultimo" >
+                    <h:commandLink action="#{cadastroFuncionarioController.ultimo()}" value="Ultimo" >
                        <f:ajax execute="@form" render="@form" />
                     </h:commandLink>
                  </li>

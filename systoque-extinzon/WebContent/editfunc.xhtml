@@ -45,7 +45,7 @@
         <div class="col-lg-4">
            <h5>Número da Matricula</h5>
            
-          <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.matricula}">
+          <h:inputText styleClass="form-control" value="#{cadastroFuncionarioController.funcionario.matricula}">
               <f:passThroughAttribute name="type" value="number" />
           </h:inputText>
                      
@@ -56,13 +56,14 @@
         <div class="col-lg-4">
            <h5>Nome Completo</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.nome}" />
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioController.funcionario.nome}" />
         </div>
         
         <div class="col-lg-4">
            <h5>Número RG</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.rgNumero}" >
+           <h:inputText styleClass="form-control" 
+           value="#{cadastroFuncionarioController.funcionario.rgNumero}" >
               <f:passThroughAttribute name="type" value="number" />
            </h:inputText>
         </div>
@@ -71,7 +72,7 @@
            <h5>Data Emissão RG</h5>
            
            <h:inputText styleClass="form-control" converter="converterData" required="false"
-           value="#{cadastroFuncionarioMB.funcionario.rgDataEmissao}" >
+           value="#{cadastroFuncionarioController.funcionario.rgDataEmissao}" >
                <f:passThroughAttribute name="placeholder" value="dd/mm/aaaa Ex: 30/02/2014" />           
               
            </h:inputText>
@@ -80,14 +81,15 @@
         <div class="col-lg-4">
            <h5>Orgão Emissor  RG</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.rgOrgaoEmissor}" />
+           <h:inputText styleClass="form-control" 
+           value="#{cadastroFuncionarioController.funcionario.rgOrgaoEmissor}" />
         </div>
         
          <div class="col-lg-4">
            <h5>Data De Nascimento</h5>           
               
            <h:inputText styleClass="form-control" converter="converterCalendar" requiredMessage="Formato Inválido"
-           value="#{cadastroFuncionarioMB.funcionario.dataNascimento}" >
+           value="#{cadastroFuncionarioController.funcionario.dataNascimento}" >
                <f:passThroughAttribute name="placeholder" value="dd/mm/aaaa Ex: 30/02/2014" />           
               
            </h:inputText>
@@ -97,7 +99,7 @@
            <h5>Número Habilitação</h5>
            
            <h:inputText styleClass="form-control" 
-           value="#{cadastroFuncionarioMB.funcionario.numeroHabilitacao}" >
+           value="#{cadastroFuncionarioController.funcionario.numeroHabilitacao}" >
               <f:passThroughAttribute name="type" value="number" />
            </h:inputText>
         </div>
@@ -107,20 +109,20 @@
         <div class="col-lg-4">
            <h5>Nome Do Pai</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.nomePai}" />
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioController.funcionario.nomePai}" />
         </div>
         
         <div class="col-lg-4">
            <h5>Nome Da Mãe</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.nomeMae}" />
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioController.funcionario.nomeMae}" />
         </div>   
         
         
         <div class="col-lg-4">
            <h5>Número CPF</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.cpf}" >
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioController.funcionario.cpf}" >
               <f:passThroughAttribute name="type" value="number" />
            </h:inputText>
         </div>
@@ -128,7 +130,7 @@
         <div class="col-lg-4">
            <h5>Telefone-Fixo</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.telefone}" >
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioController.funcionario.telefone}" >
               <f:passThroughAttribute name="type" value="number" />
            </h:inputText>
         </div>
@@ -136,7 +138,8 @@
         <div class="col-lg-4">
            <h5>Telefone-Mobile</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.celular}" >
+           <h:inputText styleClass="form-control" 
+           value="#{cadastroFuncionarioController.funcionario.celular}" >
               <f:passThroughAttribute name="type" value="number" />
            </h:inputText>
         </div>
@@ -144,7 +147,7 @@
         <div class="col-lg-4">
            <h5>Email</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.email}" >
+           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioController.funcionario.email}" >
               <f:passThroughAttribute name="type" value="email" />
            </h:inputText>
         </div>
@@ -152,7 +155,7 @@
         <div class="col-lg-4">
            <h5>Grau de Instrução</h5>
            
-           <h:inputText value="#{cadastroFuncionarioMB.funcionario.grauInstrucao}" 
+           <h:inputText value="#{cadastroFuncionarioController.funcionario.grauInstrucao}" 
            styleClass="form-control"/>
         </div>
         
@@ -160,12 +163,12 @@
            <h5>Naturalidade</h5>
            
            <h:panelGrid columns="2" >
-               <h:selectOneMenu value="#{cadastroFuncionarioMB.funcionario.ufNaturalidade}"
+               <h:selectOneMenu value="#{cadastroFuncionarioController.funcionario.ufNaturalidade}"
                 styleClass="form-control" >
                    <f:selectItem itemLabel="UF" itemValue="UF"/>
                </h:selectOneMenu>
            
-               <h:selectOneMenu value="#{cadastroFuncionarioMB.funcionario.naturalidade}" 
+               <h:selectOneMenu value="#{cadastroFuncionarioController.funcionario.naturalidade}" 
                styleClass="form-control" >
                    <f:selectItem 
                    itemLabel=
@@ -178,13 +181,14 @@
          <div class="col-lg-5">
              <h5>Raça / Cor</h5>
              
-             <h:inputText value="#{cadastroFuncionarioMB.funcionario.raca}" styleClass="form-control" />
+             <h:inputText value="#{cadastroFuncionarioController.funcionario.raca}" 
+             styleClass="form-control" />
         </div>      
         
         <div class="col-lg-2">
            <h5>Sexo</h5>
            
-           <h:selectOneMenu value="#{cadastroFuncionarioMB.funcionario.sexo}"
+           <h:selectOneMenu value="#{cadastroFuncionarioController.funcionario.sexo}"
            styleClass="form-control">
                 <f:selectItem itemLabel="Masculino" itemValue="true"/>
                 <f:selectItem itemLabel="Feminino" itemValue="false"/>
@@ -194,7 +198,7 @@
         <div class="col-lg-2">
            <h5>Estado Civil</h5>
            
-           <h:selectOneMenu value="#{cadastroFuncionarioMB.funcionario.estadoCivil}"
+           <h:selectOneMenu value="#{cadastroFuncionarioController.funcionario.estadoCivil}"
            styleClass="form-control">
                 <f:selectItem itemLabel="Solteiro" itemValue="Solteiro"/>
                 <f:selectItem itemLabel="Casado" itemValue="Casado"/>
@@ -206,14 +210,10 @@
         <div class="col-lg-3">
             <h5>Nacionalidade</h5>
             
-            <h:inputText value="#{cadastroFuncionarioMB.funcionario.nacionalidade}" styleClass="form-control" />
-       </div>
-        
-        
-       
-        
-        
-               
+            <h:inputText 
+            value="#{cadastroFuncionarioController.funcionario.nacionalidade}" 
+            styleClass="form-control" />
+       </div>              
        
     </div><!-- Fim da div class row -->
         
@@ -232,14 +232,14 @@
            <h5>LOGRADOURO (Ex: Rua A, 12)</h5>
            
            <h:inputText styleClass="form-control" 
-           value="#{cadastroFuncionarioMB.funcionario.funcEndereco.logradouro}" />
+           value="#{cadastroFuncionarioController.funcionario.funcEndereco.logradouro}" />
         </div>
         
         <div class="col-lg-4">
            <h5>Bairro</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroFuncionarioMB.funcionario.funcEndereco.bairro}" />
+            value="#{cadastroFuncionarioController.funcionario.funcEndereco.bairro}" />
         </div>
         
         <div class="col-lg-2">
@@ -260,7 +260,7 @@
            <h5>Cep</h5>
            
            <h:inputText styleClass="form-control" 
-           value="#{cadastroFuncionarioMB.funcionario.funcEndereco.cep}" >
+           value="#{cadastroFuncionarioController.funcionario.funcEndereco.cep}" >
               <f:passThroughAttribute name="type" value="number" />
            </h:inputText>
         </div>
@@ -281,7 +281,7 @@
            <h5>Data Chegada Imigração</h5>
            
           <h:inputText styleClass="form-control" converter="converterData"
-          value="#{cadastroFuncionarioMB.funcionario.imigracaoDataChegada}" >
+          value="#{cadastroFuncionarioController.funcionario.imigracaoDataChegada}" >
                <f:passThroughAttribute name="placeholder" value="dd/mm/aaaa Ex: 30/02/2014" /> 
              
            </h:inputText>
@@ -292,7 +292,7 @@
            <h5>Tipo Imigração</h5>
            
            <h:inputText styleClass="form-control" 
-           value="#{cadastroFuncionarioMB.funcionario.imigracaoTipoVisto}" />
+           value="#{cadastroFuncionarioController.funcionario.imigracaoTipoVisto}" />
         </div>   
         
         
@@ -300,7 +300,7 @@
            <h5>Validade RG Imigração</h5>
            
            <h:inputText styleClass="form-control" converter="converterData" 
-            value="#{cadastroFuncionarioMB.funcionario.imigracaoRgValidade}" >
+            value="#{cadastroFuncionarioController.funcionario.imigracaoRgValidade}" >
                <f:passThroughAttribute name="placeholder" value="dd/mm/aaaa Ex: 30/02/2014" />              
            </h:inputText>
         </div>
@@ -309,7 +309,7 @@
            <h5>Validade CTPS Imigração</h5>
            
            <h:inputText styleClass="form-control" converter="converterData" 
-           value="#{cadastroFuncionarioMB.funcionario.imigracaoCtpsValidade}" >
+           value="#{cadastroFuncionarioController.funcionario.imigracaoCtpsValidade}" >
                  <f:passThroughAttribute name="placeholder" value="dd/mm/aaaa Ex: 30/02/2014" /> 
            </h:inputText>
         </div>
@@ -317,7 +317,8 @@
        <div class="col-lg-4">
            <h5>Número CTPS</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.ctpsNumero}" >
+           <h:inputText styleClass="form-control" 
+           value="#{cadastroFuncionarioController.funcionario.ctpsNumero}" >
               <f:passThroughAttribute name="type" value="number" />
            </h:inputText>
         </div>
@@ -326,7 +327,7 @@
            <h5>Data De Emissão CTPS</h5>
            
            <h:inputText styleClass="form-control" converter="converterData" 
-           value="#{cadastroFuncionarioMB.funcionario.ctpsDataEmissao}" >
+           value="#{cadastroFuncionarioController.funcionario.ctpsDataEmissao}" >
                <f:passThroughAttribute name="placeholder" value="dd/mm/aaaa Ex: 30/02/2014" /> 
              
            </h:inputText>
@@ -335,13 +336,15 @@
         <div class="col-lg-4">
            <h5>Série CTPS</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.ctpsSerie}" />
+           <h:inputText styleClass="form-control" 
+           value="#{cadastroFuncionarioController.funcionario.ctpsSerie}" />
         </div>
         
         <div class="col-lg-4">
            <h5>DV CTPS</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.ctpsDV}" />
+           <h:inputText styleClass="form-control" 
+           value="#{cadastroFuncionarioController.funcionario.ctpsDV}" />
         </div>
         
         
@@ -349,31 +352,36 @@
         <div class="col-lg-4">
            <h5>Série Cert. Militar</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.certMilitarSerie}" />
+           <h:inputText styleClass="form-control" 
+           value="#{cadastroFuncionarioController.funcionario.certMilitarSerie}" />
         </div>
         
         <div class="col-lg-4">
            <h5>Tipo Cert. Militar</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.certMilitarTipo}" />
+           <h:inputText styleClass="form-control" 
+           value="#{cadastroFuncionarioController.funcionario.certMilitarTipo}" />
         </div>
         
         <div class="col-lg-4">
            <h5>Categoria Cert. Militar</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.certMilitarCategoria}" />
+           <h:inputText styleClass="form-control" 
+           value="#{cadastroFuncionarioController.funcionario.certMilitarCategoria}" />
         </div>
         
         <div class="col-lg-4">
            <h5>CSM/OAM Cert. Militar</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.certMilitarCsmOam}" />
+           <h:inputText styleClass="form-control" 
+           value="#{cadastroFuncionarioController.funcionario.certMilitarCsmOam}" />
         </div>
         
         <div class="col-lg-4">
            <h5>RM/DN/COMAR Cert. Militar</h5>
            
-           <h:inputText styleClass="form-control" value="#{cadastroFuncionarioMB.funcionario.certMilitarRmDnComar}" />
+           <h:inputText styleClass="form-control" 
+           value="#{cadastroFuncionarioController.funcionario.certMilitarRmDnComar}" />
         </div>
         
        
@@ -382,7 +390,7 @@
            <h5>Número PIS/PASEP</h5>
            
            <h:inputText styleClass="form-control" 
-           value="#{cadastroFuncionarioMB.funcionario.numeroPisPasep}" >
+           value="#{cadastroFuncionarioController.funcionario.numeroPisPasep}" >
                <f:passThroughAttribute name="type" value="number" />
            </h:inputText>
         </div>
@@ -400,7 +408,7 @@
            <h5>Data Admissão</h5>
            
            <h:inputText styleClass="form-control" converter="converterData" required="false"
-           value="#{cadastroFuncionarioMB.funcionario.dataAdmissao}" >
+           value="#{cadastroFuncionarioController.funcionario.dataAdmissao}" >
                <f:passThroughAttribute name="placeholder" value="dd/mm/aaaa Ex: 30/02/2014" /> 
              
            </h:inputText>
@@ -410,28 +418,29 @@
            <h5>Horário de Trabalho</h5>
            
            <h:inputText styleClass="form-control"
-            value="#{cadastroFuncionarioMB.funcionario.horarioTrabalhoFuncionario}" />
+            value="#{cadastroFuncionarioController.funcionario.horarioTrabalhoFuncionario}" />
         </div>
         
         <div class="col-lg-2">
            <h5>Part CIPA</h5>
            
            <h:selectOneMenu styleClass="form-control"
-           value="#{cadastroFuncionarioMB.funcionario.participacaoCipa}">
+           value="#{cadastroFuncionarioController.funcionario.participacaoCipa}">
                <f:selectItem itemLabel="Sim" itemValue="true"/>
                <f:selectItem itemLabel="Não" itemValue="false"/>
            </h:selectOneMenu>
         </div>
         
         <div class="col-lg-3">
-	                   <h5>Setor</h5>
+	                    <h5>Setor</h5>
 	                   
 	                    <h:selectOneMenu converter="ConverterSetor" styleClass="form-control"
 	                     
-	                     value="#{cadastroFuncionarioMB.doSelecOneMenuDaTabDocEmpresa}">
-	                      <f:selectItem itemLabel="#{cadastroFuncionarioMB.funcionario.cargo.setor}"
-	                          noSelectionOption="false" itemValue="#{cadastroFuncionarioMB.funcionario.cargo.setor}"/>
-	                      <f:selectItems value="#{cadastroFuncionarioMB.daoSetor.listSetor()}"/>
+	                     value="#{cadastroFuncionarioController.doSelecOneMenuDaTabDocEmpresa}">
+	                      <f:selectItem itemLabel="#{cadastroFuncionarioController.funcionario.cargo.setor}"
+	                          noSelectionOption="false" 
+	                          itemValue="#{cadastroFuncionarioController.funcionario.cargo.setor}"/>
+	                      <f:selectItems value="#{cadastroFuncionarioController.daoSetor.listSetor()}"/>
 	                      <f:ajax event="change" render="cargodoce"/>
 	                    </h:selectOneMenu>
 	                </div>
@@ -441,12 +450,14 @@
 	                   
 	                    <h:selectOneMenu converter="ConverterCargo" id="cargodoce"  styleClass="form-control"
 	                     
-	                     value="#{cadastroFuncionarioMB.funcionario.cargo}">
-	                      <f:selectItem itemLabel="#{cadastroFuncionarioMB.funcionario.cargo}"
-	                        noSelectionOption="false" itemValue="#{cadastroFuncionarioMB.funcionario.cargo}"/>
+	                     value="#{cadastroFuncionarioController.funcionario.cargo}">
+	                      <f:selectItem itemLabel="#{cadastroFuncionarioController.funcionario.cargo}"
+	                        noSelectionOption="false" 
+	                        itemValue="#{cadastroFuncionarioController.funcionario.cargo}"/>
 	                      <f:selectItems 
-	                      value="#{cadastroFuncionarioMB.doSelecOneMenuDaTabDocEmpresa.listCargo}" />
+	                      value="#{cadastroFuncionarioController.doSelecOneMenuDaTabDocEmpresa.listCargo}" />
 	                    </h:selectOneMenu>
+	                
 	                    
 	                </div> 
         
@@ -461,13 +472,13 @@
 					  <div class="row">					    
 						         
 						    <h:panelGroup id="formdep" 
-						    rendered="#{cadastroFuncionarioMB.addDependente == true}"
+						    rendered="#{cadastroFuncionarioController.addDependente == true}"
 						    styleClass="col-lg-12" >
 						   
 							      <div class="col-lg-4">
 								     <h5>Nome</h5>
 
-								<h:inputText value="#{cadastroFuncionarioMB.doFuncionario.nome}"
+								<h:inputText value="#{cadastroFuncionarioController.doFuncionario.nome}"
 									styleClass="form-control" />
 							</div>
 
@@ -481,7 +492,7 @@
 								<h5>Parentesco</h5>
 
 								<h:inputText
-									value="#{cadastroFuncionarioMB.doFuncionario.parentesco}"
+									value="#{cadastroFuncionarioController.doFuncionario.parentesco}"
 									styleClass="form-control">
 
 								</h:inputText>
@@ -491,7 +502,7 @@
 							    <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>							
 
 								<h:commandButton
-									action="#{cadastroFuncionarioMB.addDepenteDoNovoFuncionario()}"
+									action="#{cadastroFuncionarioController.addDepenteDoNovoFuncionario()}"
 									value="Adicionar" styleClass="form-control btn btn-success">
 
 							<f:ajax execute="formdep" render="paineldep paineltabdep" />
@@ -504,7 +515,7 @@
 					<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 							
 							   <h:commandButton
-									action="#{cadastroFuncionarioMB.desativaFormDependente()}"
+									action="#{cadastroFuncionarioController.desativaFormDependente()}"
 									value="Cancelar" styleClass="form-control btn btn-danger"
 									immediate="true">
 								<f:ajax execute="@this" render="paineldep" />
@@ -518,9 +529,11 @@
 					<div class="col-lg-5"></div>
 							
 						<div class="col-lg-2">
-							<h:panelGroup id="botaoadddep" rendered="#{cadastroFuncionarioMB.addDependente == false}">
+							<h:panelGroup id="botaoadddep" 
+							rendered="#{cadastroFuncionarioController.addDependente == false}">
 							   <h:commandButton styleClass="form-control btn btn-primary"
-							   action="#{cadastroFuncionarioMB.ativaFormDependente()}" style="margin-top:30px;" id="btn"		                        
+							   action="#{cadastroFuncionarioController.ativaFormDependente()}" 
+							   style="margin-top:30px;" id="btn"		                        
 			                         value="Novo Dependente" >
 			                 
 			                  <f:ajax execute="@this" render="paineldep paineltabdep" />
@@ -539,7 +552,7 @@
 					       <div class="col-lg-3"></div>
 							
 							<div class="col-lg-6" style="margin-top: 20px;">
-							    <h:dataTable  value="#{cadastroFuncionarioMB.funcionario.listDependente}"
+							    <h:dataTable  value="#{cadastroFuncionarioController.funcionario.listDependente}"
 			            var="dependente" styleClass="table">		               
 			            
 			               <h:column>
@@ -563,7 +576,7 @@
 			                 styleClass="form-control btn btn-danger small"  >            
 			                     <f:ajax execute="@this" render=":form:paineldep"
 			                      listener=
-			                      "#{cadastroFuncionarioMB.removeDependenteDoNovoFuncionario(dependente)}" />
+			                      "#{cadastroFuncionarioController.removeDependenteDoNovoFuncionario(dependente)}" />
 			                 </h:commandButton>
 			               </h:column>
 			            </h:dataTable>
@@ -581,13 +594,15 @@
 	     <div class="row">
 	        <h:panelGroup id="painelprincipalhist" ><!-- PAINEL PRINCIPAL -->
 	         
-	            <h:panelGroup id="formhistcargos" rendered="#{cadastroFuncionarioMB.addHistCargos == true}"><!-- PAINEL DO FORM DO HISTORICO -->
+	            <h:panelGroup id="formhistcargos" 
+	            rendered="#{cadastroFuncionarioController.addHistCargos == true}">
+	            <!-- PAINEL DO FORM DO HISTORICO -->
 	                
 	                
 	                <div class="col-lg-2">
 	                   <h5>Data de Atuação</h5>
 	                   
-	                   <p:calendar id="button" value="#{cadastroFuncionarioMB.registroDeCargo.dtDaAtuacao}" 
+	                   <p:calendar id="button" value="#{cadastroFuncionarioController.registroDeCargo.dtDaAtuacao}" 
 	                   pattern="MM/yyyy" mask="true" />               
               
                         
@@ -598,10 +613,10 @@
 	                   
 	                    <h:selectOneMenu converter="ConverterSetor" styleClass="form-control"
 	                     
-	                     value="#{cadastroFuncionarioMB.doSelecOneMenu}">
+	                     value="#{cadastroFuncionarioController.doSelecOneMenu}">
 	                      <f:selectItem itemLabel="Selecione"
 	                      noSelectionOption="true" />
-	                      <f:selectItems value="#{cadastroFuncionarioMB.daoSetor.listSetor()}"/>
+	                      <f:selectItems value="#{cadastroFuncionarioController.daoSetor.listSetor()}"/>
 	                      <f:ajax event="change" render="cargo"/>
 	                    </h:selectOneMenu>
 	                </div>
@@ -611,11 +626,11 @@
 	                   
 	                    <h:selectOneMenu converter="ConverterCargo" id="cargo"  styleClass="form-control"
 	                     
-	                     value="#{cadastroFuncionarioMB.doSelectOneMenu}">
+	                     value="#{cadastroFuncionarioController.doSelectOneMenu}">
 	                      <f:selectItem itemLabel="Selecione"
 	                       noSelectionOption="true" />
 	                      <f:selectItems 
-	                      value="#{cadastroFuncionarioMB.doSelecOneMenu.listCargo}" />
+	                      value="#{cadastroFuncionarioController.doSelecOneMenu.listCargo}" />
 	                    </h:selectOneMenu>
 	                    
 	                </div>                	                
@@ -625,7 +640,7 @@
 	                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 	                      
 	                      <h:commandButton styleClass="form-control btn btn-success"
-	                       action="#{cadastroFuncionarioMB.addRegistroDeCargo()}" value="Adicionar" >
+	                       action="#{cadastroFuncionarioController.addRegistroDeCargo()}" value="Adicionar" >
 	                       
 	                          <f:ajax execute="@form" render="painelprincipalhist tbregistrocargo" />
 	                       </h:commandButton>
@@ -635,7 +650,7 @@
 	                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 	                      
 	                      <h:commandButton styleClass="form-control btn btn-danger"
-	                       action="#{cadastroFuncionarioMB.desativaFormHistoricoCargo()}"
+	                       action="#{cadastroFuncionarioController.desativaFormHistoricoCargo()}"
 	                        value="Cancelar">
 	                        
 	                        <f:ajax execute="@this" render="painelprincipalhist" />
@@ -650,9 +665,11 @@
 	         <div class="col-lg-5"></div>
 							
 						<div class="col-lg-2">
-							<h:panelGroup id="botaoaddhistcargos" rendered="#{cadastroFuncionarioMB.addHistCargos == false}">
+							<h:panelGroup id="botaoaddhistcargos" 
+							rendered="#{cadastroFuncionarioController.addHistCargos == false}">
 							   <h:commandButton styleClass="form-control btn btn-primary"
-							   action="#{cadastroFuncionarioMB.ativaFormHistoricoCargo()}" style="margin-top:30px;"		                        
+							   action="#{cadastroFuncionarioController.ativaFormHistoricoCargo()}" 
+							   style="margin-top:30px;"		                        
 			                         value="Adicionar Registro" >
 			                 
 			                  <f:ajax execute="@this" render="painelprincipalhist" />
@@ -669,7 +686,7 @@
 		       
 		       <div class="col-lg-6">
 		          <h:dataTable styleClass="table" style="margin-top:30px;"
-		          value="#{cadastroFuncionarioMB.funcionario.listHistoricoDeCargo}"
+		          value="#{cadastroFuncionarioController.funcionario.listHistoricoDeCargo}"
 		          var="registro">
 		          
 		                <h:column>
@@ -696,7 +713,7 @@
 			                 <h:commandButton styleClass="form-control btn btn-danger small" value="Remover" 
 			                >
 			                     <f:ajax execute="@this" render=":form:tbregistrocargo"
-			                     listener="#{cadastroFuncionarioMB.removeRegistroDeCargo(registro)}" />
+			                     listener="#{cadastroFuncionarioController.removeRegistroDeCargo(registro)}" />
 			                 </h:commandButton>
 			            </h:column>
 		          
@@ -714,14 +731,14 @@
 	        <h:panelGroup id="painelprincipalhistsalario" ><!-- PAINEL PRINCIPAL -->
 	         
 	            <h:panelGroup id="formhistsalarios" 
-	            rendered="#{cadastroFuncionarioMB.addHistSalario == true}"><!-- PAINEL DO FORM DO HISTORICO -->
+	            rendered="#{cadastroFuncionarioController.addHistSalario == true}"><!-- PAINEL DO FORM DO HISTORICO -->
 	                
 	                
 	                <div class="col-lg-2">
 	                   <h5>Data de Recebimento</h5>
 	                   
 	                   <h:inputText converter="converterData" styleClass="form-control"
-	                   id="DtRecebimento" value="#{cadastroFuncionarioMB.registroDeSalario.mesAno}" 
+	                   id="DtRecebimento" value="#{cadastroFuncionarioController.registroDeSalario.mesAno}" 
 	                   required="true" >
 	                          
                               <f:convertDateTime pattern="MM/yyyy"/>      
@@ -734,7 +751,7 @@
 	                 <div class="col-lg-2">
 	                    <h5>Valor Recebido</h5>
 	                 
-	                   <h:inputText value="#{cadastroFuncionarioMB.registroDeSalario.valorRecebido}" 
+	                   <h:inputText value="#{cadastroFuncionarioController.registroDeSalario.valorRecebido}" 
 	                  id="ValorRecebido" styleClass="form-control" required="true"/>
 	                </div>                            	                
 	               
@@ -743,7 +760,7 @@
 	                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 	                      
 	                      <h:commandButton styleClass="form-control btn btn-success"
-	                       action="#{cadastroFuncionarioMB.addHistoricoDeSalario()}" value="Adicionar" >
+	                       action="#{cadastroFuncionarioController.addHistoricoDeSalario()}" value="Adicionar" >
 	                       
 	                          <f:ajax execute="@form" render="painelprincipalhistsalario tbregistrosalario" />
 	                       </h:commandButton>
@@ -753,7 +770,7 @@
 	                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 	                      
 	                      <h:commandButton styleClass="form-control btn btn-danger"
-	                       action="#{cadastroFuncionarioMB.desativaFormHistoricoSalario()}"
+	                       action="#{cadastroFuncionarioController.desativaFormHistoricoSalario()}"
 	                        value="Cancelar">
 	                        
 	                        <f:ajax execute="@this" render="painelprincipalhistsalario" />
@@ -769,9 +786,9 @@
 							
 						<div class="col-lg-2">
 							<h:panelGroup id="botaoaddhistsalarios"
-							 rendered="#{cadastroFuncionarioMB.addHistSalario == false}">
+							 rendered="#{cadastroFuncionarioController.addHistSalario == false}">
 							   <h:commandButton styleClass="form-control btn btn-primary"
-							   action="#{cadastroFuncionarioMB.ativaFormHistoricoSalario()}" 
+							   action="#{cadastroFuncionarioController.ativaFormHistoricoSalario()}" 
 							   style="margin-top:30px;"	 value="Adicionar Registro" >
 			                 
 			                  <f:ajax execute="@this" render="painelprincipalhistsalario" />
@@ -788,7 +805,7 @@
 		       
 		       <div class="col-lg-6">
 		          <h:dataTable styleClass="table" style="margin-top:30px;"
-		          value="#{cadastroFuncionarioMB.funcionario.listHistoricoDeSalario}"
+		          value="#{cadastroFuncionarioController.funcionario.listHistoricoDeSalario}"
 		          var="registro">
 		          
 		                <h:column>
@@ -810,7 +827,7 @@
 			                 
 			                 <h:commandButton styleClass="form-control btn btn-danger small" value="Remover" >
 			                     <f:ajax execute="@this" render=":form:tbregistrosalario"
-			                     listener="#{cadastroFuncionarioMB.removeHistoricoDeSalario(registro)}" />
+			                     listener="#{cadastroFuncionarioController.removeHistoricoDeSalario(registro)}" />
 			                 </h:commandButton>
 			            </h:column>
 		          
@@ -827,7 +844,7 @@
 	        <h:panelGroup id="painelprincipalhistcontribuicao" ><!-- PAINEL PRINCIPAL -->
 	         
 	            <h:panelGroup id="formhistcontribuicao" 
-	            rendered="#{cadastroFuncionarioMB.addHistContribuicao == true}"><!-- PAINEL DO FORM DO HISTORICO -->
+	            rendered="#{cadastroFuncionarioController.addHistContribuicao == true}"><!-- PAINEL DO FORM DO HISTORICO -->
 	                
 	                
 	                <div class="col-lg-3">
@@ -835,7 +852,7 @@
 	                   
 	                   <h:inputText  styleClass="form-control"
 	                   id="DtContribuicaoSindical"
-	                   value="#{cadastroFuncionarioMB.registroDeContribuicao.mesAno}" 
+	                   value="#{cadastroFuncionarioController.registroDeContribuicao.mesAno}" 
 	                   required="true" >	                          
                               <f:convertDateTime pattern="MM/yyyy"/>      
               
@@ -847,7 +864,7 @@
 	                 <div class="col-lg-2">
 	                    <h5>Valor Pago</h5>
 	                 
-	                   <h:inputText value="#{cadastroFuncionarioMB.registroDeContribuicao.valorPago}" 
+	                   <h:inputText value="#{cadastroFuncionarioController.registroDeContribuicao.valorPago}" 
 	                  id="ValorPago" styleClass="form-control" required="true"/>
 	                </div>
 	                
@@ -858,7 +875,7 @@
 	                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 	                      
 	                      <h:commandButton styleClass="form-control btn btn-success"
-	                       action="#{cadastroFuncionarioMB.addHistoricoDeContribuicao()}" value="Adicionar" >
+	                       action="#{cadastroFuncionarioController.addHistoricoDeContribuicao()}" value="Adicionar" >
 	                       
 	                          <f:ajax execute="@form" 
 	                          render="painelprincipalhistcontribuicao tbregistrocontribuicao" />
@@ -869,7 +886,7 @@
 	                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 	                      
 	                      <h:commandButton styleClass="form-control btn btn-danger"
-	                       action="#{cadastroFuncionarioMB.desativaFormHistoricoContribuicaoSindical()}"
+	                       action="#{cadastroFuncionarioController.desativaFormHistoricoContribuicaoSindical()}"
 	                        value="Cancelar">
 	                        
 	                        <f:ajax execute="@this" render="painelprincipalhistcontribuicao" />
@@ -885,9 +902,9 @@
 							
 						<div class="col-lg-2">
 							<h:panelGroup id="botaoaddhistcontribuicao"
-							 rendered="#{cadastroFuncionarioMB.addHistContribuicao == false}">
+							 rendered="#{cadastroFuncionarioController.addHistContribuicao == false}">
 							   <h:commandButton styleClass="form-control btn btn-primary"
-							   action="#{cadastroFuncionarioMB.ativaFormHistoricoContribuicaoSindical()}" 
+							   action="#{cadastroFuncionarioController.ativaFormHistoricoContribuicaoSindical()}" 
 							   style="margin-top:30px;"	 value="Adicionar Registro" >
 			                 
 			                  <f:ajax execute="@this" render="painelprincipalhistcontribuicao" />
@@ -904,7 +921,7 @@
 		       
 		       <div class="col-lg-6">
 		          <h:dataTable styleClass="table" style="margin-top:30px;"
-		          value="#{cadastroFuncionarioMB.funcionario.listHistoricoDeContribuicao}"
+		          value="#{cadastroFuncionarioController.funcionario.listHistoricoDeContribuicao}"
 		          var="registro">
 		          
 		                <h:column>
@@ -926,7 +943,7 @@
 			                 
 			                 <h:commandButton styleClass="form-control btn btn-danger small" value="Remover" >
 			                     <f:ajax execute="@this" render=":form:tbregistrocontribuicao"
-			                     listener="#{cadastroFuncionarioMB.removeHistoricoDeContribuicao(registro)}" />
+			                     listener="#{cadastroFuncionarioController.removeHistoricoDeContribuicao(registro)}" />
 			                 </h:commandButton>
 			            </h:column>
 		          
@@ -945,7 +962,7 @@
 	        <h:panelGroup id="painelprincipalhistlicenca" ><!-- PAINEL PRINCIPAL -->
 	         
 	            <h:panelGroup id="formhistlicenca" 
-	            rendered="#{cadastroFuncionarioMB.addHistLicenca == true}"><!-- PAINEL DO FORM DO HISTORICO -->
+	            rendered="#{cadastroFuncionarioController.addHistLicenca == true}"><!-- PAINEL DO FORM DO HISTORICO -->
 	                
 	                
 	                <div class="col-lg-2">
@@ -953,7 +970,7 @@
 	                   
 	                   <h:inputText  styleClass="form-control"
 	                   id="Dt_incial_licenca_afastamento"
-	                   value="#{cadastroFuncionarioMB.registroDeLicenca.dtInicial}" 
+	                   value="#{cadastroFuncionarioController.registroDeLicenca.dtInicial}" 
 	                   required="true" >	                          
                               <f:convertDateTime pattern="dd/MM/yyyy"/>      
               
@@ -967,7 +984,7 @@
 	                   
 	                   <h:inputText  styleClass="form-control"
 	                   id="Dt_Incial_Licenca_Afastamento"
-	                   value="#{cadastroFuncionarioMB.registroDeLicenca.dtFinal}" 
+	                   value="#{cadastroFuncionarioController.registroDeLicenca.dtFinal}" 
 	                   required="true" >	                          
                               <f:convertDateTime pattern="dd/MM/yyyy"/>      
               
@@ -979,7 +996,7 @@
 	                 <div class="col-lg-4">
 	                    <h5>Motivo</h5>
 	                 
-	                   <h:inputText value="#{cadastroFuncionarioMB.registroDeLicenca.causa}" 
+	                   <h:inputText value="#{cadastroFuncionarioController.registroDeLicenca.causa}" 
 	                  id="Motivo_Licenca_Afastamento" styleClass="form-control" required="true"/>
 	                </div>
 	                
@@ -990,7 +1007,7 @@
 	                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 	                      
 	                      <h:commandButton styleClass="form-control btn btn-success"
-	                       action="#{cadastroFuncionarioMB.addHistoricoDeLicenca()}" value="Adicionar" >
+	                       action="#{cadastroFuncionarioController.addHistoricoDeLicenca()}" value="Adicionar" >
 	                       
 	                          <f:ajax execute="@form" 
 	                          render="painelprincipalhistlicenca tbregistrolicenca" />
@@ -1001,7 +1018,7 @@
 	                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 	                      
 	                      <h:commandButton styleClass="form-control btn btn-danger"
-	                       action="#{cadastroFuncionarioMB.desativaFormHistoricoLicenca()}"
+	                       action="#{cadastroFuncionarioController.desativaFormHistoricoLicenca()}"
 	                        value="Cancelar">
 	                        
 	                        <f:ajax execute="@this" render="painelprincipalhistlicenca" />
@@ -1017,9 +1034,9 @@
 							
 						<div class="col-lg-2">
 							<h:panelGroup id="botaoaddhistlicenca"
-							 rendered="#{cadastroFuncionarioMB.addHistLicenca == false}">
+							 rendered="#{cadastroFuncionarioController.addHistLicenca == false}">
 							   <h:commandButton styleClass="form-control btn btn-primary"
-							   action="#{cadastroFuncionarioMB.ativaFormHistoricoLicenca()}" 
+							   action="#{cadastroFuncionarioController.ativaFormHistoricoLicenca()}" 
 							   style="margin-top:30px;"	 value="Adicionar Registro" >
 			                 
 			                  <f:ajax execute="@this" render="painelprincipalhistlicenca" />
@@ -1036,7 +1053,7 @@
 		       
 		       <div class="col-lg-6">
 		          <h:dataTable styleClass="table" style="margin-top:30px;"
-		          value="#{cadastroFuncionarioMB.funcionario.listHistoricoLicenca}"
+		          value="#{cadastroFuncionarioController.funcionario.listHistoricoLicenca}"
 		          var="registro">
 		          
 		                <h:column>
@@ -1065,7 +1082,7 @@
 			                 
 			                 <h:commandButton styleClass="form-control btn btn-danger small" value="Remover" >
 			                     <f:ajax execute="@this" render=":form:tbregistrolicenca"
-			                     listener="#{cadastroFuncionarioMB.removeHistoricoDeLicenca(registro)}" />
+			                     listener="#{cadastroFuncionarioController.removeHistoricoDeLicenca(registro)}" />
 			                 </h:commandButton>
 			            </h:column>
 		          
@@ -1083,7 +1100,7 @@
 	        <h:panelGroup id="painelprincipalhistferias" ><!-- PAINEL PRINCIPAL -->
 	         
 	            <h:panelGroup id="formhistferias" 
-	            rendered="#{cadastroFuncionarioMB.addHistFerias== true}"><!-- PAINEL DO FORM DO HISTORICO -->
+	            rendered="#{cadastroFuncionarioController.addHistFerias== true}"><!-- PAINEL DO FORM DO HISTORICO -->
 	                
 	                
 	                <div class="col-lg-2">
@@ -1091,7 +1108,7 @@
 	                   
 	                   <h:inputText  styleClass="form-control"
 	                   id="Dt_incial_Gozo_Ferias"
-	                   value="#{cadastroFuncionarioMB.registroDeFerias.dtInicialGozo}" 
+	                   value="#{cadastroFuncionarioController.registroDeFerias.dtInicialGozo}" 
 	                   required="true" >	                          
                               <f:convertDateTime pattern="dd/MM/yyyy"/>      
               
@@ -1105,7 +1122,7 @@
 	                   
 	                   <h:inputText  styleClass="form-control"
 	                   id="Dt_Final_Gozo_Ferias"
-	                   value="#{cadastroFuncionarioMB.registroDeFerias.dtFinalGozo}" 
+	                   value="#{cadastroFuncionarioController.registroDeFerias.dtFinalGozo}" 
 	                   required="true" >	                          
                               <f:convertDateTime pattern="dd/MM/yyyy"/>      
               
@@ -1119,7 +1136,7 @@
 	                   
 	                   <h:inputText  styleClass="form-control"
 	                   id="Dt_Incial_Aqusiitiva_Ferias"
-	                   value="#{cadastroFuncionarioMB.registroDeFerias.dtInicialAquisitiva}" 
+	                   value="#{cadastroFuncionarioController.registroDeFerias.dtInicialAquisitiva}" 
 	                   required="true" >	                          
                               <f:convertDateTime pattern="dd/MM/yyyy"/>      
               
@@ -1133,7 +1150,7 @@
 	                   
 	                   <h:inputText  styleClass="form-control"
 	                   id="Dt_Final_Aqusiitiva_Ferias"
-	                   value="#{cadastroFuncionarioMB.registroDeFerias.dtFinalAquisitiva}" 
+	                   value="#{cadastroFuncionarioController.registroDeFerias.dtFinalAquisitiva}" 
 	                   required="true" >	                          
                               <f:convertDateTime pattern="dd/MM/yyyy"/>      
               
@@ -1149,7 +1166,7 @@
 	                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 	                      
 	                      <h:commandButton styleClass="form-control btn btn-success"
-	                       action="#{cadastroFuncionarioMB.addHistoricoDeFerias()}" value="Adicionar" >
+	                       action="#{cadastroFuncionarioController.addHistoricoDeFerias()}" value="Adicionar" >
 	                       
 	                          <f:ajax execute="@form" 
 	                          render="painelprincipalhistferias tbregistroferias" />
@@ -1160,7 +1177,7 @@
 	                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 	                      
 	                      <h:commandButton styleClass="form-control btn btn-danger"
-	                       action="#{cadastroFuncionarioMB.desativaFormHistoricoFerias()}"
+	                       action="#{cadastroFuncionarioController.desativaFormHistoricoFerias()}"
 	                        value="Cancelar">
 	                        
 	                        <f:ajax execute="@this" render="painelprincipalhistferias" />
@@ -1176,9 +1193,9 @@
 							
 						<div class="col-lg-2">
 							<h:panelGroup id="botaoaddhistferias"
-							 rendered="#{cadastroFuncionarioMB.addHistFerias == false}">
+							 rendered="#{cadastroFuncionarioController.addHistFerias == false}">
 							   <h:commandButton styleClass="form-control btn btn-primary"
-							   action="#{cadastroFuncionarioMB.ativaFormHistoricoFerias()}" 
+							   action="#{cadastroFuncionarioController.ativaFormHistoricoFerias()}" 
 							   style="margin-top:30px;"	 value="Adicionar Registro" >
 			                 
 			                  <f:ajax execute="@this" render="painelprincipalhistferias" />
@@ -1195,7 +1212,7 @@
 		       
 		       <div class="col-lg-6">
 		          <h:dataTable styleClass="table" style="margin-top:30px;"
-		          value="#{cadastroFuncionarioMB.funcionario.listHistoricoFerias}"
+		          value="#{cadastroFuncionarioController.funcionario.listHistoricoFerias}"
 		          var="registro">
 		          
 		                <h:column>
@@ -1227,7 +1244,7 @@
 			                 
 			                 <h:commandButton styleClass="form-control btn btn-danger small" value="Remover" >
 			                     <f:ajax execute="@this" render=":form:tbregistroferias"
-			                     listener="#{cadastroFuncionarioMB.removeHistoricoDeFerias(registro)}" />
+			                     listener="#{cadastroFuncionarioController.removeHistoricoDeFerias(registro)}" />
 			                 </h:commandButton>
 			            </h:column>
 		          
@@ -1253,11 +1270,11 @@
    <div class="col-lg-3"></div>
    <div class="col-lg-3">
       <h:commandButton styleClass=" form-control btn btn-primary" style="font-size:20px;margin-bottom:20px;"
-      action="#{cadastroFuncionarioMB.editarFuncionario()}" value="Atualizar" />
+      action="#{cadastroFuncionarioController.persistirFuncionario()}" value="Atualizar" />
    </div>
    <div class="col-lg-3">
       <h:commandButton styleClass="form-control btn btn-danger" style="font-size:20px;"
-       action="#{cadastroFuncionarioMB.localizarFuncionario()}" value="Cancelar" />
+       action="#{cadastroFuncionarioController.localizarFuncionario()}" immediate="true" value="Cancelar" />
    </div>
    
    <div class="col-lg-3"></div>

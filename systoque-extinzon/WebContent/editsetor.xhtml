@@ -16,15 +16,15 @@
 	                   <h5>Nome do Setor</h5>
 	                   
 	                   <h:inputText styleClass="form-control"
-	                    value="#{cadastroEmpresaMB.setor.nome}" />
+	                    value="#{cadastroEmpresaController.setor.nome}" />
 	                </div>
 	                
 	                <div class="col-lg-2">
 	                   <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 	                                      
-	                   <h:commandButton action="#{cadastroEmpresaMB.ativaFormCargo()}"
+	                   <h:commandButton action="#{cadastroEmpresaController.ativaFormCargo()}"
 	                    value="Adicionar Cargo" styleClass="form-control btn btn-primary"
-	                    rendered="#{cadastroEmpresaMB.addCargo == false}">
+	                    rendered="#{cadastroEmpresaController.addCargo == false}">
 	                      
 	                   </h:commandButton>
 	                </div>
@@ -43,7 +43,7 @@
 	            </div><!-- ENCERRA DIV ROW BOTAO ADD FORM CARGO -->
 	          </h:panelGroup>
 	          
-	          <h:panelGroup id ="painelformcargo" rendered="#{cadastroEmpresaMB.addCargo == true}">
+	          <h:panelGroup id ="painelformcargo" rendered="#{cadastroEmpresaController.addCargo == true}">
 	             <div class="row">
 	               <div class="col-lg-2"> </div>
 	               
@@ -51,20 +51,20 @@
 	                 <h5>Nome Cargo</h5>
 	                 
 	                 <h:inputText styleClass="form-control"
-	                 value="#{cadastroEmpresaMB.doSetor.nome}" />  
+	                 value="#{cadastroEmpresaController.doSetor.nome}" />  
 	               </div>
 	               
 	               <div class="col-lg-2">
 	                 <h5>CBO Cargo</h5>
 	                 
 	                 <h:inputText styleClass="form-control"
-	                 value="#{cadastroEmpresaMB.doSetor.cbo}" />
+	                 value="#{cadastroEmpresaController.doSetor.cbo}" />
 	               </div>
 	               
 	               <div class="col-lg-2">
 	                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 	                 
-	                 <h:commandButton action="#{cadastroEmpresaMB.adicionaCargoDoSetor()}" 
+	                 <h:commandButton action="#{cadastroEmpresaController.adicionaCargoDoSetor()}" 
 	                 value="Incluir Cargo" styleClass="form-control btn btn-sm btn-success" >
 	                    <f:ajax execute="painelformcargo" render="painelsetor paineltabcargos" />
 	                 </h:commandButton>
@@ -73,7 +73,7 @@
 	               <div class="col-lg-2">
 	                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 	                 
-	                 <h:commandButton action="#{cadastroEmpresaMB.desativaFormCargo()}" 
+	                 <h:commandButton action="#{cadastroEmpresaController.desativaFormCargo()}" 
 	                 value="Encerrar" styleClass=" form-control btn btn-sm btn-danger" >
 	                    <f:ajax execute="@this" render="painelsetor" />
 	                 </h:commandButton>
@@ -88,7 +88,7 @@
 	                <div class="col-lg-3"></div>
 	                
 	                <div class="col-lg-6">
-	                   <h:dataTable value="#{cadastroEmpresaMB.setor.listCargo}"
+	                   <h:dataTable value="#{cadastroEmpresaController.setor.listCargo}"
 	                   var="cargo" styleClass="table">
 	                     <h:column>
 	                        <f:facet name="header">Cargo</f:facet>
@@ -105,8 +105,8 @@
 	                        
 	                        <h:commandButton 
 	                        value="Remover" styleClass="btn btn-xs btn-danger" 
-	                        action="#{cadastroEmpresaMB.removeCargoDoSetor()}">
-	                            <f:setPropertyActionListener target="#{cadastroEmpresaMB.doSetor}"
+	                        action="#{cadastroEmpresaController.removeCargoDoSetor()}">
+	                            <f:setPropertyActionListener target="#{cadastroEmpresaController.doSetor}"
 	                             value="#{cargo}" />                   
 	                           
 	                        </h:commandButton>
@@ -123,12 +123,12 @@
 	           <div class="col-lg-3"></div>
 	           
 	           <div class="col-lg-3">
-	              <h:commandButton action="#{cadastroEmpresaMB.editarSetor()}" 
+	              <h:commandButton action="#{cadastroEmpresaController.editarSetor()}" 
 	              value="Gravar" styleClass="btn btn-success"/>
 	           </div>
 	           
 	           <div class="col-lg-3">
-	              <h:commandButton action="#{cadastroEmpresaMB.cancelaCadastro()}"
+	              <h:commandButton action="#{cadastroEmpresaController.cancelaCadastro()}"
 	               value="Cancelar" styleClass="btn btn-danger" />
 	           </div>
 	           

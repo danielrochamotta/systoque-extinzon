@@ -6,7 +6,7 @@ import br.com.radconnect.entityBeans.Funcionario;
 
 public interface IFuncionario {
 
-	public void cadastrarFuncionario(Funcionario funcionario);
+	public void persistirFuncionario(Funcionario funcionario);
 	
 	public void removerFuncionario(Funcionario funcionario);
 	
