@@ -2,6 +2,7 @@ package br.com.radconnect.entityBeans;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -16,7 +18,7 @@ import org.hibernate.annotations.Index;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "ITEM_EMTRADA")
+@Table(name = "ITEM_ENTRADA")
 public class ItemEntrada implements Serializable{
 	@Id
 	@SequenceGenerator(name = "SEQ_ITEM_ENTRADA",sequenceName = "SEQ_ITEM_ENTRADA_ID", allocationSize = 1)
@@ -37,13 +39,13 @@ public class ItemEntrada implements Serializable{
 	
 	
 	//ATRIBUTOS RELACIONAIS
-	@ManyToOne
+	@OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
 	@JoinColumn(name = "ID_ITEM")
-	private Item deEntrada;
+	private Item item = new Item();
 	
-	@ManyToOne
+	@OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
 	@JoinColumn(name = "ID_ENTRADA")
-	private EntradaDeEstoque doItem;
+	private EntradaDeEstoque entrada = new EntradaDeEstoque();
 	
 	//GETTERS E SETTERS
 	public Long getId() {
@@ -70,18 +72,19 @@ public class ItemEntrada implements Serializable{
 	public void setNumeroDoLote(Long numeroDoLote) {
 		this.numeroDoLote = numeroDoLote;
 	}
-	public Item getDeEntrada() {
-		return deEntrada;
+	public Item getItem() {
+		return item;
 	}
-	public void setDeEntrada(Item deEntrada) {
-		this.deEntrada = deEntrada;
+	public void setItem(Item item) {
+		this.item = item;
 	}
-	public EntradaDeEstoque getDoItem() {
-		return doItem;
+	public EntradaDeEstoque getEntrada() {
+		return entrada;
 	}
-	public void setDoItem(EntradaDeEstoque doItem) {
-		this.doItem = doItem;
+	public void setEntrada(EntradaDeEstoque entrada) {
+		this.entrada = entrada;
 	}
+	
 	
 	
 	

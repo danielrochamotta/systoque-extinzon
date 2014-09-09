@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -50,10 +51,8 @@ public class EntradaDeEstoque implements Serializable{
 	private Double valorFrete;
 	
 	//ATRIBUTOS RELACIONAIS
-	@OneToMany(mappedBy="doItem", cascade= {CascadeType.ALL},
-			orphanRemoval=true)
-	@LazyCollection(LazyCollectionOption.EXTRA)
-	private List<ItemEntrada> itensDeEntrada = new ArrayList<ItemEntrada>();
+	@OneToOne(mappedBy = "entrada")
+	private ItemEntrada itemEntrada;
 	
 	
 	@Override
@@ -80,16 +79,8 @@ public class EntradaDeEstoque implements Serializable{
 		return true;
 	}
 	
-	public void adicionaItens(ItemEntrada item){
-		item.setDoItem(this);
-		itensDeEntrada.add(item);
-	}
 	
-	public void removeItens(ItemEntrada item){
-		if(this.itensDeEntrada.contains(item)){
-			this.itensDeEntrada.remove(item);
-		}
-	}
+	
 	
 	//GETTERS E SETTERS
 	public Long getId() {
@@ -122,12 +113,13 @@ public class EntradaDeEstoque implements Serializable{
 	public void setValorFrete(Double valorFrete) {
 		this.valorFrete = valorFrete;
 	}
-	public List<ItemEntrada> getItensDeEntrada() {
-		return itensDeEntrada;
+	public ItemEntrada getItemEntrada() {
+		return itemEntrada;
 	}
-	public void setItensDeEntrada(List<ItemEntrada> itensDeEntrada) {
-		this.itensDeEntrada = itensDeEntrada;
+	public void setItemEntrada(ItemEntrada itemEntrada) {
+		this.itemEntrada = itemEntrada;
 	}
+	
 
 
 }

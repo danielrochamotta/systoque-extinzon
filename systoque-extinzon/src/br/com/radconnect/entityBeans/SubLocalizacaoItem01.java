@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -20,46 +22,38 @@ import org.hibernate.annotations.LazyCollectionOption;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "GRUPO_DO_ITEM")
-public class GrupoDoItem implements Serializable{
+@Table(name = "SUBLOCALIZACAO_ITEM_01")
+public class SubLocalizacaoItem01 implements Serializable{
 	
 	@Id
-	@SequenceGenerator(name = "SEQ_GRUPO_DO_ITEM", sequenceName = "SEQ_GRUPO_DO_ITEM_ID",allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_GRUPO_DO_ITEM")
+	@SequenceGenerator(name = "SEQ_SUBLOCALIZACAO_ITEM_01",
+	sequenceName = "SEQ_SUBLOCALIZACAO_ITEM_01_ID",allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_SUBLOCALIZACAO_ITEM_01")
 	private Long id;
 	
-	@Column(name = "NOME_GRUPO_DO_ITEM")
-	@Index(name = "IDX_NOME_GRUPO_DO_ITEM")
+	@Column(name = "NOME_SUBLOCALIZACAO_ITEM_01")
+	@Index(name = "IDX_NOME_SUBLOCALIZACAO_ITEM_01")
 	private String nome;
 	
 	//ATRIBUTOS RELACIONAIS
-	@OneToMany(mappedBy = "grupo",cascade = {CascadeType.ALL},orphanRemoval = true)
+	@ManyToOne
+	@JoinColumn(name = "ID_LOCALIZACAO",referencedColumnName = "ÏD")
+	private LocalizacaoItem localizacao;
+	
+	@OneToMany(mappedBy = "subLocalizacao01",cascade = CascadeType.ALL,orphanRemoval = true)
 	@LazyCollection(LazyCollectionOption.EXTRA)
-	private List<SubGrupoN1DoGrupo> listSubGrupo = new ArrayList<SubGrupoN1DoGrupo>();
+	private List<SubLocalizacaoItem02> listSublocalizacaoItem02 = new ArrayList<SubLocalizacaoItem02>();
 	
 	
-	@OneToMany(mappedBy = "grupo")
-	private List<Item> listItens = new ArrayList<Item>();
-	//FIM
 	
-	//METODOS DE ADICIONAR E REMOVER NA LISTA DE SUBGRUPOS N1
-	public void adicionaSubGrupoN1(SubGrupoN1DoGrupo subGrupoN1){
-		subGrupoN1.setGrupo(this);
-		this.listSubGrupo.add(subGrupoN1);
-	}
-	
-	public void removeSubGrupoN1(SubGrupoN1DoGrupo subGrupoN1){
-		if(this.listSubGrupo.contains(subGrupoN1)){
-			this.listSubGrupo.remove(subGrupoN1);
-		}
-	}
-	//FIM
 	
 	//TOSTRING
 	@Override
 	public String toString() {
-		return "GrupoDoItem [nome=" + nome + "]";
-	}
+		return "SubLocalizacaoItem01 [nome=" + nome + "]";
+	}//FIM DO TOSTRING
+	
+	
 	//HASHCODE
 	@Override
 	public int hashCode() {
@@ -76,15 +70,16 @@ public class GrupoDoItem implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		GrupoDoItem other = (GrupoDoItem) obj;
+		SubLocalizacaoItem01 other = (SubLocalizacaoItem01) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-	//GETTES E SETTERS
+	}//FIM DO HASHCODE
+	
+	//GETTERS E SETTERS
 	public Long getId() {
 		return id;
 	}
@@ -97,12 +92,17 @@ public class GrupoDoItem implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public List<SubGrupoN1DoGrupo> getListSubGrupo() {
-		return listSubGrupo;
+
+
+	public LocalizacaoItem getLocalizacao() {
+		return localizacao;
 	}
-	public void setListSubGrupo(List<SubGrupoN1DoGrupo> listSubGrupo) {
-		this.listSubGrupo = listSubGrupo;
+
+
+	public void setLocalizacao(LocalizacaoItem localizacao) {
+		this.localizacao = localizacao;
 	}
+	
 	
 
 }

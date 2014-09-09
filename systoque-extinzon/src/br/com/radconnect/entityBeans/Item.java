@@ -1,15 +1,24 @@
 package br.com.radconnect.entityBeans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import org.hibernate.annotations.Index;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 
 /**
@@ -53,6 +62,12 @@ public class Item implements Serializable{
 	
 	//ATRIBUTOS RELACIONAIS
 	
+	@OneToOne(mappedBy = "item")
+	private ItemEntrada itemEntrada;
+	
+	@ManyToOne
+	@JoinColumn(name = "ID_GRUPO")
+	private GrupoDoItem grupo;
 	
 	
 	
@@ -148,6 +163,24 @@ public class Item implements Serializable{
 	}
 	public void setQtdMinimo(Double qtdMinimo) {
 		this.qtdMinimo = qtdMinimo;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public ItemEntrada getItemEntrada() {
+		return itemEntrada;
+	}
+	public void setItemEntrada(ItemEntrada itemEntrada) {
+		this.itemEntrada = itemEntrada;
+	}
+	public GrupoDoItem getGrupo() {
+		return grupo;
+	}
+	public void setGrupo(GrupoDoItem grupo) {
+		this.grupo = grupo;
 	}
 	
 	
