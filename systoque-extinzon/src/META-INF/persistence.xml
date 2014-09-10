@@ -24,9 +24,11 @@
 		<class>br.com.radconnect.entityBeans.SubGrupoN4DoN3</class>
 		<class>br.com.radconnect.entityBeans.SubGrupoN5DoN4</class>
 		<class>br.com.radconnect.entityBeans.SubLocalizacaoItem01</class>
-		<class>br.com.radconnect.entityBeans.LocalizacaoItem</class>
+		
 		<class>br.com.radconnect.entityBeans.SubLocalizacaoItem02</class>
 		<class>br.com.radconnect.entityBeans.SubLocalizacaoItem03</class>
+		<class>br.com.radconnect.entityBeans.SubLocalizacaoItem04</class>
+		<class>br.com.radconnect.entityBeans.LocalizacaoItem</class>
 		<properties>
 			<property name="hibernate.connection.username" value="postgres"/>
 			<property name="hibernate.connection.password" value="1234"/>

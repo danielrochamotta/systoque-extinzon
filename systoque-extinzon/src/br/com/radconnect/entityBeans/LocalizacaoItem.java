@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -24,7 +25,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 public class LocalizacaoItem implements Serializable{
 	@Id
 	@SequenceGenerator(name = "SEQ_LOCALIZACAO_ITEM",sequenceName = "SEQ_LOCALIZACAO_ITEM_ID", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_LOCALIZACAO_ITEM")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_LOCALIZACAO_ITEM")	
 	private Long id;
 	
 	@Column(name = "NOME_LOCALIZACAO_ITEM")
@@ -37,10 +38,27 @@ public class LocalizacaoItem implements Serializable{
 	@LazyCollection(LazyCollectionOption.EXTRA)
 	private List<SubLocalizacaoItem01> listSubLocalizacao01 = new ArrayList<SubLocalizacaoItem01>();
 	
+	@OneToOne(mappedBy = "localizacao",cascade = CascadeType.ALL,orphanRemoval = true)
+	@LazyCollection(LazyCollectionOption.EXTRA)
+	private EntradaDeEstoque entrada;
+	
 	//FIM DOS ATRIBUTOS RELACIONAIS
+	
+	//METODOS PARA ADICIONAR E REMOVER OBJETOS DA LISTA DE SUBLOCALIZACAO DE ITEM 01
+	
 	public void adicionaSubLocalizacao01(SubLocalizacaoItem01 subLocalizacao01){
+		subLocalizacao01.setLocalizacao(this);
+	this.listSubLocalizacao01.add(subLocalizacao01);
 		
 	}
+	
+	public void removerSubLocalizacao01(SubLocalizacaoItem01 sublocalizacao01){
+		if(this.listSubLocalizacao01.contains(sublocalizacao01)){
+			this.listSubLocalizacao01.remove(sublocalizacao01);
+		}
+		
+	}
+	//FIM DOS METODS ADD E REMOVE
 	//TOSTRING
 	@Override
 	public String toString() {
@@ -85,6 +103,8 @@ public class LocalizacaoItem implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	
 	
 	
 

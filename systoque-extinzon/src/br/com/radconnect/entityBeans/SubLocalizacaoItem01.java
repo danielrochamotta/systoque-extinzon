@@ -36,14 +36,28 @@ public class SubLocalizacaoItem01 implements Serializable{
 	private String nome;
 	
 	//ATRIBUTOS RELACIONAIS
+	
 	@ManyToOne
-	@JoinColumn(name = "ID_LOCALIZACAO",referencedColumnName = "ÏD")
+	@JoinColumn(name = "LOCALIZACAOITEM_ID",referencedColumnName = "ID")
 	private LocalizacaoItem localizacao;
 	
 	@OneToMany(mappedBy = "subLocalizacao01",cascade = CascadeType.ALL,orphanRemoval = true)
 	@LazyCollection(LazyCollectionOption.EXTRA)
 	private List<SubLocalizacaoItem02> listSublocalizacaoItem02 = new ArrayList<SubLocalizacaoItem02>();
 	
+	
+	//METODOS PARA ADICIONAR E REMOVER OBJETOS DA LISTA DE SUBLOCALIZACAO DE ITEM 02
+		public void adicionaSubLocalizacao02(SubLocalizacaoItem02 subLocalizacao02){
+			subLocalizacao02.setSubLocalizacao01(this);
+		this.listSublocalizacaoItem02.add(subLocalizacao02);
+			
+		}
+		
+		public void removerSubLocalizacao01(SubLocalizacaoItem02 sublocalizacao02){
+			if(this.listSublocalizacaoItem02.contains(sublocalizacao02)){
+				this.listSublocalizacaoItem02.remove(sublocalizacao02);
+			}
+		}//FIM DOS METODS ADD E REMOVE
 	
 	
 	
@@ -93,7 +107,7 @@ public class SubLocalizacaoItem01 implements Serializable{
 		this.nome = nome;
 	}
 
-
+   
 	public LocalizacaoItem getLocalizacao() {
 		return localizacao;
 	}
@@ -101,6 +115,15 @@ public class SubLocalizacaoItem01 implements Serializable{
 
 	public void setLocalizacao(LocalizacaoItem localizacao) {
 		this.localizacao = localizacao;
+	}
+
+	public List<SubLocalizacaoItem02> getListSublocalizacaoItem02() {
+		return listSublocalizacaoItem02;
+	}
+
+	public void setListSublocalizacaoItem02(
+			List<SubLocalizacaoItem02> listSublocalizacaoItem02) {
+		this.listSublocalizacaoItem02 = listSublocalizacaoItem02;
 	}
 	
 	
