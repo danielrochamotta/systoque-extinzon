@@ -38,9 +38,9 @@ public class LocalizacaoItem implements Serializable{
 	@LazyCollection(LazyCollectionOption.EXTRA)
 	private List<SubLocalizacaoItem01> listSubLocalizacao01 = new ArrayList<SubLocalizacaoItem01>();
 	
-	@OneToOne(mappedBy = "localizacao",cascade = CascadeType.ALL,orphanRemoval = true)
+	@OneToMany(mappedBy = "localizacao",cascade = CascadeType.ALL,orphanRemoval = true)
 	@LazyCollection(LazyCollectionOption.EXTRA)
-	private EntradaDeEstoque entrada;
+	private List<Item> listItens = new ArrayList<Item>();
 	
 	//FIM DOS ATRIBUTOS RELACIONAIS
 	

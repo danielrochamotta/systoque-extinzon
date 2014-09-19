@@ -33,34 +33,52 @@ public class EntradaDeEstoque implements Serializable{
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SEQ_ENTRADA_ESTOQUE")
 	private Long id;
 	
-	@Column(name = "TOTAL_COMPRA_ENTRADA_ESTOQUE")
-	@Index(name = "IDX_TOTAL_COMPRA_ENTRADA_ESTOQUE")
-	private Double totalDaCompra;
 	
-	@Column(name = "DATA__PEDIDO_ENTRADA_ESTOQUE")
-	@Index(name = "IDX_DATA_PEDIDO_ESTOQUE")
+	@Column(name = "DATA_NOTA_FISCAL_ENTRADA_ESTOQUE")
+	@Index(name = "IDX_DATA_NOTA_FISCAL_ENTRADA_ESTOQUE")
 	@Temporal(TemporalType.DATE)
-	private Date dataPedido;
+	private Date dataDaNotaFiscal;
 	
 	@Column(name = "DATA_ENTRADA_ESTOQUE")
 	@Index(name = "IDX_DATA_ENTRADA_ESTOQUE")
 	@Temporal(TemporalType.DATE)
 	private Date data;
 	
-	@Column(name = "VALOR_FRETE_ENTRADA_ESTOQUE")
-	@Index(name = "IDX_VALOR_FRETE_ENTRADA_ESTOQUE")
-	private Double valorFrete;
+	@Column(name = "NUMERO_NF_ENTRADA_ESTOQUE")
+	@Index(name = "IDX_NUMERO_NF_ENTRADA_ESTOQUE")
+	private String numeroNF;
+	
+	@Column(name = "SERIE_NF_ENTRADA_ESTOQUE")
+	@Index(name = "IDX_SERIE_NF_ENTRADA_ESTOQUE")
+	private String serieNF;
+	
+	@Column(name = "CHAVE_DE_ACESSO_NFE_ENTRADA_ESTOQUE")
+	@Index(name = "IDX_CHAVE_DE_ACESSO_NFE_ENTRADA_ESTOQUE")
+	private String chaveDeAcessoNFE;
+	
+	@Column(name = "OBSERVACAO_ENTRADA_ESTOQUE")
+	@Index(name = "IDX_OBSERVACAO_ENTRADA_ESTOQUE")
+	private String observacao;
 	
 	//ATRIBUTOS RELACIONAIS
-	@OneToOne(mappedBy = "entrada")
-	private ItemEntrada itemEntrada;
-	
-	@OneToOne
-	@JoinColumn(name = "LOCALIZACAO_ID",referencedColumnName = "ID")
-	private LocalizacaoItem localizacao;
+	@OneToMany(mappedBy = "entrada",cascade = CascadeType.ALL,orphanRemoval = true)
+	@LazyCollection(LazyCollectionOption.EXTRA)
+	private List<ItemEntrada> listItensDeEntrada = new ArrayList<ItemEntrada>();
 	
 	//FIM DOS ATRIBUTOS RELACIONAIS
 	
+	//METODOS PARA ADICOINAR OU REMOVER ITENS DE ENTRADA
+	public void adicionaItensdeEntrada(ItemEntrada itemDeEntrada){
+		itemDeEntrada.setEntrada(this);
+		this.listItensDeEntrada.add(itemDeEntrada);
+	}
+	
+	public void removerItensDeEntrada(ItemEntrada itemEntrada){
+		if(this.listItensDeEntrada.contains(itemEntrada)){
+			this.listItensDeEntrada.remove(itemEntrada);
+		}
+	}
+	//FIM DOS METODOS PARA ADICIONAR  E REMOVER ITENS DE ENTRADA
 	
 	@Override
 	public int hashCode() {
@@ -96,17 +114,11 @@ public class EntradaDeEstoque implements Serializable{
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Double getTotalDaCompra() {
-		return totalDaCompra;
+	public Date getDataDaNotaFiscal() {
+		return dataDaNotaFiscal;
 	}
-	public void setTotalDaCompra(Double totalDaCompra) {
-		this.totalDaCompra = totalDaCompra;
-	}
-	public Date getDataPedido() {
-		return dataPedido;
-	}
-	public void setDataPedido(Date dataPedido) {
-		this.dataPedido = dataPedido;
+	public void setDataDaNotaFiscal(Date dataDaNotaFiscal) {
+		this.dataDaNotaFiscal = dataDaNotaFiscal;
 	}
 	public Date getData() {
 		return data;
@@ -114,18 +126,37 @@ public class EntradaDeEstoque implements Serializable{
 	public void setData(Date data) {
 		this.data = data;
 	}
-	public Double getValorFrete() {
-		return valorFrete;
+	public String getNumeroNF() {
+		return numeroNF;
 	}
-	public void setValorFrete(Double valorFrete) {
-		this.valorFrete = valorFrete;
+	public void setNumeroNF(String numeroNF) {
+		this.numeroNF = numeroNF;
 	}
-	public ItemEntrada getItemEntrada() {
-		return itemEntrada;
+	public String getSerieNF() {
+		return serieNF;
 	}
-	public void setItemEntrada(ItemEntrada itemEntrada) {
-		this.itemEntrada = itemEntrada;
+	public void setSerieNF(String serieNF) {
+		this.serieNF = serieNF;
 	}
+	public String getChaveDeAcessoNFE() {
+		return chaveDeAcessoNFE;
+	}
+	public void setChaveDeAcessoNFE(String chaveDeAcessoNFE) {
+		this.chaveDeAcessoNFE = chaveDeAcessoNFE;
+	}
+	public String getObservacao() {
+		return observacao;
+	}
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
+	}
+	public List<ItemEntrada> getListItensDeEntrada() {
+		return listItensDeEntrada;
+	}
+	public void setListItensDeEntrada(List<ItemEntrada> listItensDeEntrada) {
+		this.listItensDeEntrada = listItensDeEntrada;
+	}
+	
 	
 
 

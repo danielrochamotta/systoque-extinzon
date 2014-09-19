@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pt="http://java.sun.com/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui"> 
+
+
+
+<ui:composition template="default.html">
+<ui:define name="conteudo">
+<h:form id="form">
+<p:messages id="messages" showDetail="false" autoUpdate="false" closable="true" styleClass="alert-info"/>
+<section class="panel">
+  <header class="panel-heading">
+    
+          <h3>Item  <span class="label label-default">Novo</span> </h3>       
+   
+  </header>
+
+				<ul class="nav nav-tabs ">
+					<li class=""><a href="#itemest" data-toggle="tab">Item</a></li>
+					<li class=""><a href="#catest" data-toggle="tab">Categoria</a></li>
+					<li class=""><a href="#locest" data-toggle="tab">Localização</a></li>
+					<li class=""><a href="#impest" data-toggle="tab">Impostos</a></li>	
+					<li class=""><a href="#fornest" data-toggle="tab">Forncedores</a></li>				
+					
+				</ul>
+				
+				<!--  LINHA LINHA DO FORM DE DADOS PESSOAIS FUNCIONARIO -->
+	<div id="mytabcontent" class="tab-content" style="font-size:small;">
+	
+	<div id="itemest" class="tab-pane active">
+     <div class="row">
+        <div class="col-lg-3">
+           <h5>Código de Barras</h5>
+           
+          <h:inputText styleClass="form-control" value="#{cadastroEstoqueController.item.codigoDeBarra}">
+              <f:passThroughAttribute name="type" value="number" />
+              
+          </h:inputText>
+                     
+       
+          
+        </div>  
+        
+        <div class="col-lg-3">
+           <h5>Getin / Ean</h5>
+           
+           <h:inputText styleClass="form-control"
+            value="#{cadastroEstoqueController.item.gtinEan}" >
+              
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-3">
+           <h5>Númmero Fabricante</h5>
+           
+           <h:inputText styleClass="form-control" 
+           value="#{cadastroEstoqueController.item.numeroFabricante}" >                        
+              
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-3">
+           <h5>Marca / Fabricante</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroEstoqueController.item.marcaFabricante}" >
+                
+                
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-3">
+           <h5>Codigo Produto</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroEstoqueController.item.codigo}" >
+                <f:passThroughAttribute name="type" value="number" />
+                
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-3">
+           <h5>Quantidade Minima</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroEstoqueController.item.qtdMinimo}" >
+                <f:passThroughAttribute name="type" value="number" />
+                
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-3">
+           <h5>Quantidade Ideal</h5>
+           
+           <h:inputText styleClass="form-control" value="#{cadastroEstoqueController.item.qtdIdeal}" >
+                <f:passThroughAttribute name="type" value="number" />
+                
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-3">
+           <h5>Unidade</h5>
+           
+           <h:selectOneMenu value="#"
+           styleClass="form-control">
+                
+           </h:selectOneMenu>
+        </div>
+        
+         <div class="col-lg-6">
+           <h5>Descrição / Nome do Produto</h5>           
+              
+           <h:inputText styleClass="form-control"  
+                value="#{cadastroEstoqueController.item.nome}" >                          
+           </h:inputText>
+        </div>
+        
+        <div class="col-lg-6">
+           <h5>Nome curto / Nome popular</h5>
+           
+           <h:inputText styleClass="form-control" 
+               value="#{cadastroEstoqueController.item.nomeCurto}" >             
+           </h:inputText>
+        </div>
+               
+    </div><!-- Fim da div class row -->
+        
+   </div><!-- FIM DA DIV  ITEM -->  
+   
+   <!-- COMECO DA ABA ENDERCO -->
+  
+  <!--  LINHA DO FORM DE CATEGORIA DO ITEM -->
+  
+      <div id="catest" class="tab-pane">
+         
+         
+         
+    <div class="row">
+      
+    </div><!-- Fim da div class row -->
+             
+      </div>
+   <!-- FIM DA TAB ENDEREÇO DO CLIENTE -->
+      
+   <!-- COMEÇA TAB DE LOCALIZAÇÃO DO ITEM -->   
+   <div id="locitem" class="tab-pane fade">
+   
+     <div class="row">
+         
+        
+                    
+                    
+      </div>   
+   </div><!-- FIM DA TAB DE localização do item --> 
+	 			
+</div>
+   <!-- FIM DA DIV DE TODO CONTEUDO -->  
+      
+</section>
+
+<div class="row" style="margin-bottom: 50px;margin-top:40px;">
+   <div class="col-lg-3"></div>
+   <div class="col-lg-3">
+      <h:commandButton styleClass=" form-control btn btn-success" style="font-size:20px;margin-bottom:20px;"
+      action="#{cadastroEstoqueController.persistirItem()}" value="Cadastrar" />
+   </div>
+   <div class="col-lg-3">
+      <h:commandButton styleClass="form-control btn btn-danger" style="font-size:20px;"
+       action="#{cadastroEstoqueController.irParaHome()}" immediate="true" value="Cancelar" />
+   </div>
+   
+   <div class="col-lg-3"></div>
+</div>
+ 
+</h:form>
+
+</ui:define>
+</ui:composition>
+
+</html>
