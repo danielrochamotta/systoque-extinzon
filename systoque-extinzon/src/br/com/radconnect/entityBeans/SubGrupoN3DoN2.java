@@ -43,6 +43,11 @@ public class SubGrupoN3DoN2 implements Serializable{
 	@OneToMany(mappedBy = "subGrupoN3",cascade = CascadeType.ALL,orphanRemoval = true)
 	@LazyCollection(LazyCollectionOption.EXTRA)
 	private List<SubGrupoN4DoN3> listSubGrupoN4 = new ArrayList<SubGrupoN4DoN3>();
+	
+	@OneToMany(mappedBy = "subGrupoN3",cascade = {CascadeType.ALL},orphanRemoval = true)
+	@LazyCollection(LazyCollectionOption.EXTRA)
+	private List<Item> listItem = new ArrayList<Item>();
+	
 	//FIM
 	
 	//METODOS PARA ADICIONAR E REMOVER DA LISTA DO SUBGRUPO N4
@@ -85,7 +90,7 @@ public class SubGrupoN3DoN2 implements Serializable{
 	//TOSTRING
 	@Override
 	public String toString() {
-		return "SubGrupoN3DoN2 [nome=" + nome + "]";
+		return nome;
 	}
 	//FIM
 	
@@ -113,11 +118,12 @@ public class SubGrupoN3DoN2 implements Serializable{
 	public void setSubGrupoN2(SubGrupoN2DoN1 subGrupoN2) {
 		this.subGrupoN2 = subGrupoN2;
 	}
-
-	
-	
-	
-	
+	public List<SubGrupoN4DoN3> getListSubGrupoN4() {
+		return listSubGrupoN4;
+	}
+	public void setListSubGrupoN4(List<SubGrupoN4DoN3> listSubGrupoN4) {
+		this.listSubGrupoN4 = listSubGrupoN4;
+	}
 	
 
 }

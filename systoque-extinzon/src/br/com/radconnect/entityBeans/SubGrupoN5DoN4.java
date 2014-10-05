@@ -1,7 +1,10 @@
 package br.com.radconnect.entityBeans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,10 +12,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Index;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 @SuppressWarnings("serial")
 @Entity
@@ -33,6 +39,10 @@ public class SubGrupoN5DoN4 implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "N4_ID",referencedColumnName = "ID")
 	private SubGrupoN4DoN3 subGrupoN4;
+	
+	@OneToMany(mappedBy = "subGrupoN5",cascade = {CascadeType.ALL},orphanRemoval = true)
+	@LazyCollection(LazyCollectionOption.EXTRA)
+	private List<Item> listItem = new ArrayList<Item>();
 	//FIM
 	
 	//HASHCODE
@@ -65,7 +75,7 @@ public class SubGrupoN5DoN4 implements Serializable{
 	//TOSTRING
 	@Override
 	public String toString() {
-		return "SubGrupoN5DoN4 [nome=" + nome + "]";
+		return nome;
 	}
 	//FIM
 	
@@ -94,6 +104,8 @@ public class SubGrupoN5DoN4 implements Serializable{
 	public void setSubGrupoN4(SubGrupoN4DoN3 subGrupoN4) {
 		this.subGrupoN4 = subGrupoN4;
 	}
+	
+	
 
 		
 

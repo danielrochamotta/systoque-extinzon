@@ -16,8 +16,7 @@ import br.com.radconnect.entityBeans.Fornecedor;
 @ConversationScoped
 public class CadastroFornecedorController implements Serializable{
 	
-	@Inject
-	Conversation conversation;
+	
 	
 	private Fornecedor doCadastroController;
 	private DaoFornecedor dao;
@@ -26,7 +25,7 @@ public class CadastroFornecedorController implements Serializable{
 	
 	@PostConstruct
 	public void iniciaCadastroFornecedorController(){
-		conversation.begin();
+		
 		dao = new DaoFornecedor();
 		
 	}
@@ -38,29 +37,25 @@ public class CadastroFornecedorController implements Serializable{
 		return "novoforn";
 	}
 	
-	public String voltarParaHome(){//METODO PARA IR PARA PÁGINA HOME
-		return "home";
+	public String paginaMenuPrincipal(){//METODO PARA IR PARA PÁGINA HOME
+		return "menu";
 	}
 	
-	public String opcaoParaFornecedor(){//METODO PARA IR PARA PAGINA DE OPCOES DO CLIENTE
-		return "opcaoforn";
-	}
-	
-	public String irParaEdicaoDeFornecedor(){//METODO PARA IR PARA FORM  DE EDICAO COM CLIENTE DA TELA
+	public String paginaEditFornecedor(){//METODO PARA IR PARA FORM  DE EDICAO COM CLIENTE DA TELA
 		
 		return "editforn";
 	}
 	
-	public String irParaListagemDeFornecedor(){
-		return "listforn";
+	public String paginaListFornecedor(){
+		return "listfornecedor";
 	}
 	
 	//METODOS DE PERSISTENCIA
 	
 	public String persistirFornecedor(){//METODO PARA GRAVAR UM NOVO CLIENTE
-		conversation.end();
+		
 		dao.persistirFornecedor(doCadastroController);
-		return "listforn?faces-redirect=true";
+		return "listfornecedor";
 	}	
 	
 	public void removerFornecedorDoBanco(){//METODO PARA REMOVER CLIENTE DO BANCO

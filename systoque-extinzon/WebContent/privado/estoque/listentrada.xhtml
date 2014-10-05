@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="estoque.xhtml">
+
+	<ui:define name="estoque">
+		<div id="divdatabelaent" class="panel panel-default divdatabela">
+			<div class="panel-heading">
+				<h6 class="panel-title">Lista / Entradas</h6>
+			</div>
+
+			<div class="panel-body">
+
+				<div class="row" style="font-size: small;">
+					<h:panelGroup id="painelpesquisaent" style="font-size:small;">
+						<div class="col-lg-2">
+							<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+
+							<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+						</div>
+
+						<div class="col-lg-3">
+							<h6>Pesquisar</h6>
+
+							<h:inputText styleClass="form-control" value="#">
+								<f:ajax execute="painelpesquisaent"
+									render="tabelaent btnfiltroent" event="keyup" />
+							</h:inputText>
+						</div>
+
+						<div class="col-lg-3">
+							<h6>Filtro</h6>
+
+							<h:selectOneMenu styleClass="form-control" value="#">
+								<f:selectItem itemLabel="Fornecedor" itemValue="Item" />
+								<f:selectItem itemLabel="Item" itemValue="Lote" />
+								<f:selectItem itemLabel="Grupo" itemValue="NFE" />
+
+								<f:ajax execute="@form" render="@form" />
+							</h:selectOneMenu>
+						</div>
+
+						<div class="col-lg-3">
+							<h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+
+							<h:commandLink value=" Imprimir Todos"
+								styleClass="form-control btn btn-default glyphicon glyphicon-print"
+								action="#" target="_blanck">
+
+							</h:commandLink>
+						</div>
+
+					</h:panelGroup>
+				</div>
+
+			</div>
+
+			<h:dataTable id="tabelaent"
+				value="#{cadastroEstoqueController.listEntradaDeItens()}" var="obj"
+				styleClass="table" style="font-size:x-small">
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText style="font-size:x-small" value="Lote" />
+					</f:facet>
+         #{obj.entrada.id}
+      </h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText style="font-size:x-small" value="Data de Entrada" />
+					</f:facet>
+         #{obj.entrada.data}
+      </h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText style="font-size:x-small" value="NFE Entrada" />
+					</f:facet>
+        #{obj.entrada.numeroNF}
+      </h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText style="font-size:x-small" value="Serial NFE" />
+					</f:facet>
+         #{obj.entrada.serieNF}
+      </h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText style="font-size:x-small" value="D. Item" />
+					</f:facet>
+         #{obj.item.nome}
+      </h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText style="font-size:x-small" value="Cod. Item" />
+					</f:facet>
+         #{obj.item.codigo}
+      </h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText style="font-size:x-small" value="Qtd Entrada" />
+					</f:facet>
+          #{obj.qtdDeItens}
+      </h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText style="font-size:x-small" value="Valor Unitário" />
+					</f:facet>
+          #{obj.valorUnitarioDoItem}
+      </h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText style="font-size:x-small" value="" />
+					</f:facet>
+
+					<div class="btn-group">
+						<button type="button" class="btn-xs btn-danger dropdown-toggle"
+							data-toggle="dropdown">
+							Opções<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" role="menu">
+							<li><h:commandLink styleClass="btn-xs btn-default "
+									value="Editar" action="#">
+									<f:setPropertyActionListener target="#" value="#" />
+								</h:commandLink></li>
+
+							<li><h:commandLink value="Remover"
+									styleClass="btn-xs btn-default" action="#">
+									<f:setPropertyActionListener target="#" value="#" />
+								</h:commandLink></li>
+
+							<li><h:commandLink value="Detalhes"
+									styleClass="btn-xs btn-default" action="#" target="_blank">
+									<f:setPropertyActionListener target="#" value="#" />
+								</h:commandLink></li>
+
+						</ul>
+					</div>
+				</h:column>
+			</h:dataTable>
+
+		</div>
+
+		<div class="col-lg-4"></div>
+
+		<h:panelGroup id="btnfiltroent" styleClass="col-lg-4">
+
+			<ul class="pager">
+				<!-- MENSAGEM DE REGISTROS -->
+				<h5></h5>
+				<li><h:commandLink action="#" value="Primeiro">
+						<f:ajax execute="@form" render="@form" />
+					</h:commandLink></li>
+
+				<li><h:commandLink action="#" value="Anterior">
+						<f:ajax execute="@form" render="@form" />
+					</h:commandLink></li>
+
+				<li><h:commandLink action="#" value="Proximo">
+						<f:ajax execute="@form" render="@form" />
+					</h:commandLink></li>
+
+				<li><h:commandLink action="#" value="Ultimo">
+						<f:ajax execute="@form" render="@form" />
+					</h:commandLink></li>
+			</ul>
+		</h:panelGroup>
+		<div class="col-lg-4"></div>
+	</ui:define>
+
+</ui:composition>
+</html>

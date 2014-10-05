@@ -87,6 +87,26 @@ public class Item implements Serializable{
 	private GrupoDoItem grupo;
 	
 	@ManyToOne
+	@JoinColumn(name = "ID_SubGrupoN1")
+	private SubGrupoN1DoGrupo subGrupoN1;
+	
+	@ManyToOne
+	@JoinColumn(name = "ID_SubGrupoN2")
+	private SubGrupoN2DoN1 subGrupoN2;
+	
+	@ManyToOne
+	@JoinColumn(name = "ID_SubGrupoN3")
+	private SubGrupoN3DoN2 subGrupoN3;
+	
+	@ManyToOne
+	@JoinColumn(name = "ID_SubGrupoN4")
+	private SubGrupoN4DoN3 subGrupoN4;
+	
+	@ManyToOne
+	@JoinColumn(name = "ID_SubGrupoN5")
+	private SubGrupoN5DoN4 subGrupoN5;
+	
+	@ManyToOne
 	@JoinColumn(name = "ID_LOCALIZACAO",referencedColumnName = "ID")
 	private LocalizacaoItem localizacao;
 	
@@ -211,6 +231,36 @@ public class Item implements Serializable{
 	}
 	public void setLocalizacao(LocalizacaoItem localizacao) {
 		this.localizacao = localizacao;
+	}
+	public SubGrupoN1DoGrupo getSubGrupoN1() {
+		return subGrupoN1;
+	}
+	public void setSubGrupoN1(SubGrupoN1DoGrupo subGrupoN1) {
+		this.subGrupoN1 = subGrupoN1;
+	}
+	public SubGrupoN2DoN1 getSubGrupoN2() {
+		return subGrupoN2;
+	}
+	public void setSubGrupoN2(SubGrupoN2DoN1 subGrupoN2) {
+		this.subGrupoN2 = subGrupoN2;
+	}
+	public SubGrupoN3DoN2 getSubGrupoN3() {
+		return subGrupoN3;
+	}
+	public void setSubGrupoN3(SubGrupoN3DoN2 subGrupoN3) {
+		this.subGrupoN3 = subGrupoN3;
+	}
+	public SubGrupoN4DoN3 getSubGrupoN4() {
+		return subGrupoN4;
+	}
+	public void setSubGrupoN4(SubGrupoN4DoN3 subGrupoN4) {
+		this.subGrupoN4 = subGrupoN4;
+	}
+	public SubGrupoN5DoN4 getSubGrupoN5() {
+		return subGrupoN5;
+	}
+	public void setSubGrupoN5(SubGrupoN5DoN4 subGrupoN5) {
+		this.subGrupoN5 = subGrupoN5;
 	}
 	
 	

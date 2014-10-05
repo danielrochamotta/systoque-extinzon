@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/WEB-INF/template/default.html">
+	<ui:define name="conteudo">
+		<h:form>
+
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">Estoque</h4>
+				</div>
+
+				<div class="panel-body">
+
+					<!-- Split button -->
+					<div class="btn-group">
+						<h:commandButton styleClass="btn btn-danger" 
+						action="#{cadastroEstoqueController.paginaListItem()}" value="Item" />
+						<button type="button" class="btn btn-danger dropdown-toggle"
+							data-toggle="dropdown">
+							<span class="caret"></span> <span class="sr-only">Toggle
+								Dropdown</span>
+						</button>
+						<ul class="dropdown-menu" role="menu">
+							<li><h:commandLink action="#{cadastroEstoqueController.novoItem()}" value="Novo" /></li>
+							
+						</ul>
+					</div>
+
+					<!-- Split button -->
+					<div class="btn-group">
+						<h:commandButton styleClass="btn btn-danger" 
+						action="#{cadastroEstoqueController.paginaListEntradaDeItens()}" value="Entrada" />
+						<button type="button" class="btn btn-danger dropdown-toggle"
+							data-toggle="dropdown">
+							<span class="caret"></span> <span class="sr-only">Toggle
+								Dropdown</span>
+						</button>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">Novo</a></li>
+							
+						</ul>
+					</div>
+					
+					<!-- Split button -->
+					<div class="btn-group">
+						<h:commandButton styleClass="btn btn-danger" action="#" value="Saída" />
+						<button type="button" class="btn btn-danger dropdown-toggle"
+							data-toggle="dropdown">
+							<span class="caret"></span> <span class="sr-only">Toggle
+								Dropdown</span>
+						</button>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">Novo</a></li>
+							
+						</ul>
+					</div>
+
+					<div class="row" style="margin-top: 10px;">
+					
+					    <ui:insert name="estoque"></ui:insert>
+						
+					</div>
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

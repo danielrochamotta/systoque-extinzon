@@ -11,14 +11,20 @@
 
 <title>Systoque - Extinzon</title>
 
-<link href="css/bootstrap.min.css" rel="stylesheet" />
-<link href="css/bootstrap-reset.css" rel="stylesheet" />
-<link href="css/font-awesome.css" rel="stylesheet" />
-<link href="css/font-awesome.css" rel="stylesheet" />
-<link href="css/style.css" rel="stylesheet" />
-<link href="css/style-responsive.css" rel="stylesheet" />
-<link href="css/bootstrap-responsive.min.css" rel="stylesheet" />
-<link href="css/teste.css" rel="stylesheet" />
+<link  type="text/css" rel="stylesheet" 
+href="#{request.contextPath}/css/bootstrap.min.css" />
+<link  type="text/css" rel="stylesheet" 
+href="#{request.contextPath}/css/bootstrap-reset.css" />
+<link  type="text/css" rel="stylesheet" 
+href="#{request.contextPath}/css/font-awesome.css" />
+<link href="#{request.contextPath}/css/font-awesome.css" rel="stylesheet" />
+<link href="#{request.contextPath}/css/style.css" rel="stylesheet" />
+<link type="text/css" rel="stylesheet"
+ href="#{request.contextPath}/css/style-responsive.css" />
+<link type="text/css" rel="stylesheet"
+ href="#{request.contextPath}/css/bootstrap-responsive.min.css" />
+<link  type="text/css" rel="stylesheet" 
+href="#{request.contextPath}/css/teste.css" />
 
 <!--[if lt IE 9]><script src="js/ie8/ie8-responsive-file-warning.js"></script><![endif]-->
 
@@ -28,17 +34,18 @@
     <![endif]-->
   </h:head>
   <h:body>
+   
 
 <div class="navbar navbar-inverse navbar-static-top">
    <div class="container">
-      <a class="navbar-brand" href="home.jsf">SYSTOQUE</a>
+      <a class="navbar-brand" >SYSTOQUE</a>
       
-      <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+      <button class="navbar-toggle " data-toggle="collapse" data-target=".navHeaderCollapse">
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
       </button>
-      
+        <h:form>
       <div class="collapse navbar-collapse navHeaderCollapse">
          <ul class="nav navbar-nav navbar-right">
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cadastros
@@ -46,10 +53,22 @@
             </a>
             
             <ul class="dropdown-menu">
-                <li class="dropdown"><a href="listfunc.jsf">Funcionario</a></li>
-                <li class="dropdown"><a href="listforn.jsf">Fornecedor</a></li>
-               <li class="dropdown"><a href="listcli.jsf">Cliente</a></li>        
+               <li class="dropdown"> <h:commandLink action="#{cadastroFuncionarioController.paginaListFuncionario()}" 
+                value="Funcionário" /></li>
+                
+                <li class="dropdown"> <h:commandLink 
+                action="#{cadastroFornecedorController.paginaListFornecedor()}" 
+                value="Fornecedor" /></li>
+                
+                
+               <li class="dropdown"> <h:commandLink 
+               action="#{cadastroClienteController.paginaListCliente()}" 
+                value="Cliente" /></li> 
+               
+                     
                <li class="dropdown"><a href="botoescadastroempresa.jsf">Empresa</a></li>
+               
+               
             </ul>
             
             </li>
@@ -62,7 +81,8 @@
             <ul class="dropdown-menu">
                 <li class="dropdown"><a href="#">Serviços</a></li>
                 <li class="dropdown"><a href="#">Vendas</a></li>
-                <li class="dropdown"><a href="listitem.jsf">Estoque</a></li>
+                <li class="dropdown"><h:commandLink action="#{cadastroEstoqueController.paginaListItem()}"
+                 value="Estoque" /></li>
                 <li class="dropdown"><a href="#">Contas</a></li>
             </ul>
             
@@ -100,7 +120,8 @@
             </li>
             
          </ul>
-      </div>     
+      </div> 
+     </h:form>    
    </div>
   </div>
   
@@ -113,8 +134,9 @@
 
 
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="#{request.contextPath}/js/bootstrap.min.js"></script>
     
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+   
   </h:body>
 </html>

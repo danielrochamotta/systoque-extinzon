@@ -30,13 +30,11 @@ public class CadastroEmpresaController implements Serializable {
 	
 	private Setor setor;
 	
-	@Inject
-	Conversation conversation;
 	
 	@PostConstruct
 	public void incializaCadastroEmpresaMB(){
 		daoSetor = new DaoSetor();
-		conversation.begin();
+		
 		
 	}
 	/*METODOS DE CADASTRO SETOR
@@ -48,7 +46,7 @@ public class CadastroEmpresaController implements Serializable {
 		return "formsetor";
 	}
 	public String localizarSetor(){
-		conversation.end();
+		
 		return "listsetor";
 	}
 	public List<Setor> getListarSetor(){
@@ -64,18 +62,18 @@ public class CadastroEmpresaController implements Serializable {
 	public String gravarSetor(){
 		daoSetor.gravarSetor(setor);
 		addCargo = false;
-		conversation.end();
+		
 		return "listsetor?faces-redirect=true";
 	}
 	public String editarSetor(){
 		daoSetor.editarSetor(setor);
 		addCargo = false;
-		conversation.end();
+		
 		
 		return "listsetor?faces-redirect=true";
 	}
 	public String cancelaCadastro(){
-		conversation.end();
+		
 		return "listsetor?faces-redirect=true";
 	}
 	public String paginaHome(){

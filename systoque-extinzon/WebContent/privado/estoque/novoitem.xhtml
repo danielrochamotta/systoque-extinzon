@@ -8,14 +8,14 @@
 
 
 
-<ui:composition template="default.html">
+<ui:composition template="/WEB-INF/template/default.html">
 <ui:define name="conteudo">
 <h:form id="form">
 <p:messages id="messages" showDetail="false" autoUpdate="false" closable="true" styleClass="alert-info"/>
 <section class="panel">
   <header class="panel-heading">
     
-          <h3>Item  <span class="label label-default">Novo</span> </h3>       
+          <h3>Item  <span class="label label-danger">Novo</span> </h3>       
    
   </header>
 
@@ -30,6 +30,7 @@
 				
 				<!--  LINHA LINHA DO FORM DE DADOS PESSOAIS FUNCIONARIO -->
 	<div id="mytabcontent" class="tab-content" style="font-size:small;">
+	   
 	
 	<div id="itemest" class="tab-pane active">
      <div class="row">
@@ -133,15 +134,91 @@
   <!--  LINHA DO FORM DE CATEGORIA DO ITEM -->
   
       <div id="catest" class="tab-pane">
-         
+     <h:panelGroup id="painelgeralitem">    
          
          
     <div class="row">
+    
+        <div class="col-lg-6">
+            <h5>Grupo</h5>
+        
+            <h:selectOneMenu value="#{cadastroEstoqueController.item.grupo}"
+           styleClass="form-control" converter="ConverterGrupo">
+           
+           <f:selectItem itemLabel="Selecione" noSelectionOption="true"/>
+           <f:selectItems value="#{cadastroEstoqueController.daoGrupo.procurarGrupo(null,null)}"/>
+           <f:ajax event="change" execute="#{cadastroEstoqueController.verificaExistenciaDeCategorias()}" 
+           render=":form:painelgeralitem"/>     
+           </h:selectOneMenu>
+        </div>
+        
+        <h:panelGrid id="painelcategoria1" rendered="#{cadastroEstoqueController.categoriaN1 == true}" 
+        styleClass="col-lg-6">
+            <div>
+                 <h5>Categoria</h5>
+                 
+                 <h:selectOneMenu value="#{cadastroEstoqueController.item.subGrupoN1}"
+                         styleClass="form-control"  converter="ConverterSubGrupoN1">
+                      <f:selectItem itemLabel="Selecione" noSelectionOption="true"/>
+                      <f:selectItems value="#{cadastroEstoqueController.item.grupo.listSubGrupo}"/>
+                      <f:ajax event="change" execute="#{cadastroEstoqueController.verificaExistenciaDeCategorias()}" 
+                         render=":form:painelgeralitem"/> 
+                 </h:selectOneMenu>
+            </div>
+        </h:panelGrid>
+        
+        <h:panelGrid rendered="#{cadastroEstoqueController.categoriaN2 == true}" styleClass="col-lg-6">
+            <div>
+                 <h5>Categoria</h5>
+                 
+                 <h:selectOneMenu value="#{cadastroEstoqueController.item.subGrupoN2}"
+                      styleClass="form-control" >
+                      
+                      <f:selectItem itemLabel="Selecione"/>
+                      <f:selectItems value="#{cadastroEstoqueController.item.subGrupoN1.listSubGrupoN2}"/>
+                      <f:ajax event="change" execute="#{cadastroEstoqueController.verificaExistenciaDeCategorias()}" 
+                         render=":form:painelgeralitem"/> 
+                 </h:selectOneMenu>
+            </div>
+        </h:panelGrid>
+        
+        <h:panelGrid rendered="#{cadastroEstoqueController.categoriaN3 == true}" styleClass="col-lg-6">
+            <div>
+                 <h5>Categoria</h5>
+                 
+                 <h:selectOneMenu value="#"
+                      styleClass="form-control" >
+                
+                 </h:selectOneMenu>
+            </div>
+        </h:panelGrid>
+        
+        <h:panelGrid rendered="#{cadastroEstoqueController.categoriaN4 == true}" styleClass="col-lg-6">
+            <div>
+                 <h5>Categoria</h5>
+                 
+                 <h:selectOneMenu value="#"
+                      styleClass="form-control" >
+                
+                 </h:selectOneMenu>
+            </div>
+        </h:panelGrid>
+        
+        <h:panelGrid rendered="#{cadastroEstoqueController.categoriaN5 == true}" styleClass="col-lg-6">
+            <div>
+                 <h5>Categoria</h5>
+                 
+                 <h:selectOneMenu value="#"
+                      styleClass="form-control" >
+                
+                 </h:selectOneMenu>
+            </div>
+        </h:panelGrid>
       
     </div><!-- Fim da div class row -->
-             
+      </h:panelGroup>       
       </div>
-   <!-- FIM DA TAB ENDEREÇO DO CLIENTE -->
+   <!-- FIM item -->
       
    <!-- COMEÇA TAB DE LOCALIZAÇÃO DO ITEM -->   
    <div id="locitem" class="tab-pane fade">
@@ -162,12 +239,12 @@
 <div class="row" style="margin-bottom: 50px;margin-top:40px;">
    <div class="col-lg-3"></div>
    <div class="col-lg-3">
-      <h:commandButton styleClass=" form-control btn btn-success" style="font-size:20px;margin-bottom:20px;"
+      <h:commandButton styleClass=" form-control btn btn-primary" style="font-size:20px;margin-bottom:20px;"
       action="#{cadastroEstoqueController.persistirItem()}" value="Cadastrar" />
    </div>
    <div class="col-lg-3">
-      <h:commandButton styleClass="form-control btn btn-danger" style="font-size:20px;"
-       action="#{cadastroEstoqueController.irParaHome()}" immediate="true" value="Cancelar" />
+      <h:commandButton styleClass="form-control btn btn-primary" style="font-size:20px;"
+       action="#{cadastroEstoqueController.paginaListItem()}" immediate="true" value="Cancelar" />
    </div>
    
    <div class="col-lg-3"></div>

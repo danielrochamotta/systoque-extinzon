@@ -4,16 +4,16 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
-	<ui:composition template="default.html">
+	<ui:composition template="/WEB-INF/template/default.html">
 	   <ui:define name="conteudo">
 	     <h:form>
 	     
 	       <div class="btn-group">
                  <h:commandLink action="#{cadastroFuncionarioController.paginaNovo()}" 
 	              value=" Novo" styleClass="
-	               btn btn-primary glyphicon glyphicon-plus-sign"/>
+	               btn btn-danger glyphicon glyphicon-plus-sign"/>
 	              
-                 <h:commandLink action="#{cadastroFuncionarioController.paginaHome()}" 
+                 <h:commandLink action="#{cadastroFuncionarioController.paginaMenuPrincipal()}" 
 	              value=" Menu" 
 	              styleClass=" btn btn-danger glyphicon glyphicon-log-out" >
 	               
@@ -74,10 +74,11 @@
 	      
 	      <div class="row" style="margin-top:10px;">
 	           
-	           <div class="panel panel-default divdatabela">
+	           <div class="panel panel-default">
 	               <div class="panel-heading">
 	                   <h6 class="panel-title">Lista / Funcionários</h6>
 	               </div>
+	              <div class="divdatabela">
 	             <h:dataTable id="tabelafuncionario" 
 	             value="#{cadastroFuncionarioController.listagemFuncinario()}" var="funcionario"
 	             styleClass="table" style="font-size:x-small;" >
@@ -168,7 +169,7 @@
 			    </div>	
             </h:column>
 	             </h:dataTable>	           
-	           
+	            </div>
 	          </div>         
 	          
 	      <div class="col-lg-4"></div>

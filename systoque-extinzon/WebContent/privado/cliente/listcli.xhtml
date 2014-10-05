@@ -4,34 +4,42 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
-	<ui:composition template="default.html">
+	<ui:composition template="/WEB-INF/template/default.html">
 	   <ui:define name="conteudo">
 	     <h:form>
 	     
-	         <div class="btn-group">
-                 <h:commandLink action="#{cadastroFornecedorController.novoFornecedor()}" 
+	     
+	     
+	     <div class="panel panel-default">
+	         <div class="panel-heading">
+	            <h4 class="panel-title">Cadastrado de Clientes</h4>
+	         </div>
+	         
+	         <div class="panel-body">
+	     
+	        <div class="btn-group">
+                 <h:commandLink action="#{cadastroClienteController.novoCliente()}" 
 	              value=" Novo" styleClass="
-	               btn btn-primary glyphicon glyphicon-plus-sign"/>
+	               btn btn-danger glyphicon glyphicon-plus-sign"/>
 	              
-                 <h:commandLink action="#{cadastroFornecedorController.voltarParaHome()}" 
+                 <h:commandLink action="#{cadastroClienteController.paginaMenuPrincipal()}" 
 	              value=" Menu" 
 	              styleClass=" btn btn-danger glyphicon glyphicon-log-out" >
 	               
 	              </h:commandLink>
              
              </div>
-	     
-	     <div class="panel panel-success">
-	         <div class="panel-heading">
-	            <h4 class="panel-title">Cadastro de Fornecedores</h4>
-	         </div>
-	         
-	         <div class="panel-body">
-	         
-	         
-	     
-	      <div class="row">
-	       <h:panelGroup id="painelpesquisaforn">
+	      
+	      <div class="row" style="margin-top:10px;">
+	           
+	           <div id="divdatabela" class="panel panel-default ">
+	               <div class="panel-heading">
+	                   <h6 class="panel-title">Lista / Clientes</h6>
+	               </div>
+	               
+	               <div class="panel-body">
+	               
+	                    <h:panelGroup id="painelpesquisacli" style="font-size:small;">
 	         <div class="col-lg-2">
 	         <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
 	         
@@ -42,8 +50,8 @@
 	             <h6>Pesquisar</h6>
 	             
 	             <h:inputText styleClass="form-control"
-	             value="#{cadastroFornecedorController.atributoPesquisaForn}" >
-	                 <f:ajax execute="painelpesquisaforn" render="tabelaforn btnfiltroforn" event="keyup" />
+	             value="#{cadastroClienteController.atributoPesquisaCli}" >
+	                 <f:ajax execute="painelpesquisacli" render="tabelacli btnfiltrocli" event="keyup" />
 	             </h:inputText>
 	         </div>
 	         
@@ -51,7 +59,7 @@
 	             <h6>Filtro</h6>
 	             
 	             <h:selectOneMenu styleClass="form-control"
-	             value="#{cadastroFornecedorController.filtroPesquisaForn}">
+	             value="#{cadastroClienteController.filtroPesquisaCli}">
 	                 <f:selectItem itemLabel="Telefone" itemValue="telefone"/>
 	                 <f:selectItem itemLabel="Razão Social / Nome" itemValue="nomeRazaoSocial"/>
 	                 <f:selectItem itemLabel="Nome Fantasia" itemValue="nomeFantasia"/>
@@ -63,7 +71,7 @@
 	         </div>
 	         
 	         <div class="col-lg-3">
-	             <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+	             <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
 	             
 	             <h:commandLink value=" Imprimir Todos"
 	             styleClass="form-control btn btn-default glyphicon glyphicon-print" 
@@ -73,99 +81,91 @@
 	         </div>
 	         
 	       </h:panelGroup>
-	      </div>
-	      
-	      <div class="row" style="margin-top:10px;">
-	           
-	           <div id="divdatabela" class="panel panel-default divdatabela">
-	               <div class="panel-heading">
-	                  <h6 class="panel-title">Lista / Fornecedores</h6>
+	               
 	               </div>
-	             <h:dataTable id="tabelaforn" 
-	             value="#{cadastroFornecedorController.listFornecedor}" var="fornecedor"
-	             styleClass="table" style="font-size:x-small;" >
+	           <div class="divdatabela">
+	             <h:dataTable id="tabelacli" 
+	             value="#{cadastroClienteController.listCliente}" var="cliente"
+	             styleClass="table" style="font-size:x-small" >
 	               
 	                <h:column>
                       <f:facet name="header">
-                         <h:outputText style="font-size:x-small;" value="Código" />
+                         <h:outputText style="font-size:x-small" value="Código" />
                       </f:facet>
-         #{fornecedor.codigo}
+         #{cliente.codigoCliente}
       </h:column>
     
       <h:column>
           <f:facet name="header">
-             <h:outputText style="font-size:x-small;" value="RZ Social / Nome" />
+             <h:outputText style="font-size:x-small" value="R.Social/Nome" />
           </f:facet>
-          #{fornecedor.nomeRazaoSocial}
+          #{cliente.nomeRazaoSocial}
       </h:column>
       
       <h:column>
           <f:facet name="header">
-             <h:outputText style="font-size:x-small;" value="Nome Fantasia" />
+             <h:outputText style="font-size:x-small" value="N.Fantasia" />
           </f:facet>
-         #{fornecedor.nomeFantasia}
+         #{cliente.nomeFantasia}
       </h:column>
       
       <h:column>
           <f:facet name="header">
-             <h:outputText style="font-size:x-small;" value="Cnpj/Cpf" />
+             <h:outputText style="font-size:x-small" value="Cnpj/Cpf" />
           </f:facet>
-         #{fornecedor.cpfCnpj}
+         #{cliente.cpfCnpj}
       </h:column>
       
       <h:column>
           <f:facet name="header">
-             <h:outputText style="font-size:x-small;" value="Ie/Rg" />
+             <h:outputText style="font-size:x-small" value="Ie/Rg" />
           </f:facet>
-         #{fornecedor.rgInsEstadual}
+         #{cliente.rgInsEstadual}
       </h:column>
       
       <h:column>
           <f:facet name="header">
-             <h:outputText style="font-size:x-small;" value="Grupo" />
+             <h:outputText style="font-size:x-small" value="Grupo" />
           </f:facet>
-          #{fornecedor.grupo}
+          #{cliente.grupo}
       </h:column>
       
       <h:column>
           <f:facet name="header">
-             <h:outputText style="font-size:x-small;" value="Telefone" />
+             <h:outputText style="font-size:x-small" value="Tel.P" />
           </f:facet>
-          #{fornecedor.telefone}
+          #{cliente.telefone}
       </h:column>           
       
       
       <h:column>
           <f:facet name="header">
-             <h:outputText style="font-size:x-small;" value="" />
+             <h:outputText style="font-size:x-small" value="" />
           </f:facet>
 
 			<div class="btn-group">
-				<button type="button" class="btn-xs btn-primary dropdown-toggle"
+				<button type="button" class="btn-xs btn-danger dropdown-toggle"
 					data-toggle="dropdown" style="margin-right:40px;">
 						Opções<span class="caret"></span>
 				</button>
 					 <ul class="dropdown-menu" role="menu">
 							<li>
-							    <h:commandLink styleClass="btn-xs btn-warning" value="Editar"
-                                action="#{cadastroFornecedorController.irParaEdicaoDeFornecedor()}" >
-                                       <f:setPropertyActionListener 
-                                       target="#{cadastroFornecedorController.doCadastroController}"
-                                       value="#{fornecedor}" />
-                                 </h:commandLink>   
+							    <h:commandLink styleClass="btn btn-default btn-sm" value="Editar"
+                                    action="#{cadastroClienteController.paginaEditCliente(cliente.id)}" >                                       
+                                </h:commandLink>   
                             </li>
                             
 						    <li>
-                                 <h:commandLink value="Remover" styleClass="btn-xs btn-danger"
-                                     action="#{cadastroFornecedorController.removerFornecedorDoBanco()}" > 
+                                 <h:commandLink value="Remover" styleClass="btn btn-default btn-sm"
+                                     action="#{cadastroClienteController.removerClienteDoBanco()}" > 
                                            <f:setPropertyActionListener 
-                                           target="#{cadastroFornecedorController.doCadastroController}"
-                                           value="#{fornecedor}" />
+                                           target="#{cadastroClienteController.doCadastroMB}"
+                                           value="#{cliente}" />
                                  </h:commandLink>
                             </li>
                             
 						    <li>
-						         <h:commandLink value="Detalhes" styleClass="btn-xs btn-info" 
+						         <h:commandLink value="Detalhes" styleClass="btn btn-default btn-sm" 
              						action="#" target="_blank">
              							<f:setPropertyActionListener target="#"
                  						value="#"/>
@@ -176,46 +176,44 @@
 			    </div>	
             </h:column>
 	             </h:dataTable>	           
-	           
+	            </div>
 	          </div>         
 	          
 	      <div class="col-lg-4"></div>
 	     
-	       <h:panelGroup id="btnfiltroforn" styleClass="col-lg-4">
+	       <h:panelGroup id="btnfiltrocli" styleClass="col-lg-4">
 	     
 	         <ul class="pager">
-	             <h5>#{cadastroFornecedorController.mensagemDeRegistros()}</h5>
+	             <h5>#{cadastroClienteController.mensagemDeRegistros()}</h5>
 	             <li>
-                    <h:commandLink action="#{cadastroFornecedorController.primeiro()}" value="Primeiro" >
+                    <h:commandLink action="#{cadastroClienteController.primeiro()}" value="Primeiro" >
                        <f:ajax execute="@form" render="@form" />
                     </h:commandLink>
                  </li>
                  
                  <li>
-                    <h:commandLink action="#{cadastroFornecedorController.anterior()}" value="Anterior" >
+                    <h:commandLink action="#{cadastroClienteController.anterior()}" value="Anterior" >
                        <f:ajax execute="@form" render="@form" />
                     </h:commandLink>
                  </li>        
                  
                  <li>
-                    <h:commandLink action="#{cadastroFornecedorController.proximo()}" value="Proximo" >
+                    <h:commandLink action="#{cadastroClienteController.proximo()}" value="Proximo" >
                         <f:ajax execute="@form" render="@form" />
                     </h:commandLink>
                  </li>
                  
                  <li>
-                    <h:commandLink action="#{cadastroFornecedorController.ultimo()}" value="Ultimo" >
+                    <h:commandLink action="#{cadastroClienteController.ultimo()}" value="Ultimo" >
                        <f:ajax execute="@form" render="@form" />
                     </h:commandLink>
                  </li>
              </ul>
            </h:panelGroup>
-         <div class="col-lg-4"></div>             
-	     
-	      </div>	    
-	  </div>
-	</div>      
-	     
+            <div class="col-lg-4"></div>
+	     </div>	   
+       </div>
+    </div>      
 	     </h:form>
 	   </ui:define>
 	</ui:composition>

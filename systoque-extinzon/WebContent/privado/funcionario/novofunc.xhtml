@@ -8,14 +8,14 @@
 
 
 
-<ui:composition template="default.html">
+<ui:composition template="/WEB-INF/template/default.html">
 <ui:define name="conteudo">
 <h:form id="form">
 <p:messages id="messages" showDetail="false" autoUpdate="false" closable="true" styleClass="alert-info"/>
 <section class="panel">
   <header class="panel-heading">
     
-          <h3>Funcionário <span class="label label-default">Novo</span> </h3>       
+          <h3>Funcionário <span class="label label-danger">Novo</span> </h3>       
    
   </header>
 
@@ -1266,12 +1266,12 @@
 <div class="row" style="margin-bottom: 50px;margin-top:40px;">
    <div class="col-lg-3"></div>
    <div class="col-lg-3">
-      <h:commandButton styleClass=" form-control btn btn-success" style="font-size:20px;margin-bottom:20px;"
+      <h:commandButton styleClass=" form-control btn btn-primary" style="font-size:20px;margin-bottom:20px;"
       action="#{cadastroFuncionarioController.persistirFuncionario()}" value="Cadastrar" />
    </div>
    <div class="col-lg-3">
-      <h:commandButton styleClass="form-control btn btn-danger" style="font-size:20px;"
-       action="#{cadastroFuncionarioController.localizarFuncionario()}" immediate="true" value="Cancelar" />
+      <h:commandButton styleClass="form-control btn btn-primary" style="font-size:20px;"
+       action="#{cadastroFuncionarioController.paginaListFuncionario()}" immediate="true" value="Cancelar" />
    </div>
    
    <div class="col-lg-3"></div>

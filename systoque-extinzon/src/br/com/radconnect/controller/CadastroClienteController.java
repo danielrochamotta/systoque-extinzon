@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
+import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -14,20 +15,21 @@ import br.com.radconnect.entityBeans.Cliente;
 
 @SuppressWarnings("serial")
 @Named
-@ConversationScoped
-public class CadastroClienteController implements Serializable{
+
+public class CadastroClienteController implements Serializable{	
 	
-	@Inject
-	Conversation conversation;
 	
 	private Cliente doCadastroController;
+	
 	private DaoCliente dao;
+	
 	private String filtroPesquisaCli;
+	
 	private String atributoPesquisaCli;
 	
 	@PostConstruct
 	public void iniciaCadastroClienteMB(){
-		conversation.begin();
+		doCadastroController = new Cliente();
 		dao = new DaoCliente();
 		
 	}
@@ -35,33 +37,30 @@ public class CadastroClienteController implements Serializable{
 	//METODOS PARA NAVEGA플O DE P핯INAS
 	
 	public String novoCliente(){//METODO PARA IR PARA P핯INA DO FORM DE CLIENTE
-		doCadastroController = new Cliente();
+		iniciaCadastroClienteMB();
 		return "novocli";
 	}
 	
-	public String voltarParaHome(){//METODO PARA IR PARA P핯INA HOME
-		return "home";
-	}
+	public String paginaMenuPrincipal(){//METODO PARA IR PARA P핯INA HOME
+		return "menu";
+	}	
 	
-	public String opcaoParaCliente(){//METODO PARA IR PARA PAGINA DE OPCOES DO CLIENTE
-		return "opcaocli";
-	}
 	
-	public String irParaEdicaoDeCliente(){//METODO PARA IR PARA FORM  DE EDICAO COM CLIENTE DA TELA
-		
+	public String paginaEditCliente(Long id){//METODO PARA IR PARA FORM  DE EDICAO COM CLIENTE DA TELA
+		doCadastroController = dao.recuperaCliente(id);
 		return "editcli";
 	}
 	
-	public String irParaListagemDeClientes(){
-		return "listcli";
+	public String paginaListCliente(){
+		return "listcliente";
 	}
 	
 	//METODOS DE PERSISTENCIA
 	
 	public String persistirCliente(){//METODO PARA GRAVAR UM NOVO CLIENTE
-		conversation.end();
+		
 		dao.persistirCliente(doCadastroController);
-		return "listcli?faces-redirect=true";
+		return "listcliente";
 	}
 	
 	
@@ -102,10 +101,9 @@ public class CadastroClienteController implements Serializable{
 	
 	
 	//METODOS GETTERS E SETTERS
+	
 	public Cliente getDoCadastroController() {
-		if(doCadastroController == null){
-			doCadastroController = new Cliente();
-		}
+		
 		return doCadastroController;
 	}
 

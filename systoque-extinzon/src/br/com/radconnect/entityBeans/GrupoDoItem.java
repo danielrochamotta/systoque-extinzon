@@ -58,7 +58,7 @@ public class GrupoDoItem implements Serializable{
 	//TOSTRING
 	@Override
 	public String toString() {
-		return "GrupoDoItem [nome=" + nome + "]";
+		return nome;
 	}
 	//HASHCODE
 	@Override

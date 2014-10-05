@@ -33,8 +33,7 @@ public class CadastroFuncionarioController implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Inject
-	Conversation conversation;
+	
 	
 	private Funcionario funcionario;//ATRIBUTO CORRESPONDE A CLASSE FUNCIONARIO
 	private Dependente doFuncionario;//ATRIBUTO QUE CORRESPONDE AO DEPENDENTE QUE IRA SE RELACIONAR COM FUNCIONARIO
@@ -63,7 +62,7 @@ public class CadastroFuncionarioController implements Serializable {
     */
 	@PostConstruct
 	public void iniciaCadastroMB(){//INCIO DO CONSTRUTOR
-		conversation.begin();
+		
 		dao = new  DaoFuncionario();		
 		daoSetor = new DaoSetor();
 		registroDeCargo = new HistoricoDeCargos();
@@ -76,9 +75,9 @@ public class CadastroFuncionarioController implements Serializable {
 	}//FIM DO CONSTRUTOR
 	
 	public String persistirFuncionario(){//INICIO DE PERSISTENCIA DO FUNCIONARIO
-		conversation.end();
+		
 		dao.persistirFuncionario(funcionario);
-		return "listfunc?faces-redirect=true";
+		return "listfuncionario";
 	
 	}//FIM DO METODO DE PERSISTENCIA DO FUNCIONARIO
 	
@@ -91,36 +90,33 @@ public class CadastroFuncionarioController implements Serializable {
 		return "novofunc?faces-redirect=true";
 	}//FIM DO METODO QEU DIRECIONA PARA A PAGINA DO FORM NOVO FUNCIONARIO
 	
-	public String paginaHome(){// INICIO DO METODO QUE DIRECIONA PARA A PAGINA HOME
-		conversation.end();
-		return "home";
+	public String paginaMenuPrincipal(){// INICIO DO METODO QUE DIRECIONA PARA A PAGINA HOME
+		
+		return "menu";
 	}//FIM DO METODO QUE DIRECIONA PARA PAGINA HOME
 	
-	public String paginaOpcoesFuncionario(){
-		
-		return "opcaofunc";
-	}
+	
 	
 	public List<Funcionario> getListFuncionario(){//INICIO DO METODO QUE CHAMA A LISTA COMPLETA DA TABELA DE FUNCIONARIO
 		return dao.listFuncionario();
 	}//FIM DO METODO QUE CHAMA LISTA COMPLETA DA TABELA FUNCIONARIO
 	
-	public String paginaEditar(){//INICIO DO METODO QUE DIRECIONA PARA PAGINA DE EDICAO DO FUNCIONARIO
+	public String paginaEditFuncionario(){//INICIO DO METODO QUE DIRECIONA PARA PAGINA DE EDICAO DO FUNCIONARIO
 		
 		return "editfunc";
 	}//FIM DO METODO QUE DIRECIONA PARA PAGINA DE EDICAO DO FUNCIONARIO
 	
 	public String editarFuncionario(){//INICIO DO METODO QUE ALTERA INFORMACOES DO FUNCIONARIO E PERSISTE NO BANCO
-		conversation.end();
+		
 		dao.editarFuncionario(funcionario);
 		
-		return "list?faces-redirect=true";
+		return "listfuncionario?faces-redirect=true";
 	}//FIM DO METODO QUE ALTERA INFORMACOES DO FUNCIONARIO
 	
 	public String removerFuncionario(){//INICIO DO METODO QUE REMOVE DO BANCO O FUNCIONARIO DESEJADO
 		//conversation.end();
 		dao.removerFuncionario(funcionario);
-		return "list?faces-redirect=true";
+		return "listfuncionario?faces-redirect=true";
 	}//FIM DO METODO QUE REMOVE DO BANCO O FUNCIONARIO DESEJADO
 	
 	public void detalhesFuncionario(){//INICIO DO METODO QUE GERA O RELATORIO DO FUNCIONARIO
@@ -138,9 +134,9 @@ public class CadastroFuncionarioController implements Serializable {
 		RelatorioUtil.imprimeRelatorio("templateFuncionarios", parametros, impressaDeTodosFuncionarios());
 	}//FIM DO METODO QUE GERA O RELATORIO DO FUNCIONARIO
 	
-	public String localizarFuncionario(){//INICIO DO METODO QUE LISTA FUNCONARIO DO BANCO
-		conversation.end();
-		return "listfunc?faces-redirect=true";
+	public String paginaListFuncionario(){//INICIO DO METODO QUE LISTA FUNCONARIO DO BANCO
+		
+		return "listfuncionario";
 	}//FIM DO METODO QUE LISTA FUNCIONARIOS DO BANCO
 	
 	public void addDepenteDoNovoFuncionario(){//INICIO DO METODO QUE ADICONA DEPENDENTE A LISTA DO OBJETO FUNCIONARIO

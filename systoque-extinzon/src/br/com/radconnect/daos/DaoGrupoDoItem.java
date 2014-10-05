@@ -55,7 +55,7 @@ public class DaoGrupoDoItem implements IGrupoDoItem{
 	@Override
 	public List<GrupoDoItem> procurarGrupo(String pesquisa, String filtro) {
 		// TODO Auto-generated method stub
-		return null;
+		return em.createQuery("from GrupoDoItem order by id").getResultList();
 	}
 	
 	

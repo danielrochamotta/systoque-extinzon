@@ -5,5 +5,410 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
     version="2.0">
+    <!-- INICIO NAV RULE DA PAGINA HOME -->
+    <navigation-rule>
+        <from-view-id>/home.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>listcliente</from-outcome>
+            <to-view-id>/privado/cliente/listcli.xhtml</to-view-id> 
+            <redirect/>         
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfornecedor</from-outcome>
+            <to-view-id>/privado/fornecedor/listforn.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfuncionario</from-outcome>
+            <to-view-id>/privado/funcionario/listfunc.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listitem</from-outcome>
+            <to-view-id>/privado/estoque/listitem.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        
+    </navigation-rule>
+    
+    <!-- FIM DA NAV RULE DA PAGINA HOME -->
+    
+    <!-- INICIO DA NAV RULE DA PAGINA DE LISTAGEM DO FORNECEDOR listforn -->
+    
+    <navigation-rule>
+        <from-view-id>/privado/fornecedor/listforn.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>listcliente</from-outcome>
+            <to-view-id>/privado/cliente/listcli.xhtml</to-view-id>    
+            <redirect/>       
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfornecedor</from-outcome>
+            <to-view-id>/privado/fornecedor/listforn.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfuncionario</from-outcome>
+            <to-view-id>/privado/funcionario/listfunc.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listitem</from-outcome>
+            <to-view-id>/privado/estoque/listitem.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>menu</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+            
+        </navigation-case>
+        
+    </navigation-rule>
+    
+    <!-- FIM DA NAV RULE DA PAGINA DE LISTAGEM DE FORNECEDOR -->
+    
+     <!-- INICIO DA NAV RULE DA PAGINA DE NOVO FORNECEDOR NOVOFORN -->
+    
+    <navigation-rule>
+        <from-view-id>/privado/fornecedor/novoforn.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>listcliente</from-outcome>
+            <to-view-id>/privado/cliente/listcli.xhtml</to-view-id>    
+            <redirect/>       
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfornecedor</from-outcome>
+            <to-view-id>/privado/fornecedor/listforn.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfuncionario</from-outcome>
+            <to-view-id>/privado/funcionario/listfunc.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listitem</from-outcome>
+            <to-view-id>/privado/estoque/listitem.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>menu</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+            
+        </navigation-case>
+        
+    </navigation-rule>
+    
+    <!-- FIM DA NAV RULE DA PAGINA DE NOVO FORNECEDOR  -->
+    
+    <!-- INICIO DA NAV RULE DA PAGINA DE EDICAO FORNECEDOR EDITFORN -->
+    
+    <navigation-rule>
+        <from-view-id>/privado/fornecedor/editforn.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>listcliente</from-outcome>
+            <to-view-id>/privado/cliente/listcli.xhtml</to-view-id>    
+            <redirect/>       
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfornecedor</from-outcome>
+            <to-view-id>/privado/fornecedor/listforn.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfuncionario</from-outcome>
+            <to-view-id>/privado/funcionario/listfunc.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listitem</from-outcome>
+            <to-view-id>/privado/estoque/listitem.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>menu</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+            
+        </navigation-case>
+        
+    </navigation-rule>
+    
+    <!-- FIM DA NAV RULE DA PAGINA DE EDICAO DO FORNECEDOR  -->
+    
+    <!-- INICIO DA NAV RULE DA PAGINA DE LISTAGEM DE CLIENTE LISTCLI -->
+    
+    <navigation-rule>
+        <from-view-id>/privado/cliente/listcli.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>listcliente</from-outcome>
+            <to-view-id>/privado/cliente/listcli.xhtml</to-view-id>  
+            <redirect/>         
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfornecedor</from-outcome>
+            <to-view-id>/privado/fornecedor/listforn.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfuncionario</from-outcome>
+            <to-view-id>/privado/funcionario/listfunc.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listitem</from-outcome>
+            <to-view-id>/privado/estoque/listitem.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>menu</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+           
+        </navigation-case>
+        
+    </navigation-rule>
+    <!-- FIM DA NAV RULE DA LISTAGEM DE CLIENTES -->
+    
+    <!-- INICIO DA NAV RULE DA PAGINA DE NOVO CLIENTE -->
+    
+       <navigation-rule>
+        <from-view-id>/privado/cliente/novocli.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>listcliente</from-outcome>
+            <to-view-id>/privado/cliente/listcli.xhtml</to-view-id>  
+            <redirect/>         
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfornecedor</from-outcome>
+            <to-view-id>/privado/fornecedor/listforn.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfuncionario</from-outcome>
+            <to-view-id>/privado/funcionario/listfunc.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listitem</from-outcome>
+            <to-view-id>/privado/estoque/listitem.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>menu</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+           
+        </navigation-case>
+        
+    </navigation-rule>
+    
+    <!-- FIM DA NAV RULE DA PAGINA DE NOVO CLIENTE -->
+    
+    <!-- INICIO DA NAV RULE DA PAGINA DE EDICAO DO CLIENTE EDITCLI -->
+    
+       <navigation-rule>
+        <from-view-id>/privado/cliente/editcli.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>listcliente</from-outcome>
+            <to-view-id>/privado/cliente/listcli.xhtml</to-view-id>  
+            <redirect/>         
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfornecedor</from-outcome>
+            <to-view-id>/privado/fornecedor/listforn.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfuncionario</from-outcome>
+            <to-view-id>/privado/funcionario/listfunc.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listitem</from-outcome>
+            <to-view-id>/privado/estoque/listitem.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>menu</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+           
+        </navigation-case>
+        
+    </navigation-rule>
+    
+    <!-- FIM DA NAV RULE DA PAGINA DE EDICAO DO CLIENTE -->
+    
+    <!-- INICIO DA NAV RULE DA LISTAGEM DE FUNCIONARIOS  LISTFUNC-->
+    <navigation-rule>
+        <from-view-id>/privado/funcionario/listfunc.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>listcliente</from-outcome>
+            <to-view-id>/privado/cliente/listcli.xhtml</to-view-id>  
+            <redirect/>         
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfornecedor</from-outcome>
+            <to-view-id>/privado/fornecedor/listforn.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfuncionario</from-outcome>
+            <to-view-id>/privado/funcionario/listfunc.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listitem</from-outcome>
+            <to-view-id>/privado/estoque/listitem.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>menu</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+             
+        </navigation-case>
+        
+    </navigation-rule>
+    <!-- FIM DA NAV RULE DA LISTAGEM DE FUNCIONARIOS  -->
+    
+    
+    <!-- INICIO DA NAV RULE DA PAGINA DE NOVO FUNCIONARIO NOVOFUNC-->
+    <navigation-rule>
+        <from-view-id>/privado/funcionario/novofunc.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>listcliente</from-outcome>
+            <to-view-id>/privado/cliente/listcli.xhtml</to-view-id>  
+            <redirect/>         
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfornecedor</from-outcome>
+            <to-view-id>/privado/fornecedor/listforn.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfuncionario</from-outcome>
+            <to-view-id>/privado/funcionario/listfunc.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listitem</from-outcome>
+            <to-view-id>/privado/estoque/listitem.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>menu</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+             
+        </navigation-case>
+        
+    </navigation-rule>
+    <!-- FIM DA NAV RULE DA PAGINA DE NOVO FUNCIONARIO  -->
+    
+    <!-- INICIO DA NAV RULE DA PAGINA DE EDICAO DO FUNCIONARIO EDITFUNC-->
+    <navigation-rule>
+        <from-view-id>/privado/funcionario/editfunc.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>listcliente</from-outcome>
+            <to-view-id>/privado/cliente/listcli.xhtml</to-view-id>  
+            <redirect/>         
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfornecedor</from-outcome>
+            <to-view-id>/privado/fornecedor/listforn.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfuncionario</from-outcome>
+            <to-view-id>/privado/funcionario/listfunc.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listitem</from-outcome>
+            <to-view-id>/privado/estoque/listitem.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>menu</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+             
+        </navigation-case>
+        
+    </navigation-rule>
+    <!-- FIM DA NAV RULE DA PAGINA DE EDICAO DO FUNCIONARIO  -->
+    
+    <!-- INICOO DA NAV RULE DA PAGINA DE LISTAGEM DE ITEM -->
+    
+    <navigation-rule>
+        <from-view-id>/privado/estoque/listitem.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>listcliente</from-outcome>
+            <to-view-id>/privado/cliente/listcli.xhtml</to-view-id> 
+            <redirect/>         
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfornecedor</from-outcome>
+            <to-view-id>/privado/fornecedor/listforn.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listfuncionario</from-outcome>
+            <to-view-id>/privado/funcionario/listfunc.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>listitem</from-outcome>
+            <to-view-id>/privado/estoque/listitem.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
+        
+        <navigation-case>
+            <from-outcome>menu</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+           
+        </navigation-case>
+        
+    </navigation-rule>
+    <!-- FIM DA NAV RULE DE LISTAGEM DE ITEM -->
 
 </faces-config>

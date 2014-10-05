@@ -58,7 +58,9 @@ public class DaoCliente implements ICliente{
 		
 	}
 
-	
+	public Cliente recuperaCliente(Long id){
+		return em.find(Cliente.class, id);
+	}
 	
 	public String limpaPesquisa(String pesquisa){
 		pesquisa = pesquisa.replaceAll("[';-]", "");
