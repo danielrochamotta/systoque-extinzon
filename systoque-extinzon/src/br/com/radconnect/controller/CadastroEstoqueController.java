@@ -1,6 +1,7 @@
 package br.com.radconnect.controller;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -27,6 +28,8 @@ import br.com.radconnect.entityBeans.SubGrupoN5DoN4;
 @ConversationScoped
 public class CadastroEstoqueController implements Serializable{
 
+	@Inject
+	Conversation conversation;
 
 	
 	private Item item;
@@ -34,48 +37,42 @@ public class CadastroEstoqueController implements Serializable{
 	private ItemEntrada entradaDeItens;
 	private DaoEstoque daoEstoque;
 	private DaoGrupoDoItem daoGrupo;
+	private GrupoDoItem grupoTemp;
+	List<GrupoDoItem> listGrupoDoBanco = new ArrayList<GrupoDoItem>();
+	private SubGrupoN1DoGrupo sub1Temp;
+	private SubGrupoN2DoN1 sub2Temp;
+	private SubGrupoN3DoN2 sub3Temp;
+	private SubGrupoN4DoN3 sub4Temp;
+	private SubGrupoN5DoN4 sub5Temp;
+	
 	
 	
 	//VARIAVEIS DA TELA DE CATEGORIA DO ITEM
-	private Boolean categoriaN1 = false;
-	private Boolean categoriaN2 = false;
-	private Boolean categoriaN3 = false;
-	private Boolean categoriaN4 = false;
-	private Boolean categoriaN5 = false;
+	private Boolean categoriaN1 = true;
+	private Boolean categoriaN2 = true;
+	private Boolean categoriaN3 = true;
+	private Boolean categoriaN4 = true;
+	private Boolean categoriaN5 = true;
 	
-	public void verificaExistenciaDeCategorias(){
-		if(item.getGrupo() != null){
-			categoriaN1 = true;
-		}else{
-			categoriaN1 = false;
-		}
-		if(item.getSubGrupoN1() != null){
-			categoriaN2 = true;
-		}else{
-			categoriaN2 = false;
-		}
-		if(item.getSubGrupoN3() != null){
-			categoriaN3 = true;
-		}else{
-			categoriaN3 = false;
-		}
-		if(item.getSubGrupoN4() != null){
-			categoriaN4 = true;
-		}else{
-			categoriaN4 = false;
-		}
-		if(item.getSubGrupoN5() != null){
-			categoriaN5 = true;
-		}else{
-			categoriaN5 = false;
-		}
+	public List<GrupoDoItem> listGrupo(){
+		listGrupoDoBanco = daoGrupo.procurarGrupo(null, null);
+		
+		return listGrupoDoBanco;
 	}
 	
 	@PostConstruct
 	public void inicializarEstoque(){
-		
+		conversation.begin();
 		daoEstoque = new DaoEstoque();
 		daoGrupo = new DaoGrupoDoItem();
+		
+        grupoTemp = new GrupoDoItem();
+		
+		sub1Temp = new SubGrupoN1DoGrupo();
+		sub2Temp = new SubGrupoN2DoN1();
+		sub3Temp = new SubGrupoN3DoN2();
+		sub4Temp = new SubGrupoN4DoN3();
+		sub5Temp = new SubGrupoN5DoN4();
 	}
 
 	//METODOS DE PERSISTENCIA
@@ -89,16 +86,20 @@ public class CadastroEstoqueController implements Serializable{
 	
 	//METODOS DE DIRECIONAMENTO DE PAGINAS
 	public String novoItem(){
+		
+		
 		return "novoitem";
 	}
 	public String paginaEditItem(){
 		return "edititem";
 	}
 	public String paginaMenuPrincipal(){
+		conversation.end();
 		return "menu";
 	}
 	
 	public String paginaListItem(){
+		
 		return "listitem";
 	}
 	
@@ -115,6 +116,12 @@ public class CadastroEstoqueController implements Serializable{
 	public List<ItemEntrada> listEntradaDeItens(){
 		return daoEstoque.listItensEntrada();
 	}
+	public GrupoDoItem retornaGrupoDoId(Long id){
+		return daoGrupo.retornaGrupo(id);
+	}
+	
+	
+	//FIM DE METODOS DE LISTAGEM E PROCURA
 
 	public Item getItem() {
 		if(item == null){
@@ -200,6 +207,67 @@ public class CadastroEstoqueController implements Serializable{
 	public void setDaoGrupo(DaoGrupoDoItem daoGrupo) {
 		this.daoGrupo = daoGrupo;
 	}
+
+	public GrupoDoItem getGrupoTemp() {
+		if(grupoTemp ==  null){
+			grupoTemp = new GrupoDoItem();			
+		}
+		return grupoTemp;
+	}
+
+	public void setGrupoTemp(GrupoDoItem grupoTemp) {
+		this.grupoTemp = grupoTemp;
+	}
+
+	public SubGrupoN1DoGrupo getSub1Temp() {
+		return sub1Temp;
+	}
+
+	public void setSub1Temp(SubGrupoN1DoGrupo sub1Temp) {
+		this.sub1Temp = sub1Temp;
+	}
+
+	public SubGrupoN2DoN1 getSub2Temp() {
+		return sub2Temp;
+	}
+
+	public void setSub2Temp(SubGrupoN2DoN1 sub2Temp) {
+		this.sub2Temp = sub2Temp;
+	}
+
+	public SubGrupoN3DoN2 getSub3Temp() {
+		return sub3Temp;
+	}
+
+	public void setSub3Temp(SubGrupoN3DoN2 sub3Temp) {
+		this.sub3Temp = sub3Temp;
+	}
+
+	public SubGrupoN4DoN3 getSub4Temp() {
+		return sub4Temp;
+	}
+
+	public void setSub4Temp(SubGrupoN4DoN3 sub4Temp) {
+		this.sub4Temp = sub4Temp;
+	}
+
+	public SubGrupoN5DoN4 getSub5Temp() {
+		return sub5Temp;
+	}
+
+	public void setSub5Temp(SubGrupoN5DoN4 sub5Temp) {
+		this.sub5Temp = sub5Temp;
+	}
+
+	public List<GrupoDoItem> getListGrupoDoBanco() {
+		return listGrupoDoBanco;
+	}
+
+	public void setListGrupoDoBanco(List<GrupoDoItem> listGrupoDoBanco) {
+		this.listGrupoDoBanco = listGrupoDoBanco;
+	}
+	
+
 	
 	
 	

@@ -1,214 +1,257 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-	<ui:composition template="/WEB-INF/template/default.html">
-	   <ui:define name="conteudo">
-	     <h:form>
-	     
-	       <div class="btn-group">
-                 <h:commandLink action="#{cadastroFuncionarioController.paginaNovo()}" 
-	              value=" Novo" styleClass="
-	               btn btn-danger glyphicon glyphicon-plus-sign"/>
-	              
-                 <h:commandLink action="#{cadastroFuncionarioController.paginaMenuPrincipal()}" 
-	              value=" Menu" 
-	              styleClass=" btn btn-danger glyphicon glyphicon-log-out" >
-	               
-	              </h:commandLink>
-             
-             </div>
-	     
-	     <div class="panel panel-success">
-	         <div class="panel-heading">
-	            <h4 class="panel-title"> Cadastrado de Funcionários</h4>
-	         </div>
-	         
-	         <div class="panel-body">
-	     
-	      <div class="row">
-	       <h:panelGroup id="painelpesquisa">
-	         <div class="col-lg-2">
-	         <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
-	         
-	         <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
-	         </div>
-	         
-	         <div class="col-lg-3">
-	             <h6>Pesquisar</h6>
-	             
-	             <h:inputText styleClass="form-control"
-	             value="#{cadastroFuncionarioController.atributoDePesquisa}" >
-	                 <f:ajax execute="painelpesquisa" render="tabelafuncionario btnfiltro" event="keyup" />
-	             </h:inputText>
-	         </div>
-	         
-	         <div class="col-lg-3">
-	             <h6>Filtro</h6>
-	             
-	             <h:selectOneMenu styleClass="form-control"
-	             value="#{cadastroFuncionarioController.filtroPesqFuncionario}">
-	                 <f:selectItem itemLabel="R.G" itemValue="rgNumero"/>
-	                 <f:selectItem itemLabel="C.P.F" itemValue="cpf"/>
-	                 <f:selectItem itemLabel="Nome" itemValue="nome"/>
-	                 <f:selectItem itemLabel="Telefone" itemValue="telefone"/>
-	                  <f:selectItem itemLabel="Matricula" itemValue="matricula"/>
-	                 <f:ajax execute="@form" render="@form" />
-	             </h:selectOneMenu>
-	         </div>
-	         
-	         <div class="col-lg-3">
-	             <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
-	             
-	             <h:commandLink value=" Imprimir Todos"
-	             styleClass="form-control btn btn-default glyphicon glyphicon-print" 
-	             action="#{cadastroFuncionarioController.imprimirTodos()}" target="_blanck">
-	                 
-             </h:commandLink>
-	         </div>
-	         
-	       </h:panelGroup>
-	      </div>
-	      
-	      <div class="row" style="margin-top:10px;">
-	           
-	           <div class="panel panel-default">
-	               <div class="panel-heading">
-	                   <h6 class="panel-title">Lista / Funcionários</h6>
-	               </div>
-	              <div class="divdatabela">
-	             <h:dataTable id="tabelafuncionario" 
-	             value="#{cadastroFuncionarioController.listagemFuncinario()}" var="funcionario"
-	             styleClass="table" style="font-size:x-small;" >
-	               
-	                <h:column>
-                      <f:facet name="header">
-                         <h:outputText style="font-size:x-small;" value="Matricula" />
-                      </f:facet>
+<h:head>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+	<title>Systoque - Extinzon</title>
+
+	<link type="text/css" rel="stylesheet"
+		href="#{request.contextPath}/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet"
+		href="#{request.contextPath}/css/bootstrap-reset.css" />
+	<link type="text/css" rel="stylesheet"
+		href="#{request.contextPath}/css/font-awesome.css" />
+	<link href="#{request.contextPath}/css/font-awesome.css"
+		rel="stylesheet" />
+	<link href="#{request.contextPath}/css/style.css" rel="stylesheet" />
+	<link type="text/css" rel="stylesheet"
+		href="#{request.contextPath}/css/style-responsive.css" />
+	<link type="text/css" rel="stylesheet"
+		href="#{request.contextPath}/css/bootstrap-responsive.min.css" />
+	<link type="text/css" rel="stylesheet"
+		href="#{request.contextPath}/css/teste.css" />
+
+	<!--[if lt IE 9]><script src="js/ie8/ie8-responsive-file-warning.js"></script><![endif]-->
+
+	<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</h:head>
+
+
+
+<h:body>
+	<h:form>
+
+		
+       <div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Cadastrado de Funcionários</h4>
+			</div>
+
+			<div class="panel-body">
+			
+			    <div class="btn-group">
+			<h:commandLink action="#{cadastroFuncionarioController.paginaNovo()}"
+				value=" Novo"
+				styleClass="
+	               btn btn-danger glyphicon glyphicon-plus-sign" />
+
+			<h:commandLink
+				action="#{cadastroFuncionarioController.paginaMenuPrincipal()}"
+				value=" Menu"
+				styleClass=" btn btn-danger glyphicon glyphicon-log-out">
+
+			</h:commandLink>
+
+		</div>
+
+				<div class="row">
+					<h:panelGroup id="painelpesquisa">
+						<div class="col-lg-2">
+							<h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+
+							<h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+						</div>
+
+						<div class="col-lg-3">
+							<h6>Pesquisar</h6>
+
+							<h:inputText styleClass="form-control"
+								value="#{cadastroFuncionarioController.atributoDePesquisa}">
+								<f:ajax execute="painelpesquisa"
+									render="tabelafuncionario btnfiltro" event="keyup" />
+							</h:inputText>
+						</div>
+
+						<div class="col-lg-3">
+							<h6>Filtro</h6>
+
+							<h:selectOneMenu styleClass="form-control"
+								value="#{cadastroFuncionarioController.filtroPesqFuncionario}">
+								<f:selectItem itemLabel="R.G" itemValue="rgNumero" />
+								<f:selectItem itemLabel="C.P.F" itemValue="cpf" />
+								<f:selectItem itemLabel="Nome" itemValue="nome" />
+								<f:selectItem itemLabel="Telefone" itemValue="telefone" />
+								<f:selectItem itemLabel="Matricula" itemValue="matricula" />
+								<f:ajax execute="@form" render="@form" />
+							</h:selectOneMenu>
+						</div>
+
+						<div class="col-lg-3">
+							<h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+
+							<h:commandLink value=" Imprimir Todos"
+								styleClass="form-control btn btn-default glyphicon glyphicon-print"
+								action="#{cadastroFuncionarioController.imprimirTodos()}"
+								target="_blanck">
+
+							</h:commandLink>
+						</div>
+
+					</h:panelGroup>
+				</div>
+
+				<div class="row" style="margin-top: 10px;">
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h6 class="panel-title">Lista / Funcionários</h6>
+						</div>
+						<div class="divdatabela">
+							<h:dataTable id="tabelafuncionario"
+								value="#{cadastroFuncionarioController.listagemFuncinario()}"
+								var="funcionario" styleClass="table" style="font-size:x-small;">
+
+								<h:column>
+									<f:facet name="header">
+										<h:outputText style="font-size:x-small;" value="Matricula" />
+									</f:facet>
           #{funcionario.matricula}       
       </h:column>
-    
-      <h:column>
-          <f:facet name="header">
-             <h:outputText style="font-size:x-small;" value="Nome" />
-          </f:facet>
+
+								<h:column>
+									<f:facet name="header">
+										<h:outputText style="font-size:x-small;" value="Nome" />
+									</f:facet>
           #{funcionario.nome}
       </h:column>
-      
-      <h:column>
-          <f:facet name="header">
-             <h:outputText style="font-size:x-small;" value="RG" />
-          </f:facet>
+
+								<h:column>
+									<f:facet name="header">
+										<h:outputText style="font-size:x-small;" value="RG" />
+									</f:facet>
           #{funcionario.rgNumero}
       </h:column>
-      
-      <h:column>
-          <f:facet name="header">
-             <h:outputText style="font-size:x-small;" value="CPF" />
-          </f:facet>
+
+								<h:column>
+									<f:facet name="header">
+										<h:outputText style="font-size:x-small;" value="CPF" />
+									</f:facet>
           #{funcionario.cpf}
       </h:column>
-      
-      <h:column>
-          <f:facet name="header">
-             <h:outputText style="font-size:x-small;" value="Tel.P" />
-          </f:facet>
+
+								<h:column>
+									<f:facet name="header">
+										<h:outputText style="font-size:x-small;" value="Tel.P" />
+									</f:facet>
           #{funcionario.telefone}
       </h:column>
-      
-      <h:column>
-          <f:facet name="header">
-             <h:outputText style="font-size:x-small;" value="Mobile" />
-          </f:facet>
-          #{funcionario.celular}
-      </h:column>           
-      
-      
-      <h:column>
-          <f:facet name="header">
-             <h:outputText style="font-size:x-small;" value="" />
-          </f:facet>
 
-			<div class="btn-group" style="margin-right:40px;">
-				<button type="button" class="btn-xs btn-primary dropdown-toggle"
-					data-toggle="dropdown">
-						Opções<span class="caret"></span>
-				</button>
-					 <ul class="dropdown-menu" role="menu">
-							<li>
-							    <h:commandLink styleClass="btn-xs btn-warning" value="Editar"
-                                action="#{cadastroFuncionarioController.paginaEditar()}" >
-                                       <f:setPropertyActionListener 
-                                       target="#{cadastroFuncionarioController.funcionario}"
-                                       value="#{funcionario}" />
-                                 </h:commandLink>   
-                            </li>
-                            
-						    <li>
-                                 <h:commandLink value="Remover" styleClass="btn-xs btn-danger"
-                                     action="#{cadastroFuncionarioController.removerFuncionario()}" > 
-                                           <f:setPropertyActionListener 
-                                           target="#{cadastroFuncionarioController.funcionario}"
-                                           value="#{funcionario}" />
-                                 </h:commandLink>
-                            </li>
-                            
-						    <li>
-						         <h:commandLink value="Detalhes" styleClass="btn-xs btn-info" 
-             						
-             						action="#{cadastroFuncionarioController.detalhesFuncionario()}" target="_blank">
-             							<f:setPropertyActionListener 
-             							target="#{cadastroFuncionarioController.funcionario}"
-                 						value="#{funcionario}"/>
-             					</h:commandLink>
-						    </li>
-						   
-					  </ul>
-			    </div>	
-            </h:column>
-	             </h:dataTable>	           
-	            </div>
-	          </div>         
-	          
-	      <div class="col-lg-4"></div>
-	     
-	       <h:panelGroup id="btnfiltro" styleClass="col-lg-4">
-	     
-	         <ul class="pager">
-	             <h5>#{cadastroFuncionarioController.mensagemDeRegistros()}</h5>
-	             <li>
-                    <h:commandLink action="#{cadastroFuncionarioController.primeiro()}" value="Primeiro" >
-                       <f:ajax execute="@form" render="@form" />
-                    </h:commandLink>
-                 </li>
-                 
-                 <li>
-                    <h:commandLink action="#{cadastroFuncionarioController.anterior()}" value="Anterior" >
-                       <f:ajax execute="@form" render="@form" />
-                    </h:commandLink>
-                 </li>        
-                 
-                 <li>
-                    <h:commandLink action="#{cadastroFuncionarioController.proximo()}" value="Proximo" >
-                        <f:ajax execute="@form" render="@form" />
-                    </h:commandLink>
-                 </li>
-                 
-                 <li>
-                    <h:commandLink action="#{cadastroFuncionarioController.ultimo()}" value="Ultimo" >
-                       <f:ajax execute="@form" render="@form" />
-                    </h:commandLink>
-                 </li>
-             </ul>
-           </h:panelGroup>
-            <div class="col-lg-4"></div>	     
-	     </div>	    
-	  </div>
-	</div>    
-	      
-	     </h:form>
-	   </ui:define>
-	</ui:composition>
+								<h:column>
+									<f:facet name="header">
+										<h:outputText style="font-size:x-small;" value="Mobile" />
+									</f:facet>
+          #{funcionario.celular}
+      </h:column>
+
+
+								<h:column>
+									<f:facet name="header">
+										<h:outputText style="font-size:x-small;" value="" />
+									</f:facet>
+
+									<div class="btn-group" style="margin-right: 40px;">
+										<button type="button"
+											class="btn-xs btn-danger dropdown-toggle"
+											data-toggle="dropdown">
+											Opções<span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu" role="menu">
+											<li><h:commandLink styleClass="btn-xs btn-default"
+													value="Editar"
+													action="#{cadastroFuncionarioController.paginaEditFuncionario()}">
+													<f:setPropertyActionListener
+														target="#{cadastroFuncionarioController.funcionario}"
+														value="#{funcionario}" />
+												</h:commandLink></li>
+
+											<li><h:commandLink value="Remover"
+													styleClass="btn-xs btn-default"
+													action="#{cadastroFuncionarioController.removerFuncionario()}">
+													<f:setPropertyActionListener
+														target="#{cadastroFuncionarioController.funcionario}"
+														value="#{funcionario}" />
+												</h:commandLink></li>
+
+											<li><h:commandLink value="Detalhes"
+													styleClass="btn-xs btn-default"
+													action="#{cadastroFuncionarioController.detalhesFuncionario()}"
+													target="_blank">
+													<f:setPropertyActionListener
+														target="#{cadastroFuncionarioController.funcionario}"
+														value="#{funcionario}" />
+												</h:commandLink></li>
+
+										</ul>
+									</div>
+								</h:column>
+							</h:dataTable>
+						</div>
+					</div>
+
+					<div class="col-lg-4"></div>
+
+					<h:panelGroup id="btnfiltro" styleClass="col-lg-4">
+
+						<ul class="pager">
+							<h5>#{cadastroFuncionarioController.mensagemDeRegistros()}</h5>
+							<li><h:commandLink
+									action="#{cadastroFuncionarioController.primeiro()}"
+									value="Primeiro">
+									<f:ajax execute="@form" render="@form" />
+								</h:commandLink></li>
+
+							<li><h:commandLink
+									action="#{cadastroFuncionarioController.anterior()}"
+									value="Anterior">
+									<f:ajax execute="@form" render="@form" />
+								</h:commandLink></li>
+
+							<li><h:commandLink
+									action="#{cadastroFuncionarioController.proximo()}"
+									value="Proximo">
+									<f:ajax execute="@form" render="@form" />
+								</h:commandLink></li>
+
+							<li><h:commandLink
+									action="#{cadastroFuncionarioController.ultimo()}"
+									value="Ultimo">
+									<f:ajax execute="@form" render="@form" />
+								</h:commandLink></li>
+						</ul>
+					</h:panelGroup>
+					<div class="col-lg-4"></div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="#{request.contextPath}/js/bootstrap.min.js"></script>
+
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+     </div>
+	</h:form>
+</h:body>
 </html>

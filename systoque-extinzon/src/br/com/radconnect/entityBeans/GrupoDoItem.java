@@ -35,7 +35,7 @@ public class GrupoDoItem implements Serializable{
 	//ATRIBUTOS RELACIONAIS
 	@OneToMany(mappedBy = "grupo",cascade = {CascadeType.ALL},orphanRemoval = true)
 	@LazyCollection(LazyCollectionOption.EXTRA)
-	private List<SubGrupoN1DoGrupo> listSubGrupo = new ArrayList<SubGrupoN1DoGrupo>();
+	private List<SubGrupoN1DoGrupo> listSubN1 = new ArrayList<SubGrupoN1DoGrupo>();
 	
 	
 	@OneToMany(mappedBy = "grupo")
@@ -45,12 +45,12 @@ public class GrupoDoItem implements Serializable{
 	//METODOS DE ADICIONAR E REMOVER NA LISTA DE SUBGRUPOS N1
 	public void adicionaSubGrupoN1(SubGrupoN1DoGrupo subGrupoN1){
 		subGrupoN1.setGrupo(this);
-		this.listSubGrupo.add(subGrupoN1);
+		this.listSubN1.add(subGrupoN1);
 	}
 	
 	public void removeSubGrupoN1(SubGrupoN1DoGrupo subGrupoN1){
-		if(this.listSubGrupo.contains(subGrupoN1)){
-			this.listSubGrupo.remove(subGrupoN1);
+		if(this.listSubN1.contains(subGrupoN1)){
+			this.listSubN1.remove(subGrupoN1);
 		}
 	}
 	//FIM
@@ -98,10 +98,10 @@ public class GrupoDoItem implements Serializable{
 		this.nome = nome;
 	}
 	public List<SubGrupoN1DoGrupo> getListSubGrupo() {
-		return listSubGrupo;
+		return listSubN1;
 	}
 	public void setListSubGrupo(List<SubGrupoN1DoGrupo> listSubGrupo) {
-		this.listSubGrupo = listSubGrupo;
+		this.listSubN1 = listSubGrupo;
 	}
 	
 

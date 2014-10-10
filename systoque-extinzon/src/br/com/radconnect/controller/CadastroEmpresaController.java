@@ -20,6 +20,10 @@ public class CadastroEmpresaController implements Serializable {
 	/**
 	 * 
 	 */
+	
+	@Inject
+	Conversation conversation;
+	
 	private static final long serialVersionUID = 1L;
 	
 	private DaoSetor daoSetor;
@@ -34,7 +38,7 @@ public class CadastroEmpresaController implements Serializable {
 	@PostConstruct
 	public void incializaCadastroEmpresaMB(){
 		daoSetor = new DaoSetor();
-		
+		conversation.begin();
 		
 	}
 	/*METODOS DE CADASTRO SETOR
@@ -77,6 +81,7 @@ public class CadastroEmpresaController implements Serializable {
 		return "listsetor?faces-redirect=true";
 	}
 	public String paginaHome(){
+		conversation.end();
 		return "home";
 	}
 	/*

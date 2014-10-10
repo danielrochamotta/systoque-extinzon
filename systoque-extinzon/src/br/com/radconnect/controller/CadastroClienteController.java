@@ -3,6 +3,7 @@ package br.com.radconnect.controller;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
@@ -14,10 +15,12 @@ import br.com.radconnect.daos.DaoCliente;
 import br.com.radconnect.entityBeans.Cliente;
 
 @SuppressWarnings("serial")
+@ConversationScoped
 @Named
-
 public class CadastroClienteController implements Serializable{	
 	
+	@Inject
+	Conversation conversation;
 	
 	private Cliente doCadastroController;
 	
@@ -27,31 +30,41 @@ public class CadastroClienteController implements Serializable{
 	
 	private String atributoPesquisaCli;
 	
+	
+	
 	@PostConstruct
-	public void iniciaCadastroClienteMB(){
+	public void init(){
 		doCadastroController = new Cliente();
 		dao = new DaoCliente();
+		
 		
 	}
 	
 	//METODOS PARA NAVEGA플O DE P핯INAS
 	
 	public String novoCliente(){//METODO PARA IR PARA P핯INA DO FORM DE CLIENTE
-		iniciaCadastroClienteMB();
+		init();
 		return "novocli";
 	}
 	
 	public String paginaMenuPrincipal(){//METODO PARA IR PARA P핯INA HOME
+		conversation.end();
 		return "menu";
 	}	
 	
 	
-	public String paginaEditCliente(Long id){//METODO PARA IR PARA FORM  DE EDICAO COM CLIENTE DA TELA
-		doCadastroController = dao.recuperaCliente(id);
+	public String paginaEditCliente(){//METODO PARA IR PARA FORM  DE EDICAO COM CLIENTE DA TELA
+		
 		return "editcli";
 	}
 	
 	public String paginaListCliente(){
+		conversation.begin();
+		return "listcliente";
+	}
+	
+	public String paginavoltar(){
+		init();
 		return "listcliente";
 	}
 	
@@ -60,6 +73,7 @@ public class CadastroClienteController implements Serializable{
 	public String persistirCliente(){//METODO PARA GRAVAR UM NOVO CLIENTE
 		
 		dao.persistirCliente(doCadastroController);
+		
 		return "listcliente";
 	}
 	
@@ -103,8 +117,16 @@ public class CadastroClienteController implements Serializable{
 	//METODOS GETTERS E SETTERS
 	
 	public Cliente getDoCadastroController() {
+		if(doCadastroController == null){
+			doCadastroController = new Cliente();
+		}
 		
 		return doCadastroController;
+	}
+	
+
+	public void setDoCadastroController(Cliente doCadastroController) {
+		this.doCadastroController = doCadastroController;
 	}
 
 	public void setDoCadastroMB(Cliente doCadastroMB) {

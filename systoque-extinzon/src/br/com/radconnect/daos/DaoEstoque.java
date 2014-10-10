@@ -10,6 +10,7 @@ import br.com.radconnect.daos.interfaces.IEstoque;
 import br.com.radconnect.entityBeans.EntradaDeEstoque;
 import br.com.radconnect.entityBeans.Item;
 import br.com.radconnect.entityBeans.ItemEntrada;
+import br.com.radconnect.entityBeans.SubGrupoN5DoN4;
 import br.com.radconnect.jpaUtil.EntityManagerUtil;
 
 public class DaoEstoque implements IEstoque{
@@ -86,6 +87,9 @@ public class DaoEstoque implements IEstoque{
 	public List<Item> listItens(String pesquisa, String Filtro) {
 		
 		return em.createQuery("from Item order by id").getResultList();
+	}
+	public List<SubGrupoN5DoN4> listSub5(){
+		return em.createQuery("from GrupoDoItem").getResultList();
 	}
 
 }

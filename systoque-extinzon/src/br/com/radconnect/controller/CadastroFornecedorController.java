@@ -16,7 +16,8 @@ import br.com.radconnect.entityBeans.Fornecedor;
 @ConversationScoped
 public class CadastroFornecedorController implements Serializable{
 	
-	
+	@Inject
+	Conversation conversation;
 	
 	private Fornecedor doCadastroController;
 	private DaoFornecedor dao;
@@ -38,6 +39,7 @@ public class CadastroFornecedorController implements Serializable{
 	}
 	
 	public String paginaMenuPrincipal(){//METODO PARA IR PARA PÁGINA HOME
+		conversation.end();
 		return "menu";
 	}
 	
@@ -47,6 +49,11 @@ public class CadastroFornecedorController implements Serializable{
 	}
 	
 	public String paginaListFornecedor(){
+		conversation.begin();
+		return "listfornecedor";
+	}
+	
+	public String voltarParaListagem(){
 		return "listfornecedor";
 	}
 	

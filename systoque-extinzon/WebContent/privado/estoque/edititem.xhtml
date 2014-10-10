@@ -51,7 +51,7 @@
 <section class="panel">
   <header class="panel-heading">
     
-          <h3>Item  <span class="label label-danger">Novo</span> </h3>       
+          <h3>Item  <span class="label label-danger">Atualizar</span> </h3>       
    
   </header>
 
@@ -178,67 +178,101 @@
         <h:panelGroup styleClass="col-lg-4">
             <h5>Grupo</h5>
         
-            <h:selectOneMenu 
-            value="#{cadastroEstoqueController.sub5Temp.subGrupoN4.subGrupoN3.subGrupoN2.subGrupoN1.grupo}"
+            <h:selectOneMenu value="#{cadastroEstoqueController.item.grupo}"
            styleClass="form-control" converter="ConverterGrupo">
            
-           <f:selectItem itemLabel="Selecione" noSelectionOption="true"/>
-           <f:selectItems value="#{cadastroEstoqueController.lis}"/>
-           <f:ajax event="change" 
+           <f:selectItem itemLabel="#{cadastroEstoqueController.item.grupo}" noSelectionOption="false"
+           itemValue="#{cadastroEstoqueController.item.grupo}" />
+           <f:selectItems value="#{cadastroEstoqueController.listGrupo}"/>
+           <f:ajax event="change" execute="#{cadastroEstoqueController.verificaExistenciaDeCategorias()}" 
            render=":form:painelgeralitem"/>     
            </h:selectOneMenu>
         </h:panelGroup>
         
-        <h:panelGrid id="painelcategoria1" rendered="#{cadastroEstoqueController.categoriaN1 == true}"
+        <h:panelGrid id="painelcategoria1" 
         styleClass="col-lg-4">
             
                  <h5>Categoria 1</h5>
                  
-                 <h:selectOneMenu 
-                 value="#{cadastroEstoqueController.sub1Temp}"
+                 <h:selectOneMenu value="#{cadastroEstoqueController.item.subGrupoN1}"
                          styleClass="form-control"  converter="ConverterSubGrupoN1">
-                      <f:selectItem itemLabel="Selecione" noSelectionOption="true"/>
-                      <f:selectItems 
-                      value="#{cadastroEstoqueController.listSub1()}"/>
+                      <f:selectItem itemLabel="#{cadastroEstoqueController.item.subGrupoN1}" 
+                      noSelectionOption="false" itemValue="#{cadastroEstoqueController.item.subGrupoN1}"/>
+                      <f:selectItems value="#{cadastroEstoqueController.item.grupo.listSubGrupo}"/>
                       <f:ajax event="change" 
+                      execute="#{cadastroEstoqueController.verificaExistenciaDeCategorias()}" 
                          render=":form:painelgeralitem"/> 
                  </h:selectOneMenu>
            
         </h:panelGrid>
         
-        <h:panelGrid id="painelcategoria2" rendered="#{cadastroEstoqueController.categoriaN2 == true}"
+        <h:panelGrid id="painelcategoria2" 
         styleClass="col-lg-4">
             
                  <h5>Categoria 2</h5>
                  
-                 <h:selectOneMenu value="#{cadastroEstoqueController.sub2Temp}"
+                 <h:selectOneMenu value="#{cadastroEstoqueController.item.subGrupoN2}"
                          styleClass="form-control"  converter="ConverterSubGrupoN2">
-                      <f:selectItem itemLabel="Selecione" noSelectionOption="true"/>
-                      <f:selectItems 
-                      value="#{cadastroEstoqueController.listSub2()}"/>
-                      <f:ajax event="change"  
+                      <f:selectItem itemLabel="#{cadastroEstoqueController.item.subGrupoN2}"
+                       noSelectionOption="true" itemValue="#{cadastroEstoqueController.item.subGrupoN2}"/>
+                      <f:selectItems value="#{cadastroEstoqueController.item.subGrupoN1.listSubGrupoN2}"/>
+                      <f:ajax event="change"
+                       execute="#{cadastroEstoqueController.verificaExistenciaDeCategorias()}" 
                          render=":form:painelgeralitem"/> 
                  </h:selectOneMenu>
            
         </h:panelGrid>
         
-        <h:panelGrid id="painelcategoria3" rendered="#{cadastroEstoqueController.categoriaN3 == true}"
+        <h:panelGrid id="painelcategoria3" 
         styleClass="col-lg-4">
             
                  <h5>Categoria 3</h5>
                  
-                 <h:selectOneMenu value="#{cadastroEstoqueController.sub3Temp}"
+                 <h:selectOneMenu value="#{cadastroEstoqueController.item.subGrupoN3}"
                          styleClass="form-control" converter="ConverterSubGrupoN3" >
-                      <f:selectItem itemLabel="Selecione" noSelectionOption="true"/>
-                      <f:selectItems 
-                      value="#{cadastroEstoqueController.listSub3()}"/>
-                      <f:ajax event="change"  
+                      <f:selectItem itemLabel="#{cadastroEstoqueController.item.subGrupoN3}" 
+                      noSelectionOption="true" itemValue="#{cadastroEstoqueController.item.subGrupoN3}"/>
+                      <f:selectItems value="#{cadastroEstoqueController.item.subGrupoN2.listSubGrupoN3}"/>
+                      <f:ajax event="change" 
+                      execute="#{cadastroEstoqueController.verificaExistenciaDeCategorias()}" 
                          render=":form:painelgeralitem"/> 
                  </h:selectOneMenu>
            
         </h:panelGrid>
         
+        <h:panelGrid id="painelcategoria4" 
+        styleClass="col-lg-4">
+            
+                 <h5>Categoria 4</h5>
+                 
+                 <h:selectOneMenu value="#{cadastroEstoqueController.item.subGrupoN4}"
+                         styleClass="form-control" converter="ConverterSubGrupoN4" >
+                      <f:selectItem itemLabel="#{cadastroEstoqueController.item.subGrupoN4}"
+                       noSelectionOption="true" itemValue="#{cadastroEstoqueController.item.subGrupoN4}"/>
+                      <f:selectItems value="#{cadastroEstoqueController.item.subGrupoN3.listSubGrupoN4}"/>
+                      <f:ajax event="change" 
+                      execute="#{cadastroEstoqueController.verificaExistenciaDeCategorias()}" 
+                         render=":form:painelgeralitem"/> 
+                 </h:selectOneMenu>
+           
+        </h:panelGrid>
         
+        <h:panelGrid id="painelcategoria5" 
+        styleClass="col-lg-4">
+            
+                 <h5>Categoria 5</h5>
+                 
+                 <h:selectOneMenu value="#{cadastroEstoqueController.item.subGrupoN5}"
+                         styleClass="form-control" converter="ConverterSubGrupoN5" >
+                      <f:selectItem itemLabel="#{cadastroEstoqueController.item.subGrupoN5}" 
+                      noSelectionOption="true" itemValue="#{cadastroEstoqueController.item.subGrupoN5}"/>
+                      <f:selectItems value="#{cadastroEstoqueController.item.subGrupoN4.listSubGrupoN5}"/>
+                      <f:ajax event="change" 
+                      execute="#{cadastroEstoqueController.verificaExistenciaDeCategorias()}" 
+                         render=":form:painelgeralitem"/> 
+                 </h:selectOneMenu>
+           
+        </h:panelGrid>
       
    </h:panelGroup>
       </h:panelGroup>       

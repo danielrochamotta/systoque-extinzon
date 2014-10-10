@@ -38,7 +38,7 @@ public class SubGrupoN4DoN3 implements Serializable{
 	//ATRIBUTOS RELACIONAIS
 	@ManyToOne
 	@JoinColumn(name = "N3_ID",referencedColumnName = "ID")
-	private SubGrupoN3DoN2 subGrupoN3;
+	private SubGrupoN3DoN2 subGrupoN3 = new SubGrupoN3DoN2();
 	
 	@OneToMany(mappedBy = "subGrupoN4",cascade = CascadeType.ALL,orphanRemoval = true)
 	@LazyCollection(LazyCollectionOption.EXTRA)

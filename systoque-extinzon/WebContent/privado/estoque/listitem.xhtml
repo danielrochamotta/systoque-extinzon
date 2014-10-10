@@ -125,8 +125,9 @@
 										</button>
 										<ul class="dropdown-menu" role="menu">
 											<li><h:commandLink styleClass="btn-xs btn-default "
-													value="Editar" action="#">
-													<f:setPropertyActionListener target="#" value="#" />
+													value="Editar" action="#{cadastroEstoqueController.paginaEditItem()}">
+													<f:setPropertyActionListener 
+													target="#{cadastroEstoqueController.item}" value="#{item}" />
 												</h:commandLink></li>
 
 											<li><h:commandLink value="Remover"

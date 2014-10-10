@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 
 import br.com.radconnect.daos.interfaces.IGrupoDoItem;
 import br.com.radconnect.entityBeans.GrupoDoItem;
+import br.com.radconnect.entityBeans.SubGrupoN1DoGrupo;
 import br.com.radconnect.jpaUtil.EntityManagerUtil;
 
 public class DaoGrupoDoItem implements IGrupoDoItem{
@@ -57,7 +58,9 @@ public class DaoGrupoDoItem implements IGrupoDoItem{
 		// TODO Auto-generated method stub
 		return em.createQuery("from GrupoDoItem order by id").getResultList();
 	}
-	
+	public GrupoDoItem retornaGrupo(Long id){
+		return em.find(GrupoDoItem.class, id);
+	}
 	
 
 }

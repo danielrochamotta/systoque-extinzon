@@ -38,7 +38,7 @@ public class SubGrupoN1DoGrupo implements Serializable{
 	//ATRIBUTOS RELACIONAIS
 	@ManyToOne
 	@JoinColumn(name = "GRUPO_ID",referencedColumnName = "ID")
-	private GrupoDoItem grupo;
+	private GrupoDoItem grupo = new GrupoDoItem();
 	
 	@OneToMany(mappedBy = "subGrupoN1",cascade = {CascadeType.ALL},orphanRemoval = true)
 	@LazyCollection(LazyCollectionOption.EXTRA)

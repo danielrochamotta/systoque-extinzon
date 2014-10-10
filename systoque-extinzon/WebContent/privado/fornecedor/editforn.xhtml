@@ -1,368 +1,440 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:pt="http://java.sun.com/jsf/passthrough"
-      xmlns:p="http://primefaces.org/ui"> 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://java.sun.com/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
 
-<ui:composition template="/WEB-INF/template/default.html">
-<ui:define name="conteudo">
-<h:form id="form">
-<p:messages id="messages" showDetail="false" autoUpdate="false" closable="true" styleClass="alert-info"/>
-<section class="panel">
-  <header class="panel-heading">
-    
-          <h3>Fornecedor  <span class="label label-default">Atualizar</span> </h3>       
-   
-  </header>
+	<title>Systoque - Extinzon</title>
 
-				<ul class="nav nav-tabs ">
-					<li class=""><a href="#pessoal" data-toggle="tab">Pessoal</a></li>
-					<li class=""><a href="#fornend" data-toggle="tab">Endereço</a></li>
-					<li class=""><a href="#forninfofin" data-toggle="tab">Info Financeiras</a></li>	
-										
-					
-				</ul>
-				
-				<!--  LINHA LINHA DO FORM DE DADOS PESSOAIS FUNCIONARIO -->
-	<div id="mytabcontent" class="tab-content" style="font-size:small">
-	
-	<div id="pessoal" class="tab-pane active">
-     <div class="row">
-        <div class="col-lg-4">
-           <h5>Código do Fornecedor</h5>
-           
-          <h:inputText styleClass="form-control" value="#{cadastroFornecedorController.doCadastroController.codigo}">
-              <f:passThroughAttribute name="type" value="number" />
-              <f:passThroughAttribute name="placeholder" value="Ex: 30123" />
-          </h:inputText>
-                     
-       
-          
-        </div>  
-        
-        <div class="col-lg-4">
-           <h5>Razão Social / Nome</h5>
-           
-           <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorController.doCadastroController.nomeRazaoSocial}" >
-              <f:passThroughAttribute name="placeholder" value="Ex: Daniel ou Comercio de Informática Ltda" />
-           </h:inputText>
-        </div>
-        
-        <div class="col-lg-4">
-           <h5>Nome Fantasia</h5>
-           
-           <h:inputText styleClass="form-control" 
-           value="#{cadastroFornecedorController.doCadastroController.nomeFantasia}" >
-               <f:passThroughAttribute name="placeholder" value="Ex: Rocha Motta ou Radconnect Tecnologia" />           
-              
-           </h:inputText>
-        </div>
-        
-        <div class="col-lg-4">
-           <h5>I.E / R.G</h5>
-           
-           <h:inputText styleClass="form-control" value="#{cadastroFornecedorController.doCadastroController.rgInsEstadual}" >
-                <f:passThroughAttribute name="type" value="number" />
-                <f:passThroughAttribute name="placeholder" value="Ex: 200009989889" /> 
-           </h:inputText>
-        </div>
-        
-         <div class="col-lg-4">
-           <h5>CNPJ / CPF</h5>           
-              
-           <h:inputText styleClass="form-control"  
-           value="#{cadastroFornecedorController.doCadastroController.cpfCnpj}" >
-               <f:passThroughAttribute name="type" value="number" /> 
-               <f:passThroughAttribute name="placeholder" value="Ex: 934.321.555-87" />          
-              
-           </h:inputText>
-        </div>
-        
-        <div class="col-lg-4">
-           <h5>Telefone Principal</h5>
-           
-           <h:inputText styleClass="form-control" 
-           value="#{cadastroFornecedorController.doCadastroController.telefone}" >
-              <f:passThroughAttribute name="placeholder" value="Ex:(85) 3099.3041 - (85)3099.3043" />
-           </h:inputText>
-        </div>
-  
-    
-   
-        <div class="col-lg-4">
-           <h5>Mobile</h5>
-           
-           <h:inputText styleClass="form-control" value="#{cadastroFornecedorController.doCadastroController.celular}" >
-                 <f:passThroughAttribute name="placeholder" value="Ex: (85) 8743.3041" />
-           </h:inputText>
-           
-        </div>
-        
-        <div class="col-lg-4">
-           <h5>Email / Contato</h5>
-           
-           <h:inputText styleClass="form-control" 
-           value="#{cadastroFornecedorController.doCadastroController.emailDoContato}" >
-                <f:passThroughAttribute name="type" value="email" />
-                <f:passThroughAttribute name="placeholder" value="Ex: usuario@provedor.com.br" />
-           </h:inputText>
-        </div>   
-        
-        
-        <div class="col-lg-4">
-           <h5>Email / Empresa</h5>
-           
-           <h:inputText styleClass="form-control" value="#{cadastroFornecedorController.doCadastroController.email}" >
-              <f:passThroughAttribute name="type" value="email" />
-              <f:passThroughAttribute name="placeholder" value="Ex: usuario@dominioempres.com.br" />
-           </h:inputText>
-        </div>
-        
-        <div class="col-lg-2">
-           <h5>ATIVO</h5>
-           
-           <h:selectOneMenu value="#{cadastroFornecedorController.doCadastroController.ativo}"
-           styleClass="form-control">
-                <f:selectItem itemLabel="SIM" itemValue="true"/>
-                <f:selectItem itemLabel="NÃo" itemValue="false"/>
-           </h:selectOneMenu>
-        </div>
-        
-        <div class="col-lg-4">
-           <h5>Contato</h5>
-           
-           <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorController.doCadastroController.contato}" >
-                 <f:passThroughAttribute name="placeholder" value="Ex: Eduardo" />
-            </h:inputText>
-        </div>
-        
-        <div class="col-lg-6">
-           <h5>Grupo</h5>
-           
-           <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorController.doCadastroController.grupo}" >
-                 <f:passThroughAttribute name="placeholder" value="Ex: Escolas Fisk, Postos BR" />
-            </h:inputText>
-        </div>            
-        
-       
-    </div><!-- Fim da div class row -->
-        
-   </div><!-- FIM DA DIV  PESSOAL -->  
-   
-   <!-- COMECO DA ABA ENDERCO -->
-  
-  <!--  LINHA DO FORM DE ENDEREÇO FORNECEDOR-->
-  
-      <div id="fornend" class="tab-pane">
-         
-         
-         
-    <div class="row">
-        <div class="col-lg-8">
-           <h5>LOGRADOURO</h5>
-           
-           <h:inputText styleClass="form-control" 
-           value="#{cadastroFornecedorController.doCadastroController.endereco.logradouro}" >
-               <f:passThroughAttribute name="placeholder" value="Ex: Av Dedé Brasil , 797 Apt 404" />
-           </h:inputText>
-        </div>
-        
-        <div class="col-lg-4">
-           <h5>Bairro</h5>
-           
-           <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorController.doCadastroController.endereco.bairro}" >
-                 <f:passThroughAttribute name="placeholder" value="Ex: Montese,Parangaba" />
-            </h:inputText>
-        </div>       
-        
-        
-        <div class="col-lg-2">
-           <h5>UF</h5>
-           
-           <h:selectOneListbox styleClass="form-control" value="#">
-          </h:selectOneListbox>
-        </div>
-        
-        <div class="col-lg-2">
-           <h5>Cidade</h5>
-           
-          <h:selectOneListbox styleClass="form-control" value="#">
-          </h:selectOneListbox>
-        </div>
-        
-        <div class="col-lg-2">
-           <h5>Cep</h5>
-           
-           <h:inputText styleClass="form-control" 
-           value="#{cadastroFornecedorController.doCadastroController.endereco.cep}" >
-              <f:passThroughAttribute name="placeholder" value="60420-720" />
-           </h:inputText>
-        </div>
-        
-        <div class="col-lg-6">
-           <h5>Complemento</h5>
-           
-           <h:inputText styleClass="form-control" 
-           value="#{cadastroFornecedorController.doCadastroController.endereco.complemento}" >
-               <f:passThroughAttribute name="placeholder" value="Ex: próximo ao posto de gasolina" />
-           </h:inputText>
-        </div>
-    </div><!-- Fim da div class row -->
-             
+	<link type="text/css" rel="stylesheet"
+		href="#{request.contextPath}/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet"
+		href="#{request.contextPath}/css/bootstrap-reset.css" />
+	<link type="text/css" rel="stylesheet"
+		href="#{request.contextPath}/css/font-awesome.css" />
+	<link href="#{request.contextPath}/css/font-awesome.css"
+		rel="stylesheet" />
+	<link href="#{request.contextPath}/css/style.css" rel="stylesheet" />
+	<link type="text/css" rel="stylesheet"
+		href="#{request.contextPath}/css/style-responsive.css" />
+	<link type="text/css" rel="stylesheet"
+		href="#{request.contextPath}/css/bootstrap-responsive.min.css" />
+	<link type="text/css" rel="stylesheet"
+		href="#{request.contextPath}/css/teste.css" />
+
+	<!--[if lt IE 9]><script src="js/ie8/ie8-responsive-file-warning.js"></script><![endif]-->
+
+	<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</h:head>
+
+
+
+<h:body>
+	<h:form id="form">
+	  <div class="col-lg-12">
+		<p:messages id="messages" showDetail="false" autoUpdate="false"
+			closable="true" styleClass="alert-info" />
+		<section class="panel"> <header class="panel-heading">
+
+		<h3>
+			Fornecedor <span class="label label-default">Atualizar</span>
+		</h3>
+
+		</header>
+
+		<ul class="nav nav-tabs ">
+			<li class=""><a href="#pessoal" data-toggle="tab">Pessoal</a></li>
+			<li class=""><a href="#fornend" data-toggle="tab">Endereço</a></li>
+			<li class=""><a href="#forninfofin" data-toggle="tab">Info
+					Financeiras</a></li>
+
+
+		</ul>
+
+		<!--  LINHA LINHA DO FORM DE DADOS PESSOAIS FUNCIONARIO -->
+		<div id="mytabcontent" class="tab-content" style="font-size: small">
+
+			<div id="pessoal" class="tab-pane active">
+				<div class="row">
+					<div class="col-lg-4">
+						<h5>Código do Fornecedor</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.codigo}">
+							<f:passThroughAttribute name="type" value="number" />
+							<f:passThroughAttribute name="placeholder" value="Ex: 30123" />
+						</h:inputText>
+
+
+
+					</div>
+
+					<div class="col-lg-4">
+						<h5>Razão Social / Nome</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.nomeRazaoSocial}">
+							<f:passThroughAttribute name="placeholder"
+								value="Ex: Daniel ou Comercio de Informática Ltda" />
+						</h:inputText>
+					</div>
+
+					<div class="col-lg-4">
+						<h5>Nome Fantasia</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.nomeFantasia}">
+							<f:passThroughAttribute name="placeholder"
+								value="Ex: Rocha Motta ou Radconnect Tecnologia" />
+
+						</h:inputText>
+					</div>
+
+					<div class="col-lg-4">
+						<h5>I.E / R.G</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.rgInsEstadual}">
+							<f:passThroughAttribute name="type" value="number" />
+							<f:passThroughAttribute name="placeholder"
+								value="Ex: 200009989889" />
+						</h:inputText>
+					</div>
+
+					<div class="col-lg-4">
+						<h5>CNPJ / CPF</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.cpfCnpj}">
+							<f:passThroughAttribute name="type" value="number" />
+							<f:passThroughAttribute name="placeholder"
+								value="Ex: 934.321.555-87" />
+
+						</h:inputText>
+					</div>
+
+					<div class="col-lg-4">
+						<h5>Telefone Principal</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.telefone}">
+							<f:passThroughAttribute name="placeholder"
+								value="Ex:(85) 3099.3041 - (85)3099.3043" />
+						</h:inputText>
+					</div>
+
+
+
+					<div class="col-lg-4">
+						<h5>Mobile</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.celular}">
+							<f:passThroughAttribute name="placeholder"
+								value="Ex: (85) 8743.3041" />
+						</h:inputText>
+
+					</div>
+
+					<div class="col-lg-4">
+						<h5>Email / Contato</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.emailDoContato}">
+							<f:passThroughAttribute name="type" value="email" />
+							<f:passThroughAttribute name="placeholder"
+								value="Ex: usuario@provedor.com.br" />
+						</h:inputText>
+					</div>
+
+
+					<div class="col-lg-4">
+						<h5>Email / Empresa</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.email}">
+							<f:passThroughAttribute name="type" value="email" />
+							<f:passThroughAttribute name="placeholder"
+								value="Ex: usuario@dominioempres.com.br" />
+						</h:inputText>
+					</div>
+
+					<div class="col-lg-2">
+						<h5>ATIVO</h5>
+
+						<h:selectOneMenu
+							value="#{cadastroFornecedorController.doCadastroController.ativo}"
+							styleClass="form-control">
+							<f:selectItem itemLabel="SIM" itemValue="true" />
+							<f:selectItem itemLabel="NÃo" itemValue="false" />
+						</h:selectOneMenu>
+					</div>
+
+					<div class="col-lg-4">
+						<h5>Contato</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.contato}">
+							<f:passThroughAttribute name="placeholder" value="Ex: Eduardo" />
+						</h:inputText>
+					</div>
+
+					<div class="col-lg-6">
+						<h5>Grupo</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.grupo}">
+							<f:passThroughAttribute name="placeholder"
+								value="Ex: Escolas Fisk, Postos BR" />
+						</h:inputText>
+					</div>
+
+
+				</div>
+				<!-- Fim da div class row -->
+
+			</div>
+			<!-- FIM DA DIV  PESSOAL -->
+
+			<!-- COMECO DA ABA ENDERCO -->
+
+			<!--  LINHA DO FORM DE ENDEREÇO FORNECEDOR-->
+
+			<div id="fornend" class="tab-pane">
+
+
+
+				<div class="row">
+					<div class="col-lg-8">
+						<h5>LOGRADOURO</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.endereco.logradouro}">
+							<f:passThroughAttribute name="placeholder"
+								value="Ex: Av Dedé Brasil , 797 Apt 404" />
+						</h:inputText>
+					</div>
+
+					<div class="col-lg-4">
+						<h5>Bairro</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.endereco.bairro}">
+							<f:passThroughAttribute name="placeholder"
+								value="Ex: Montese,Parangaba" />
+						</h:inputText>
+					</div>
+
+
+					<div class="col-lg-2">
+						<h5>UF</h5>
+
+						<h:selectOneListbox styleClass="form-control" value="#">
+						</h:selectOneListbox>
+					</div>
+
+					<div class="col-lg-2">
+						<h5>Cidade</h5>
+
+						<h:selectOneListbox styleClass="form-control" value="#">
+						</h:selectOneListbox>
+					</div>
+
+					<div class="col-lg-2">
+						<h5>Cep</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.endereco.cep}">
+							<f:passThroughAttribute name="placeholder" value="60420-720" />
+						</h:inputText>
+					</div>
+
+					<div class="col-lg-6">
+						<h5>Complemento</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.endereco.complemento}">
+							<f:passThroughAttribute name="placeholder"
+								value="Ex: próximo ao posto de gasolina" />
+						</h:inputText>
+					</div>
+				</div>
+				<!-- Fim da div class row -->
+
+			</div>
+			<!-- FIM DA TAB ENDEREÇO DO FORNECEDOR -->
+
+			<!-- COMEÇA TAB DE INFORMAÇÕES FINANCEIRAS DO FORNECEDOR -->
+			<div id="forninfofin" class="tab-pane fade">
+
+				<div class="row">
+					<div class="col-lg-3">
+						<h5>1 - BANCO</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.bancoNome1}">
+							<f:passThroughAttribute name="placeholder"
+								value="Ex: Banco Bradesco" />
+						</h:inputText>
+					</div>
+
+					<div class="col-lg-3">
+						<h5>1 - Conta com Digíto</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.bancoConta1}">
+							<f:passThroughAttribute name="placeholder" value="Ex: 190289-2" />
+						</h:inputText>
+					</div>
+
+
+					<div class="col-lg-3">
+						<h5>1 - Titular da Conta</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.bancoNomeTitular1}">
+							<f:passThroughAttribute name="placeholder"
+								value="Ex: José Maria Silva" />
+						</h:inputText>
+					</div>
+
+					<div class="col-lg-3">
+						<h5>1 - Cnpj / Cpf do Titular</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.bancoCpfTitular1}">
+							<f:passThroughAttribute name="placeholder"
+								value="Ex: 143.443.455-90" />
+						</h:inputText>
+					</div>
+
+					<div class="col-lg-3">
+						<h5>2 - BANCO</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.bancoNome2}">
+							<f:passThroughAttribute name="placeholder"
+								value="Ex: Banco Bradesco" />
+						</h:inputText>
+					</div>
+
+					<div class="col-lg-3">
+						<h5>2 - Conta com Digíto</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.bancoConta2}">
+							<f:passThroughAttribute name="placeholder" value="Ex: 190289-2" />
+						</h:inputText>
+					</div>
+
+
+					<div class="col-lg-3">
+						<h5>2 - Titular da Conta</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.bancoNomeTitular2}">
+							<f:passThroughAttribute name="placeholder"
+								value="Ex: José Maria Silva" />
+						</h:inputText>
+					</div>
+
+					<div class="col-lg-3">
+						<h5>2 - Cnpj / Cpf do Titular</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.bancoCpfTitular2}">
+							<f:passThroughAttribute name="placeholder"
+								value="Ex: 143.443.455-90" />
+						</h:inputText>
+					</div>
+
+					<div class="col-lg-3">
+						<h5>3 - BANCO</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.bancoNome3}">
+							<f:passThroughAttribute name="placeholder"
+								value="Ex: Banco Bradesco" />
+						</h:inputText>
+					</div>
+
+					<div class="col-lg-3">
+						<h5>3 - Conta com Digíto</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.bancoConta3}">
+							<f:passThroughAttribute name="placeholder" value="Ex: 190289-2" />
+						</h:inputText>
+					</div>
+
+
+					<div class="col-lg-3">
+						<h5>3 - Titular da Conta</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.bancoNomeTitular3}">
+							<f:passThroughAttribute name="placeholder"
+								value="Ex: José Maria Silva" />
+						</h:inputText>
+					</div>
+
+					<div class="col-lg-3">
+						<h5>3 - Cnpj / Cpf do Titular</h5>
+
+						<h:inputText styleClass="form-control"
+							value="#{cadastroFornecedorController.doCadastroController.bancoCpfTitular3}">
+							<f:passThroughAttribute name="placeholder"
+								value="Ex: 143.443.455-90" />
+						</h:inputText>
+					</div>
+
+
+				</div>
+			</div>
+			<!-- FIM DA TAB DE INFORMAÇOÕES FINANCEIRAS -->
+
+
+
+		</div>
+		<!-- FIM DA DIV DE TODO CONTEUDO --> </section>
+
+		<div class="row" style="margin-bottom: 50px; margin-top: 40px;">
+			<div class="col-lg-3"></div>
+			<div class="col-lg-3">
+				<h:commandButton styleClass=" form-control btn btn-primary"
+					style="font-size:20px;margin-bottom:20px;"
+					action="#{cadastroFornecedorController.persistirFornecedor()}"
+					value="Atualizar" />
+			</div>
+			<div class="col-lg-3">
+				<h:commandButton styleClass="form-control btn btn-primary"
+					style="font-size:20px;"
+					action="#{cadastroFornecedorController.voltarParaListagem()}"
+					immediate="true" value="Cancelar" />
+			</div>
+
+			<div class="col-lg-3"></div>
+		</div>
       </div>
-   <!-- FIM DA TAB ENDEREÇO DO FORNECEDOR -->
-      
-   <!-- COMEÇA TAB DE INFORMAÇÕES FINANCEIRAS DO FORNECEDOR -->   
-   <div id="forninfofin" class="tab-pane fade">
-   
-     <div class="row">
-         <div class="col-lg-3">
-           <h5>1 - BANCO</h5>
-           
-           <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorController.doCadastroController.bancoNome1}" >
-                 <f:passThroughAttribute name="placeholder" value="Ex: Banco Bradesco" />
-            </h:inputText>
-        </div>      
-        
-        <div class="col-lg-3">
-           <h5>1 - Conta com Digíto</h5>
-           
-           <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorController.doCadastroController.bancoConta1}" >
-                 <f:passThroughAttribute name="placeholder" value="Ex: 190289-2" />
-            </h:inputText>
-        </div>              
-     
-     
-     <div class="col-lg-3">
-           <h5>1 - Titular da Conta</h5>
-           
-           <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorController.doCadastroController.bancoNomeTitular1}" >
-                 <f:passThroughAttribute name="placeholder" value="Ex: José Maria Silva" />
-            </h:inputText>
-        </div>      
-        
-        <div class="col-lg-3">
-           <h5>1 - Cnpj / Cpf do Titular</h5>
-           
-           <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorController.doCadastroController.bancoCpfTitular1}" >
-                 <f:passThroughAttribute name="placeholder" value="Ex: 143.443.455-90" />
-            </h:inputText>
-        </div>
-        
-        <div class="col-lg-3">
-           <h5>2 - BANCO</h5>
-           
-           <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorController.doCadastroController.bancoNome2}" >
-                 <f:passThroughAttribute name="placeholder" value="Ex: Banco Bradesco" />
-            </h:inputText>
-        </div>      
-        
-        <div class="col-lg-3">
-           <h5>2 - Conta com Digíto</h5>
-           
-           <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorController.doCadastroController.bancoConta2}" >
-                 <f:passThroughAttribute name="placeholder" value="Ex: 190289-2" />
-            </h:inputText>
-        </div>              
-     
-     
-     <div class="col-lg-3">
-           <h5>2 - Titular da Conta</h5>
-           
-           <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorController.doCadastroController.bancoNomeTitular2}" >
-                 <f:passThroughAttribute name="placeholder" value="Ex: José Maria Silva" />
-            </h:inputText>
-        </div>      
-        
-        <div class="col-lg-3">
-           <h5>2 - Cnpj / Cpf do Titular</h5>
-           
-           <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorController.doCadastroController.bancoCpfTitular2}" >
-                 <f:passThroughAttribute name="placeholder" value="Ex: 143.443.455-90" />
-            </h:inputText>
-        </div>
-        
-        <div class="col-lg-3">
-           <h5>3 - BANCO</h5>
-           
-           <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorController.doCadastroController.bancoNome3}" >
-                 <f:passThroughAttribute name="placeholder" value="Ex: Banco Bradesco" />
-            </h:inputText>
-        </div>      
-        
-        <div class="col-lg-3">
-           <h5>3 - Conta com Digíto</h5>
-           
-           <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorController.doCadastroController.bancoConta3}" >
-                 <f:passThroughAttribute name="placeholder" value="Ex: 190289-2" />
-            </h:inputText>
-        </div>              
-     
-     
-     <div class="col-lg-3">
-           <h5>3 - Titular da Conta</h5>
-           
-           <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorController.doCadastroController.bancoNomeTitular3}" >
-                 <f:passThroughAttribute name="placeholder" value="Ex: José Maria Silva" />
-            </h:inputText>
-        </div>      
-        
-        <div class="col-lg-3">
-           <h5>3 - Cnpj / Cpf do Titular</h5>
-           
-           <h:inputText styleClass="form-control"
-            value="#{cadastroFornecedorController.doCadastroController.bancoCpfTitular3}" >
-                 <f:passThroughAttribute name="placeholder" value="Ex: 143.443.455-90" />
-            </h:inputText>
-        </div>
-                    
-                    
-      </div>   
-   </div><!-- FIM DA TAB DE INFORMAÇOÕES FINANCEIRAS --> 
-   
-   
-	 			
-</div>
-   <!-- FIM DA DIV DE TODO CONTEUDO -->  
-      
-</section>
-
-<div class="row" style="margin-bottom: 50px;margin-top:40px;">
-   <div class="col-lg-3"></div>
-   <div class="col-lg-3">
-      <h:commandButton styleClass=" form-control btn btn-primary" style="font-size:20px;margin-bottom:20px;"
-      action="#{cadastroFornecedorController.persistirFornecedor()}" value="Atualizar" />
-   </div>
-   <div class="col-lg-3">
-      <h:commandButton styleClass="form-control btn btn-danger" style="font-size:20px;"
-       action="#{cadastroFornecedorController.paginaListFornecedor()}" immediate="true" value="Cancelar" />
-   </div>
-   
-   <div class="col-lg-3"></div>
-</div>
- 
-</h:form>
-
-</ui:define>
-</ui:composition>
+	</h:form>
+	
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+	  <script src="#{request.contextPath}/js/bootstrap.min.js"></script>
+   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+</h:body>
 
 </html>
