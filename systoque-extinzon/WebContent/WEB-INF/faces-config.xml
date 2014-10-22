@@ -5,6 +5,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
     version="2.0">
+    
     <!-- INICIO NAV RULE DA PAGINA HOME -->
     <navigation-rule>
         <from-view-id>/home.xhtml</from-view-id>
@@ -34,8 +35,8 @@
         
         <navigation-case>
             <from-outcome>listuser</from-outcome>
-            <to-view-id>/privado/usuario/listusuario.xhtml</to-view-id>
-            <redirect/> 
+            <to-view-id>/privado/usuario/listausuario.xhtml</to-view-id> 
+            <redirect/>         
         </navigation-case>
         
         
@@ -419,21 +420,11 @@
     
     <!-- NAV DE USUARIO -->
     <navigation-rule>
-        <from-view-id >/privado/usuario/listusuario.xhtml</from-view-id>
+        <from-view-id >/privado/usuario/listausuario.xhtml</from-view-id>
         
         <navigation-case>
             <from-outcome>listuser</from-outcome>
-            <to-view-id>/privado/usuario/listusuario.xhtml</to-view-id>
-        </navigation-case>
-        
-        <navigation-case>
-            <from-outcome>novousuario</from-outcome>
-            <to-view-id>/privado/usuario/novousuario.xhtml</to-view-id>
-        </navigation-case>
-        
-        <navigation-case>
-            <from-outcome>editusuario</from-outcome>
-            <to-view-id>/privado/usuario/editusuario.xhtml</to-view-id>
+            <to-view-id>/privado/usuario/listausuario.xhtml</to-view-id>
         </navigation-case>
         
         <navigation-case>
