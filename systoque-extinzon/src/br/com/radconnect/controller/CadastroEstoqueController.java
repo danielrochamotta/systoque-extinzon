@@ -54,10 +54,9 @@ public class CadastroEstoqueController implements Serializable{
 	private Boolean categoriaN4 = true;
 	private Boolean categoriaN5 = true;
 	
-	public List<GrupoDoItem> listGrupo(){
-		listGrupoDoBanco = daoGrupo.procurarGrupo(null, null);
-		
-		return listGrupoDoBanco;
+	public List<SubGrupoN2DoN1> retornoListSub2(){
+		sub1Temp = daoEstoque.retornaSub1(sub1Temp.getId());
+		return sub1Temp.getListSubGrupoN2();
 	}
 	
 	@PostConstruct

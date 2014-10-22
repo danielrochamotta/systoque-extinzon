@@ -32,6 +32,12 @@
             <redirect/> 
         </navigation-case>
         
+        <navigation-case>
+            <from-outcome>listuser</from-outcome>
+            <to-view-id>/privado/usuario/listusuario.xhtml</to-view-id>
+            <redirect/> 
+        </navigation-case>
+        
         
     </navigation-rule>
     
@@ -410,5 +416,30 @@
         
     </navigation-rule>
     <!-- FIM DA NAV RULE DE LISTAGEM DE ITEM -->
+    
+    <!-- NAV DE USUARIO -->
+    <navigation-rule>
+        <from-view-id >/privado/usuario/listusuario.xhtml</from-view-id>
+        
+        <navigation-case>
+            <from-outcome>listuser</from-outcome>
+            <to-view-id>/privado/usuario/listusuario.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>novousuario</from-outcome>
+            <to-view-id>/privado/usuario/novousuario.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>editusuario</from-outcome>
+            <to-view-id>/privado/usuario/editusuario.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>menu</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 
 </faces-config>

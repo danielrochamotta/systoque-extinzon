@@ -183,7 +183,7 @@
            styleClass="form-control" converter="ConverterGrupo">
            
            <f:selectItem itemLabel="Selecione" noSelectionOption="true"/>
-           <f:selectItems value="#{cadastroEstoqueController.lis}"/>
+           <f:selectItems value="#{cadastroEstoqueController.listGrupoDoBanco}"/>
            <f:ajax event="change" 
            render=":form:painelgeralitem"/>     
            </h:selectOneMenu>
@@ -199,7 +199,7 @@
                          styleClass="form-control"  converter="ConverterSubGrupoN1">
                       <f:selectItem itemLabel="Selecione" noSelectionOption="true"/>
                       <f:selectItems 
-                      value="#{cadastroEstoqueController.listSub1()}"/>
+                      value="#{cadastroEstoqueController.}"/>
                       <f:ajax event="change" 
                          render=":form:painelgeralitem"/> 
                  </h:selectOneMenu>
@@ -215,7 +215,7 @@
                          styleClass="form-control"  converter="ConverterSubGrupoN2">
                       <f:selectItem itemLabel="Selecione" noSelectionOption="true"/>
                       <f:selectItems 
-                      value="#{cadastroEstoqueController.listSub2()}"/>
+                      value="#{cadastroEstoqueController.sub5Temp.subGrupoN4.subGrupoN3.subGrupoN2.subGrupoN1.}"/>
                       <f:ajax event="change"  
                          render=":form:painelgeralitem"/> 
                  </h:selectOneMenu>

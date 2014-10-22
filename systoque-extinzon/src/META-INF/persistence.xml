@@ -29,6 +29,7 @@
 		<class>br.com.radconnect.entityBeans.SubLocalizacaoItem03</class>
 		<class>br.com.radconnect.entityBeans.SubLocalizacaoItem04</class>
 		<class>br.com.radconnect.entityBeans.LocalizacaoItem</class>
+		<class>br.com.radconnect.entityBeans.Usuario</class>
 		<properties>
 			<property name="hibernate.connection.username" value="postgres"/>
 			<property name="hibernate.connection.password" value="1234"/>
