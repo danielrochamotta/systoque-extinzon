@@ -35,9 +35,11 @@
         
         <navigation-case>
             <from-outcome>listuser</from-outcome>
-            <to-view-id>/privado/usuario/listausuario.xhtml</to-view-id> 
-            <redirect/>         
+            <to-view-id>/privado/usuario/listausuario.xhtml</to-view-id>
+            <redirect/> 
         </navigation-case>
+        
+        
         
         
     </navigation-rule>
@@ -428,8 +430,39 @@
         </navigation-case>
         
         <navigation-case>
+            <from-outcome>edituser</from-outcome>
+            <to-view-id>/privado/usuario/editusuario.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>novouser</from-outcome>
+            <to-view-id>/privado/usuario/novousuario.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
             <from-outcome>menu</from-outcome>
             <to-view-id>/home.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- NAV NOVO  USUARIO -->
+    <navigation-rule>
+        <from-view-id >/privado/usuario/novousuario.xhtml</from-view-id>
+        
+        <navigation-case>
+            <from-outcome>listuser</from-outcome>
+            <to-view-id>/privado/usuario/listausuario.xhtml</to-view-id>
+        </navigation-case>
+              
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/privado/usuario/editusuario.xhtml</from-view-id>
+        
+        <navigation-case>
+            <from-outcome>listuser</from-outcome>
+            <to-view-id>/privado/usuario/listausuario.xhtml</to-view-id>
+            <redirect/>
         </navigation-case>
     </navigation-rule>
 
