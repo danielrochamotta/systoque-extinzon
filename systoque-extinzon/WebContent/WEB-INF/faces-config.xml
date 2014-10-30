@@ -8,7 +8,7 @@
     
     <!-- INICIO NAV RULE DA PAGINA HOME -->
     <navigation-rule>
-        <from-view-id>/home.xhtml</from-view-id>
+        <from-view-id>/privado/menuInicial/home.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>listcliente</from-outcome>
             <to-view-id>/privado/cliente/listcli.xhtml</to-view-id> 
@@ -76,7 +76,7 @@
         
         <navigation-case>
             <from-outcome>menu</from-outcome>
-            <to-view-id>/home.xhtml</to-view-id>
+            <to-view-id>/privado/menuInicial/home.xhtml</to-view-id>
             
         </navigation-case>
         
@@ -114,7 +114,7 @@
         
         <navigation-case>
             <from-outcome>menu</from-outcome>
-            <to-view-id>/home.xhtml</to-view-id>
+            <to-view-id>/privado/menuInicial/home.xhtml</to-view-id>
             
         </navigation-case>
         
@@ -152,7 +152,7 @@
         
         <navigation-case>
             <from-outcome>menu</from-outcome>
-            <to-view-id>/home.xhtml</to-view-id>
+            <to-view-id>/privado/menuInicial/home.xhtml</to-view-id>
             
         </navigation-case>
         
@@ -190,7 +190,7 @@
         
         <navigation-case>
             <from-outcome>menu</from-outcome>
-            <to-view-id>/home.xhtml</to-view-id>
+            <to-view-id>/privado/menuInicial/home.xhtml</to-view-id>
            
         </navigation-case>
         
@@ -227,7 +227,7 @@
         
         <navigation-case>
             <from-outcome>menu</from-outcome>
-            <to-view-id>/home.xhtml</to-view-id>
+            <to-view-id>/privado/menuInicial/home.xhtml</to-view-id>
            
         </navigation-case>
         
@@ -265,7 +265,7 @@
         
         <navigation-case>
             <from-outcome>menu</from-outcome>
-            <to-view-id>/home.xhtml</to-view-id>
+            <to-view-id>/privado/menuInicial/home.xhtml</to-view-id>
            
         </navigation-case>
         
@@ -302,7 +302,7 @@
         
         <navigation-case>
             <from-outcome>menu</from-outcome>
-            <to-view-id>/home.xhtml</to-view-id>
+            <to-view-id>/privado/menuInicial/home.xhtml</to-view-id>
              
         </navigation-case>
         
@@ -339,7 +339,7 @@
         
         <navigation-case>
             <from-outcome>menu</from-outcome>
-            <to-view-id>/home.xhtml</to-view-id>
+            <to-view-id>/privado/menuInicial/home.xhtml</to-view-id>
              
         </navigation-case>
         
@@ -375,7 +375,7 @@
         
         <navigation-case>
             <from-outcome>menu</from-outcome>
-            <to-view-id>/home.xhtml</to-view-id>
+            <to-view-id>/privado/menuInicial/home.xhtml</to-view-id>
              
         </navigation-case>
         
@@ -413,7 +413,7 @@
         
         <navigation-case>
             <from-outcome>menu</from-outcome>
-            <to-view-id>/home.xhtml</to-view-id>
+            <to-view-id>/privado/menuInicial/home.xhtml</to-view-id>
            
         </navigation-case>
         
@@ -441,7 +441,7 @@
         
         <navigation-case>
             <from-outcome>menu</from-outcome>
-            <to-view-id>/home.xhtml</to-view-id>
+            <to-view-id>/privado/menuInicial/home.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
@@ -464,6 +464,33 @@
             <to-view-id>/privado/usuario/listausuario.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/login.xhtml</from-view-id>
+        
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+            <redirect/>            
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/privado/menuInicial/home.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/index.html</from-view-id>
+        
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+            <redirect/>            
+        </navigation-case>
+        
+        
     </navigation-rule>
 
 </faces-config>

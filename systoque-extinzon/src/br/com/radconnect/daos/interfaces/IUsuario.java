@@ -12,7 +12,7 @@ public interface IUsuario {
 	
 	public List<Usuario> listUsuario();
 	
-	public Boolean validaUsuario(String nomeUsuario, String senhaUsuario);
+	public Usuario validaUsuario(String nomeUsuario, String senhaUsuario);
 	
 	public Usuario localizaUsuario(Long id);
 	

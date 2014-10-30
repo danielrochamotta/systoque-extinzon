@@ -63,15 +63,15 @@ public class DaoUsuario implements IUsuario{
 	}
 
 	@Override
-	public Boolean validaUsuario(String nomeUsuario, String senhaUsuario) {
-		Query query = em.createQuery("from Usuario where nome =: nomeUsuario "+
-	       "and senha =: senhaUsuario");
+	public Usuario validaUsuario(String nomeUsuario, String senhaUsuario) {
+		Query query = em.createQuery("from Usuario where nome = :nomeUsuario "+
+	       "and senha = :senhaUsuario");
 		query.setParameter("nomeUsuario", nomeUsuario);
 		query.setParameter("senhaUsuario", senhaUsuario);
-		if(!query.getResultList().isEmpty()){
-			return true;
+		if(query.getResultList().isEmpty()){
+			return null;
 		}else{
-			return false;
+			return (Usuario) query.getSingleResult();
 		}
 		
 		
@@ -86,7 +86,7 @@ public class DaoUsuario implements IUsuario{
 	@Override
 	public Usuario localizaUsuarioPorNome(String nomeUsuario) {
 		
-		return (Usuario) em.createQuery("from Usuario where nome =: nomeUsuario").
+		return (Usuario) em.createQuery("from Usuario where nome = :nomeUsuario").
 				setParameter("nomeUsuario", nomeUsuario).
 				getSingleResult();
 	}

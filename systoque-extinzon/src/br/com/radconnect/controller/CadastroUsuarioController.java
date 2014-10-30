@@ -48,7 +48,7 @@ public class CadastroUsuarioController implements Serializable{
 	}
 	public String voltarListUsuario(){
 		init();
-		return "listuse";
+		return "listuser";
 	}
 	//FIM DOS METODOS DE DIRECIONAMENTO DE PAGINAS
 	

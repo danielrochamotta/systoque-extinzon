@@ -7,6 +7,7 @@
 <meta charset="ISO-8859-1"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+ <meta http-equiv="refresh" content="5 url=http://localhost:8080/systoque-exti/login.jsf">
 <title>Systoque - Extinzon</title>
 
 <link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -23,6 +24,10 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+    
+    <script language= "JavaScript">
+l       ocation.href="login.html";
+     </script>
 </h:head>
 <h:body>
   <div class="row" style="margin-top:50px;">
@@ -38,7 +43,9 @@
 				
 				<div class="col-lg-4"></div>
        <div class="col-lg-2">
-          <a href="home.jsf" class="btn btn-success" style="font-size:20px;">Acessar</a>
+         <h:form>
+          <h:commandLink value="Acessar" action="#{loginController.paginaLogin()}" />
+         </h:form>
        <div class="col-lg-6"></div>
        </div>
 		</div>
