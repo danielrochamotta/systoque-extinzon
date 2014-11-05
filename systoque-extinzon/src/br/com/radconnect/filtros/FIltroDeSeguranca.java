@@ -34,7 +34,7 @@ public class FIltroDeSeguranca implements Filter {
 		LoginController loginController = (LoginController) sessao.getAttribute("loginController");
 		
 		if(loginController == null || loginController.getUsuario() == null){
-			httpResponse.sendRedirect(contextPath + "/index.html") ;
+			httpResponse.sendRedirect(contextPath + "/login.jsf") ;
 		}
 		chain.doFilter(request, response);
 		
